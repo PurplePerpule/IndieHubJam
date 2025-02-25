@@ -42,9 +42,3 @@ environment = SubResource("Environment_taa6m")
 
 [node name="TheCup" parent="." instance=ExtResource("3_yj2pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.260819, 0.741673)
-
-[node name="TheCup2" parent="." instance=ExtResource("3_yj2pa")]
-transform = Transform3D(3.43, 0, 0, 0, 3.43, 0, 0, 0, 3.43, 2.91946, 0.696965, 0.741673)
-
-[node name="TheCup3" parent="." instance=ExtResource("3_yj2pa")]
-transform = Transform3D(6.89, 0, 0, 0, 6.89, 0, 0, 0, 6.89, 5.72901, 1.25382, 0.741673)
