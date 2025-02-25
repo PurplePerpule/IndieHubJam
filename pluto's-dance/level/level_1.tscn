@@ -277,7 +277,7 @@ bounce = 0.8
 [node name="Level1" type="Node3D"]
 
 [node name="Narkoman" parent="." instance=ExtResource("1_xj3b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4093, -0.37007, 3.16698)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4093, -0.37007, 16.1372)
 
 [node name="Env_obj" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.392, 0)
