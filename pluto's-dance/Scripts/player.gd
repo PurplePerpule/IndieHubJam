@@ -84,7 +84,7 @@ func _unhandled_input(event):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	# Взаимодействие (поднять/бросить)
-	if event.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact"):
 		if held_object:  # Если что-то держим - бросаем
 			throw_object()
 		else:  # Пытаемся поднять
