@@ -5,29 +5,35 @@ extends CharacterBody3D
 @export var sprint_speed = 8.0
 @export var jump_velocity = 4.5
 @export var mouse_sensitivity = 0.3
+@export var throw_force = 10.0  # Сила броска
+
+
 
 # Настройки камеры
 @onready var camera_pivot = $CameraPivot
 @onready var camera = $CameraPivot/Camera
+@onready var raycast = $CameraPivot/RayCast3D
 
 # Гравитация из настроек проекта
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var is_sprinting = false
+var held_object = null  # Ссылка на удерживаемый объект
+var hold_distance = 1.5  # Расстояние от камеры, на котором держится объект
 
 func _ready():
 	# Захват мыши
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	print("CameraPivot: ", camera_pivot)
+	print("Camera: ", camera)
+	print("RayCast: ", raycast)
 
 func _input(event):
-	# Управление камерой с помощью мыши
-	if event is InputEventMouseMotion:
-		# Поворот персонажа по горизонтали
+	# Обработка только движения мыши
+	if event is InputEventMouseMotion and camera_pivot:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-		
-		# Поворот камеры по вертикали
 		camera_pivot.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
-		# Ограничение вертикального поворота
 		camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
 
 func _physics_process(delta):
 	# Добавляем гравитацию
@@ -67,8 +73,33 @@ func _physics_process(delta):
 
 	# Применяем движение
 	move_and_slide()
-
+	
+	if held_object:
+		var target_pos = camera.global_transform.origin - camera.global_transform.basis.z * hold_distance
+		held_object.set_linear_velocity((target_pos - held_object.global_transform.origin) * 15)
+		
 func _unhandled_input(event):
 	# Выход по ESC
 	if event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+	# Взаимодействие (поднять/бросить)
+	if event.is_action_just_pressed("interact"):
+		if held_object:  # Если что-то держим - бросаем
+			throw_object()
+		else:  # Пытаемся поднять
+			pick_up_object()
+
+func pick_up_object():
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider is RigidBody3D and collider.is_in_group("pickable"):  # Проверяем, можно ли поднять
+			held_object = collider
+			held_object.freeze = false  # Убеждаемся, что объект не заморожен
+			print("Picked up: ", held_object.name)
+
+func throw_object():
+	if held_object:
+		held_object.apply_central_impulse(-camera.global_transform.basis.z * throw_force)
+		held_object = null
+		print("Thrown object")
