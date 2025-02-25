@@ -7,7 +7,9 @@ extends CharacterBody3D
 @export var mouse_sensitivity = 0.3
 @export var throw_force = 10.0  # Сила броска
 
-
+@export var bob_frequency = 2.0  # Частота покачивания (в циклах в секунду)
+@export var bob_amplitude_walk = 0.08  # Амплитуда для ходьбы
+@export var bob_amplitude_sprint = 0.12  # Амплитуда для бега
 
 # Настройки камеры
 @onready var camera_pivot = $CameraPivot
@@ -19,10 +21,13 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var is_sprinting = false
 var held_object = null  # Ссылка на удерживаемый объект
 var hold_distance = 1.5  # Расстояние от камеры, на котором держится объект
+var bob_timer = 0.0  # Таймер для синусоиды
+var default_camera_y = 0.0  # Исходная позиция камеры по Y
 
 func _ready():
 	# Захват мыши
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	default_camera_y = camera.position.y
 	print("CameraPivot: ", camera_pivot)
 	print("Camera: ", camera)
 	print("RayCast: ", raycast)
@@ -77,7 +82,20 @@ func _physics_process(delta):
 	if held_object:
 		var target_pos = camera.global_transform.origin - camera.global_transform.basis.z * hold_distance
 		held_object.set_linear_velocity((target_pos - held_object.global_transform.origin) * 15)
-		
+	
+	update_camera_bob(delta)
+	
+func update_camera_bob(delta):
+	if is_on_floor() and velocity.length() > 0.1:  # Покачивание только при движении на земле
+		bob_timer += delta * bob_frequency * (sprint_speed if is_sprinting else speed)
+		var bob_amplitude = bob_amplitude_sprint if is_sprinting else bob_amplitude_walk
+		var bob_offset = sin(bob_timer) * bob_amplitude
+		camera.position.y = default_camera_y + bob_offset
+	else:
+		# Плавное возвращение камеры в исходное положение
+		bob_timer = 0.0
+		camera.position.y = lerp(camera.position.y, default_camera_y, delta * 5)
+
 func _unhandled_input(event):
 	# Выход по ESC
 	if event.is_action_pressed("ui_cancel"):
