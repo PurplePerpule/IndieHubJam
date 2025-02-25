@@ -89,17 +89,32 @@ albedo_texture = ExtResource("4_ytq81")
 uv1_triplanar = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wti33"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_curve = 0.689218
+ground_bottom_color = Color(0.28163, 0.241179, 0.194228, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_curve = 0.218567
+sun_angle_max = 13.64
+sun_curve = 0.191184
 
 [sub_resource type="Sky" id="Sky_7a4n8"]
 sky_material = SubResource("ProceduralSkyMaterial_wti33")
 
 [sub_resource type="Environment" id="Environment_2drgx"]
 background_mode = 2
+background_energy_multiplier = 0.38
 sky = SubResource("Sky_7a4n8")
+ambient_light_source = 3
 tonemap_mode = 2
+tonemap_exposure = 0.7
+tonemap_white = 1.8
 glow_enabled = true
+fog_enabled = true
+fog_light_energy = 0.23
+fog_sun_scatter = 0.05
+fog_density = 0.0056
+fog_sky_affect = 0.895
+adjustment_enabled = true
+adjustment_brightness = 0.9
 
 [node name="Level1" type="Node3D"]
 
@@ -139,7 +154,11 @@ size = Vector3(90.7764, 1, 84.1777)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.139555, 0.270797, 0.952467, -0.480133, 0.859748, -0.174087, 0, 0, 0)
+light_color = Color(0.733005, 0.733005, 0.733005, 1)
+light_energy = 0.75
 shadow_enabled = true
+shadow_opacity = 0.75
+shadow_blur = 10.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
 environment = SubResource("Environment_2drgx")

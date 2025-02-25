@@ -7,7 +7,7 @@
 radius = 0.260724
 
 [sub_resource type="LabelSettings" id="LabelSettings_yqbpr"]
-font_size = 10
+font_size = 7
 font_color = Color(0.768627, 0.717647, 0.941176, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_paw7i"]
