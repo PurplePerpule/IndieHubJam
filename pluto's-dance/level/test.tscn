@@ -1,3 +1,40 @@
-[gd_scene format=3 uid="uid://dunk3ujshphd0"]
+[gd_scene load_steps=7 format=3 uid="uid://dunk3ujshphd0"]
+
+[ext_resource type="Texture2D" path="res://Assets/ImageTexture/texture_07.png" id="1_3svnu"]
+[ext_resource type="PackedScene" uid="uid://cf6x5sdusygug" path="res://Scenes/narkoman.tscn" id="2_2aqwm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_he3cl"]
+albedo_texture = ExtResource("1_3svnu")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3ngef"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_3q1kr"]
+sky_material = SubResource("ProceduralSkyMaterial_3ngef")
+
+[sub_resource type="Environment" id="Environment_taa6m"]
+background_mode = 2
+sky = SubResource("Sky_3q1kr")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="test" type="Node"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_he3cl")
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="Narkoman" parent="." instance=ExtResource("2_2aqwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671719, 0)
+
+[node name="Env" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 1.05759, 6.54391, -1.91101)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource("Environment_taa6m")

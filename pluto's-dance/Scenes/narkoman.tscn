@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf6x5sdusygug"]
+[gd_scene load_steps=3 format=3 uid="uid://cf6x5sdusygug"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_xk75l"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrd5i"]
+radius = 0.260724
+
 [node name="Narkoman" type="CharacterBody3D"]
 script = ExtResource("1_xk75l")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot"]
+fov = 53.3672
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_lrd5i")
