@@ -1,12 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf6x5sdusygug"]
+[gd_scene load_steps=6 format=3 uid="uid://cf6x5sdusygug"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_xk75l"]
+[ext_resource type="Shader" path="res://Shaders/pixelShd.gdshader" id="2_k2f55"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrd5i"]
 radius = 0.260724
 
+[sub_resource type="LabelSettings" id="LabelSettings_yqbpr"]
+font_size = 10
+font_color = Color(0.768627, 0.717647, 0.941176, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_paw7i"]
+shader = ExtResource("2_k2f55")
+shader_parameter/shake = 0.0
+shader_parameter/noiseQuality = 250.0
+shader_parameter/noiseIntensity = 0.0
+shader_parameter/offsetIntensity = 0.0
+shader_parameter/colorOffsetIntensity = 0.01
+shader_parameter/pixelSize = 700.0
+shader_parameter/grainIntensity = 0.0
+shader_parameter/use_overlay = false
+shader_parameter/use_lens_distortion = false
+shader_parameter/overlay_color = Color(1, 1, 1, 10)
+shader_parameter/lens_distortion_strength = 0.0
+
 [node name="Narkoman" type="CharacterBody3D"]
 script = ExtResource("1_xk75l")
+speed = 3.0
+sprint_speed = 6.0
+jump_velocity = 3.0
+throw_force = 4.0
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
@@ -32,15 +55,31 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ColorRect" type="ColorRect" parent="Crossfire"]
+[node name="Label" type="Label" parent="Crossfire"]
+z_index = 1
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 5.0
-offset_bottom = 5.0
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+text = "o"
+label_settings = SubResource("LabelSettings_yqbpr")
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Crossfire"]
+z_index = -5
+material = SubResource("ShaderMaterial_paw7i")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
