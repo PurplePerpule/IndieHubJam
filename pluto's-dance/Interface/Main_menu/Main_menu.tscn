@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bf7pdlktr7duo"]
+[gd_scene load_steps=3 format=3 uid="uid://bf7pdlktr7duo"]
+
+[ext_resource type="Script" path="res://Interface/Main_menu/main_menu.gd" id="1_i25sc"]
+[ext_resource type="PackedScene" uid="uid://dsvoanrsetrxb" path="res://Interface/Settings/Settings.tscn" id="2_ryrnp"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +10,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i25sc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="B_Settings" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" parent="B_Settings" instance=ExtResource("2_ryrnp")]
+layout_mode = 1
+
+[node name="Back" type="Button" parent="B_Settings"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
