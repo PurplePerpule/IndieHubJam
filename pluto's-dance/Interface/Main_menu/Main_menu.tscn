@@ -48,3 +48,8 @@ layout_mode = 1
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="B_Settings/Back" to="." method="_on_back_pressed"]
