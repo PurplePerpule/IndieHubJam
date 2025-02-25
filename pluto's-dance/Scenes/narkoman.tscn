@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf6x5sdusygug"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_xk75l"]
+
+[node name="Narkoman" type="CharacterBody3D"]
+script = ExtResource("1_xk75l")
