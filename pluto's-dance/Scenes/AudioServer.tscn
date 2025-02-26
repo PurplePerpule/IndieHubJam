@@ -11,10 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6nqtm")
 
-[node name="Volume" type="AudioStreamPlayer3D" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 
-[node name="Volume2" type="AudioStreamPlayer3D" parent="."]
-
-[node name="Volume3" type="AudioStreamPlayer3D" parent="."]
-
-[node name="Music" type="AudioStreamPlayer3D" parent="."]
+[node name="Volume" type="AudioStreamPlayer" parent="."]

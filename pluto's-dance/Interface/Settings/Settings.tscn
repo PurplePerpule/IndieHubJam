@@ -29,7 +29,7 @@ text = "Volume"
 
 [node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-value = 60.0
+value = 40.0
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -37,7 +37,7 @@ text = "Music"
 
 [node name="Music" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-value = 60.0
+value = 40.0
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
