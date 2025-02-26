@@ -4,33 +4,44 @@ extends RigidBody3D
 @export var player_node: NodePath  # Путь к узлу игрока
 @export var camera_node: NodePath  # Путь к камере игрока
 
-var player: CharacterBody3D = null  # Ссылка на игрока
-var player_camera: Camera3D = null  # Ссылка на камеру
+var player: CharacterBody3D = null
+var player_camera: Camera3D = null
+@onready var nav_agent = $NavigationAgent3D
 
 func _ready():
-	# Получаем узлы из указанных путей
 	if player_node:
 		player = get_node(player_node) as CharacterBody3D
 	if camera_node:
 		player_camera = get_node(camera_node) as Camera3D
 	
-	# Проверка на случай, если узлы не указаны
 	if not player:
 		print("Warning: Player node not set!")
 	if not player_camera:
 		print("Warning: Camera node not set!")
+	if not nav_agent:
+		print("Warning: NavigationAgent3D not found!")
+
+	# Настраиваем NavigationAgent
+	nav_agent.path_desired_distance = 1.0  # Расстояние до точки пути
+	nav_agent.target_desired_distance = 2.0  # Расстояние остановки от цели
 
 func _physics_process(delta):
-	if not player or not player_camera:
+	if not player or not player_camera or not nav_agent:
 		return
 	
 	# Проверяем, виден ли враг на экране
 	var is_visible = is_in_camera_view(player_camera)
 	
 	if not is_visible:
-		# Двигаемся к игроку, если не видны
-		var direction_to_player = (player.global_transform.origin - global_transform.origin).normalized()
-		linear_velocity = direction_to_player * move_speed
+		# Обновляем цель навигации (позиция игрока)
+		nav_agent.set_target_position(player.global_transform.origin)
+		
+		# Получаем следующую точку пути
+		var next_position = nav_agent.get_next_path_position()
+		var direction = (next_position - global_transform.origin).normalized()
+		
+		# Двигаемся к следующей точке
+		linear_velocity = direction * move_speed
 	else:
 		# Останавливаемся, если видны
 		linear_velocity = Vector3.ZERO
