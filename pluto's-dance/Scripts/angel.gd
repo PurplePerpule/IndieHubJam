@@ -46,19 +46,19 @@ func _physics_process(delta):
 		# Останавливаемся, если видны
 		linear_velocity = Vector3.ZERO
 
+func is_obstructed(camera: Camera3D) -> bool:
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(camera.global_transform.origin, global_transform.origin)
+	var result = space_state.intersect_ray(query)
+	return result and result.collider != self and result.collider != player
+
 func is_in_camera_view(camera: Camera3D) -> bool:
-	# Проецируем позицию врага в экранные координаты
 	var screen_pos = camera.unproject_position(global_transform.origin)
 	var viewport = get_viewport()
 	var screen_size = viewport.get_visible_rect().size
-	
-	# Проверяем, находится ли враг в пределах экрана
 	var is_on_screen = (screen_pos.x >= 0 and screen_pos.x <= screen_size.x and 
 						screen_pos.y >= 0 and screen_pos.y <= screen_size.y)
-	
-	# Проверяем, находится ли враг перед камерой
 	var camera_forward = -camera.global_transform.basis.z
 	var to_enemy = (global_transform.origin - camera.global_transform.origin).normalized()
 	var is_in_front = camera_forward.dot(to_enemy) > 0
-	
-	return is_on_screen and is_in_front
+	return is_on_screen and is_in_front and not is_obstructed(camera)
