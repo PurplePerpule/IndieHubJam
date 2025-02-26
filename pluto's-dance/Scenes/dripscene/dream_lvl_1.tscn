@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://beck7kn80um3p"]
+[gd_scene load_steps=11 format=3 uid="uid://beck7kn80um3p"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_6aq6a"]
 [ext_resource type="Resource" path="res://Scenes/dripscene/data.hterrain" id="2_48vm0"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cf6x5sdusygug" path="res://Scenes/narkoman.tscn" id="4_rvs5i"]
 [ext_resource type="Texture2D" uid="uid://bv7o6vfriel5e" path="res://Assets/ImageTexture/image_2025-02-27_00-33-02.png" id="5_v30a0"]
 [ext_resource type="Texture2D" uid="uid://dwbukykbdapia" path="res://Assets/ImageTexture/image_2025-02-27_00-32-01.png" id="6_f8vua"]
-[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" id="7_3e5po"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1mvv8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -59,12 +58,3 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Vector4(0, 0, 0, 0)
 shader_params/u_specular = 0.5
-
-[node name="HTerrainDetailLayer" type="Node3D" parent="HTerrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 500)
-script = ExtResource("7_3e5po")
-shader_params/u_globalmap_tint_bottom = null
-shader_params/u_globalmap_tint_top = null
-shader_params/u_bottom_ao = null
-shader_params/u_instance_scale = Vector3(1, 1, 1)
-shader_params/u_roughness = 0.9
