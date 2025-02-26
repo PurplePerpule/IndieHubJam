@@ -97,24 +97,29 @@ func update_camera_bob(delta):
 		camera.position.y = lerp(camera.position.y, default_camera_y, delta * 5)
 
 func _unhandled_input(event):
-	# Выход по ESC
 	if event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	# Взаимодействие (поднять/бросить)
-	if Input.is_action_just_pressed("interact"):
-		if held_object:  # Если что-то держим - бросаем
+	if event.is_action_pressed("interact"):
+		if held_object:
 			throw_object()
-		else:  # Пытаемся поднять
-			pick_up_object()
+		else:
+			interact_with_object()
 
-func pick_up_object():
+func interact_with_object():
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		if collider is RigidBody3D and collider.is_in_group("pickable"):  # Проверяем, можно ли поднять
-			held_object = collider
-			held_object.freeze = false  # Убеждаемся, что объект не заморожен
-			print("Picked up: ", held_object.name)
+		# Проверка на поднимаемые объекты
+		if collider is RigidBody3D and collider.is_in_group("pickable"):
+			pick_up_object(collider)
+		# Проверка на интерактивные объекты (например, дверь)
+		elif collider.is_in_group("interactive"):
+			collider.interact()  # Вызываем метод interact у объекта
+
+func pick_up_object(object):
+	held_object = object
+	held_object.freeze = false
+	print("Picked up: ", held_object.name)
 
 func throw_object():
 	if held_object:

@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=4 uid="uid://ci8xlmpgfr10p"]
+
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_n4600"]
+[ext_resource type="Texture2D" uid="uid://cidfvurg3f3pg" path="res://Assets/3Dmodels/Door_DoorTexture.png" id="2_fowri"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78tup"]
+resource_name = "Material.008"
+cull_mode = 2
+albedo_texture = ExtResource("2_fowri")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l7lrg"]
+resource_name = "Door_Cube_011"
+_surfaces = [{
+"aabb": AABB(0.908951, 0.567138, -1.89593, 0.431328, 6.26102, 3.95852),
+"attribute_data": PackedByteArray("N9ZvP7QZtz7LWX4/y1l+PwAA0D4AALg+N9ZvP8tZfj+hInM/KR8UPwAA0D4AAH4/eBtWP7QZtz7LWX4/lGsXPwAAADwAALg+eBtWP8tZfj+hInM/yMM0PgAAADwAAH4/DJ9kP7QZtz6hInM/y1l+PwAA0D4AALg+DJ9kP8tZfj/LWX4/KR8UPwAA0D4AAH4/olJhP7QZtz6hInM/lGsXPwAAADwAALg+olJhP8tZfj/LWX4/yMM0PgAAADwAAH4/"),
+"bone_aabbs": [AABB(0.908951, 0.567138, -1.89593, 0.431328, 6.26102, 3.95853)],
+"format": 34359745559,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
+"material": SubResource("StandardMaterial3D_78tup"),
+"name": "Material.008",
+"primitive": 3,
+"skin_data": PackedByteArray("AAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAA"),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("ArFoP/wvET99AQRAArFoP/wvET99AQRAArFoP/wvET99AQRAArFoPz6A2kB9AQRAArFoPz6A2kB9AQRAArFoPz6A2kB9AQRAArFoP/wvET/mrfK/ArFoP/wvET/mrfK/ArFoP/wvET/mrfK/ArFoPz6A2kDmrfK/ArFoPz6A2kDmrfK/ArFoPz6A2kDmrfK/P46rP/wvET99AQRAP46rP/wvET99AQRAP46rP/wvET99AQRAP46rPz6A2kB9AQRAP46rPz6A2kB9AQRAP46rPz6A2kB9AQRAP46rP/wvET/mrfK/P46rP/wvET/mrfK/P46rP/wvET/mrfK/P46rPz6A2kDmrfK/P46rPz6A2kDmrfK/P46rPz6A2kDmrfK//3//fwAA/7//fwAAAAD/vwAA/3//f/8//3//fwAA/7//f///////vwAA/3//f/8//////////7//fwAAAAD/vwAA/3//f/8//////////7//f///////vwAA/3//f/8//3//fwAA/7//fwAAAAD/v////3//f/+//3//fwAA/7//f///////v////3//f/+//////////7//fwAAAAD/v////3//f/+//////////7//f///////v////3//f/+/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="Skin" id="Skin_3y2as"]
+resource_name = "Skin"
+bind_count = 1
+bind/0/name = &"Bone"
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, 0, 0, 0, -0.00220037, -0.999998, 0, 0.999998, -0.00220037, -1.29109, 2.04139, -3.99256)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_42m8t"]
+size = Vector3(0.441132, 3.88134, 6.22822)
+
+[sub_resource type="Animation" id="Animation_lvhsj"]
+resource_name = "close"
+length = 1.25
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.465861, -0.531814, -0.532985, 0.464838, 0.0333333, 1, -0.465861, -0.531814, -0.532985, 0.464838, 0.0666667, 1, -0.466701, -0.53108, -0.53225, 0.465675, 0.1, 1, -0.468889, -0.529158, -0.530324, 0.467859, 0.133333, 1, -0.472637, -0.525828, -0.526986, 0.471598, 0.166667, 1, -0.477857, -0.52111, -0.522258, 0.476807, 0.2, 1, -0.484903, -0.514589, -0.515722, 0.483837, 0.233333, 1, -0.493179, -0.506697, -0.507813, 0.492095, 0.266667, 1, -0.502581, -0.497415, -0.49851, 0.501476, 0.3, 1, -0.512994, -0.486716, -0.487788, 0.511866, 0.333333, 1, -0.524294, -0.474577, -0.475622, 0.523141, 0.366667, 1, -0.536659, -0.46061, -0.461625, 0.535479, 0.4, 1, -0.549553, -0.445216, -0.446197, 0.548345, 0.433333, 1, -0.562813, -0.428407, -0.429351, 0.561576, 0.466667, 1, -0.576268, -0.410212, -0.411115, 0.575001, 0.5, 1, -0.589744, -0.390677, -0.391538, 0.588448, 0.533333, 1, -0.603185, -0.369683, -0.370497, 0.601859, 0.566667, 1, -0.616203, -0.34765, -0.348416, 0.614849, 0.6, 1, -0.628641, -0.324724, -0.325439, 0.627259, 0.7, 1, -0.661131, -0.252439, -0.252995, 0.659678, 0.733333, 1, -0.669973, -0.228051, -0.228554, 0.6685, 0.766667, 1, -0.677744, -0.203911, -0.20436, 0.676254, 0.8, 1, -0.684453, -0.180226, -0.180623, 0.682948, 0.833333, 1, -0.690131, -0.157197, -0.157543, 0.688614, 0.866667, 1, -0.694749, -0.135435, -0.135734, 0.693222, 0.9, 1, -0.698472, -0.114802, -0.115055, 0.696936, 0.933333, 1, -0.701393, -0.095433, -0.0956433, 0.699852, 0.966667, 1, -0.703616, -0.0774507, -0.0776213, 0.702069, 1, 1, -0.705243, -0.0609625, -0.0610968, 0.703693, 1.03333, 1, -0.706339, -0.0466426, -0.0467454, 0.704787, 1.06667, 1, -0.707061, -0.034048, -0.034123, 0.705507, 1.1, 1, -0.707501, -0.0232456, -0.0232968, 0.705946, 1.13333, 1, -0.707739, -0.0142997, -0.0143312, 0.706184, 1.16667, 1, -0.707847, -0.00727283, -0.00728885, 0.706291, 1.2, 1, -0.707878, -0.00293909, -0.00294557, 0.706322, 1.23333, 1, -0.707884, -0.000742256, -0.000743892, 0.706328, 1.25, 1, -0.707884, 0, 0, 0.706328)
+
+[sub_resource type="Animation" id="Animation_2wxbu"]
+resource_name = "open"
+length = 1.25
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.707884, 0, 0, 0.706328, 0.0333333, 1, -0.707884, 0, 0, 0.706328, 0.0666667, 1, -0.707883, -0.0011134, -0.00111586, 0.706328, 0.1, 1, -0.707873, -0.00402259, -0.00403145, 0.706317, 0.133333, 1, -0.707826, -0.00902968, -0.00904957, 0.706271, 0.166667, 1, -0.707701, -0.0160562, -0.0160915, 0.706146, 0.2, 1, -0.707418, -0.0256415, -0.025698, 0.705863, 0.233333, 1, -0.70691, -0.0370525, -0.0371341, 0.705356, 0.266667, 1, -0.706092, -0.0502247, -0.0503353, 0.704541, 0.3, 1, -0.704872, -0.0650881, -0.0652314, 0.703323, 0.333333, 1, -0.703148, -0.0815664, -0.0817461, 0.701603, 0.366667, 1, -0.700747, -0.100047, -0.100268, 0.699207, 0.4, 1, -0.697617, -0.119865, -0.120129, 0.696083, 0.433333, 1, -0.693659, -0.140889, -0.1412, 0.692134, 0.466667, 1, -0.688784, -0.162972, -0.163331, 0.68727, 0.5, 1, -0.682912, -0.185952, -0.186362, 0.681412, 0.533333, 1, -0.675916, -0.209866, -0.210329, 0.67443, 0.566667, 1, -0.667858, -0.234146, -0.234662, 0.66639, 0.6, 1, -0.658743, -0.258579, -0.259148, 0.657295, 0.7, 1, -0.625579, -0.330558, -0.331286, 0.624204, 0.733333, 1, -0.612996, -0.35325, -0.354029, 0.611649, 0.766667, 1, -0.599894, -0.374976, -0.375802, 0.598576, 0.8, 1, -0.586437, -0.395603, -0.396474, 0.585148, 0.833333, 1, -0.572796, -0.415024, -0.415938, 0.571537, 0.866667, 1, -0.559415, -0.432815, -0.433769, 0.558185, 0.9, 1, -0.546295, -0.449191, -0.45018, 0.545094, 0.933333, 1, -0.533602, -0.464132, -0.465155, 0.532429, 0.966667, 1, -0.521495, -0.477636, -0.478688, 0.520349, 1, 1, -0.510124, -0.48971, -0.490788, 0.509003, 1.03333, 1, -0.50004, -0.499957, -0.501059, 0.498941, 1.06667, 1, -0.491012, -0.508789, -0.509909, 0.489933, 1.1, 1, -0.48315, -0.516228, -0.517365, 0.482088, 1.13333, 1, -0.476556, -0.522294, -0.523445, 0.475509, 1.16667, 1, -0.471325, -0.526999, -0.52816, 0.470289, 1.2, 1, -0.468075, -0.529875, -0.531042, 0.467046, 1.23333, 1, -0.466421, -0.531325, -0.532495, 0.465396, 1.25, 1, -0.465861, -0.531814, -0.532985, 0.464838)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m213i"]
+_data = {
+"close": SubResource("Animation_lvhsj"),
+"open": SubResource("Animation_2wxbu")
+}
+
+[node name="Door" type="Node3D"]
+
+[node name="Armature" type="Node3D" parent="."]
+
+[node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
+bones/0/name = "Bone"
+bones/0/parent = -1
+bones/0/rest = Transform3D(1, 0, 0, 0, -0.00220048, 0.999997, 0, -0.999997, -0.00220048, -0.330112, 0.252109, 0.0334882)
+bones/0/enabled = true
+bones/0/position = Vector3(-0.330112, 0.252109, 0.0334882)
+bones/0/rotation = Quaternion(-0.707884, 0, 0, 0.706328)
+bones/0/scale = Vector3(1, 1, 1)
+
+[node name="Cube_008" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+mesh = SubResource("ArrayMesh_l7lrg")
+skin = SubResource("Skin_3y2as")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, -0.0022006, 0.999998, 0, -0.999998, -0.0022006, -0.330112, 0.252109, 0.0334882)
+bone_name = "Bone"
+bone_idx = 0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Armature/Skeleton3D/BoneAttachment3D" groups=["interactive"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7742, 0.0017035)
+script = ExtResource("1_n4600")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.164096, 1.19226, -0.295342)
+shape = SubResource("BoxShape3D_42m8t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m213i")
+}

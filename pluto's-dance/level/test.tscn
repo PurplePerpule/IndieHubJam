@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dunk3ujshphd0"]
+[gd_scene load_steps=9 format=3 uid="uid://dunk3ujshphd0"]
 
 [ext_resource type="Texture2D" uid="uid://chjy1ih7tn44l" path="res://Assets/ImageTexture/texture_07.png" id="1_3svnu"]
 [ext_resource type="PackedScene" uid="uid://cf6x5sdusygug" path="res://Scenes/narkoman.tscn" id="2_2aqwm"]
 [ext_resource type="PackedScene" uid="uid://krxkbeva0oe7" path="res://Scenes/Objects/the_cup.tscn" id="3_yj2pa"]
+[ext_resource type="PackedScene" uid="uid://ci8xlmpgfr10p" path="res://Scenes/EnvObjects/door.tscn" id="4_h0ali"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_he3cl"]
 albedo_texture = ExtResource("1_3svnu")
@@ -29,7 +30,7 @@ use_collision = true
 size = Vector3(50, 1, 50)
 
 [node name="Narkoman" parent="." instance=ExtResource("2_2aqwm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.671719, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0432, 0.926126, 0)
 
 [node name="Env" type="Node3D" parent="."]
 
@@ -42,3 +43,6 @@ environment = SubResource("Environment_taa6m")
 
 [node name="TheCup" parent="." instance=ExtResource("3_yj2pa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.260819, 0.741673)
+
+[node name="Door" parent="." instance=ExtResource("4_h0ali")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.82551, 0)
