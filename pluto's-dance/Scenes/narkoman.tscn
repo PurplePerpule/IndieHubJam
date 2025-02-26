@@ -17,7 +17,7 @@ shader_parameter/noiseQuality = 250.0
 shader_parameter/noiseIntensity = 0.0
 shader_parameter/offsetIntensity = 0.0
 shader_parameter/colorOffsetIntensity = 0.01
-shader_parameter/pixelSize = 700.0
+shader_parameter/pixelSize = 460.0
 shader_parameter/grainIntensity = 0.0
 shader_parameter/use_overlay = false
 shader_parameter/use_lens_distortion = false
@@ -74,7 +74,7 @@ text = "o"
 label_settings = SubResource("LabelSettings_yqbpr")
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="Crossfire"]
+[node name="PixelShader" type="ColorRect" parent="Crossfire"]
 z_index = -5
 material = SubResource("ShaderMaterial_paw7i")
 layout_mode = 1
