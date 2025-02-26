@@ -384,7 +384,7 @@ light_energy = 0.565
 shadow_enabled = true
 
 [node name="Door" parent="Env_obj" instance=ExtResource("10_xoedi")]
-transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, -1.89693, 1.21407, 1.36278)
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, -1.93005, 1.21407, 1.36278)
 
 [node name="Env" type="Node3D" parent="."]
 

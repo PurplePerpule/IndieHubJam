@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbstqm476pydy"]
+
+[ext_resource type="Script" path="res://Scripts/angel.gd" id="1_jgssq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sg3b8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1jq8h"]
+
+[node name="Angel" type="RigidBody3D"]
+script = ExtResource("1_jgssq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_sg3b8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_1jq8h")
