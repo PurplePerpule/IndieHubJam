@@ -10,8 +10,8 @@ func _ready():
 	change_volume.connect(change_volume_f)
 	change_music.connect(change_music_f)
 	
-	$Music.stream = test_settings
-	$Music.play()
+	#$Music.stream = test_settings
+	#$Music.play()
 	
 	
 func change_volume_f(value):
