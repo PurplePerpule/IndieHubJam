@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://beck7kn80um3p"]
+[gd_scene load_steps=16 format=3 uid="uid://beck7kn80um3p"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_6aq6a"]
 [ext_resource type="Resource" path="res://Scenes/dripscene/data.hterrain" id="2_48vm0"]
@@ -6,24 +6,47 @@
 [ext_resource type="PackedScene" uid="uid://cf6x5sdusygug" path="res://Scenes/narkoman.tscn" id="4_rvs5i"]
 [ext_resource type="Texture2D" uid="uid://bv7o6vfriel5e" path="res://Assets/ImageTexture/image_2025-02-27_00-33-02.png" id="5_v30a0"]
 [ext_resource type="Texture2D" uid="uid://dwbukykbdapia" path="res://Assets/ImageTexture/image_2025-02-27_00-32-01.png" id="6_f8vua"]
+[ext_resource type="Texture2D" uid="uid://b0jh0yjjy7j1c" path="res://Assets/ImageTexture/1679435806_bogatyr-club-p-narisovannoe-nebo-s-oblakami-foni-instagra-2.jpg" id="7_mdja2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1mvv8"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_top_color = Color(0.163702, 0.285092, 0.507756, 1)
+sky_horizon_color = Color(0.513726, 0.67451, 0.92549, 1)
+sky_curve = 0.235377
+ground_bottom_color = Color(0.23145, 0.0727108, 0.0236179, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_curve = 0.0229739
 
 [sub_resource type="Sky" id="Sky_w38wy"]
 sky_material = SubResource("ProceduralSkyMaterial_1mvv8")
 
-[sub_resource type="Environment" id="Environment_bxrfm"]
+[sub_resource type="Environment" id="Environment_qd28g"]
 background_mode = 2
+background_energy_multiplier = 3.18
 sky = SubResource("Sky_w38wy")
-tonemap_mode = 2
-glow_enabled = true
+tonemap_mode = 1
+tonemap_exposure = 1.1
+tonemap_white = 2.5
+fog_enabled = true
+fog_light_color = Color(0.470588, 0.631373, 0.909804, 1)
+fog_density = 0.002
+fog_sky_affect = 0.0
 
 [sub_resource type="Resource" id="Resource_p4aol"]
 script = ExtResource("3_qvymu")
 mode = 0
 textures = [[ExtResource("5_v30a0"), ExtResource("6_f8vua"), null], [null, null, null]]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vk220"]
+albedo_texture = ExtResource("7_mdja2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qgjf"]
+albedo_texture = ExtResource("7_mdja2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_860g7"]
+albedo_texture = ExtResource("7_mdja2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8btq"]
+albedo_texture = ExtResource("7_mdja2")
 
 [node name="DreamLvl_1" type="Node3D"]
 
@@ -31,13 +54,14 @@ textures = [[ExtResource("5_v30a0"), ExtResource("6_f8vua"), null], [null, null,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18121, -8.13589)
 
 [node name="env" type="Node3D" parent="."]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6708, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
-environment = SubResource("Environment_bxrfm")
+environment = SubResource("Environment_qd28g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shadow_enabled = true
 
 [node name="HTerrain" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 0, -500)
@@ -58,3 +82,25 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Vector4(0, 0, 0, 0)
 shader_params/u_specular = 0.5
+
+[node name="EnvObj" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="EnvObj"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -250.508, 73.9205, -243.474)
+material_override = SubResource("StandardMaterial3D_vk220")
+size = Vector3(1, 512.33, 302.384)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="EnvObj"]
+transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 5.88803, 72.1661, -499.716)
+material_override = SubResource("StandardMaterial3D_5qgjf")
+size = Vector3(1, 512.33, 302.384)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="EnvObj"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 263.386, 72.5868, -245.152)
+material_override = SubResource("StandardMaterial3D_860g7")
+size = Vector3(1, 512.33, 302.384)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="EnvObj"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 6.20166, 73.043, 10.3569)
+material_override = SubResource("StandardMaterial3D_o8btq")
+size = Vector3(1, 512.33, 302.384)

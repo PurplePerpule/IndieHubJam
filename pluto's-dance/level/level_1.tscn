@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dslaereaty86l"]
+[gd_scene load_steps=42 format=4 uid="uid://dslaereaty86l"]
 
 [ext_resource type="PackedScene" uid="uid://cf6x5sdusygug" path="res://Scenes/narkoman.tscn" id="1_xj3b3"]
 [ext_resource type="Texture2D" uid="uid://csn4bkgqhaxae" path="res://Assets/3Dmodels/Pereulok_MolchatDoma.png" id="2_3ob31"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c6mx73obv3o5q" path="res://Assets/3Dmodels/CorridorPodval_CorridorTexture.png" id="8_vwbvg"]
 [ext_resource type="PackedScene" uid="uid://6brcxa6ous8v" path="res://Scenes/EnvObjects/podval_lamp.tscn" id="9_jo2k6"]
 [ext_resource type="PackedScene" uid="uid://ci8xlmpgfr10p" path="res://Scenes/EnvObjects/door.tscn" id="10_xoedi"]
+[ext_resource type="Environment" uid="uid://jy63s7eoa3wl" path="res://Scenes/env/level_1.tres" id="11_2eltm"]
 [ext_resource type="PackedScene" uid="uid://dbstqm476pydy" path="res://Scenes/angel.tscn" id="12_7hdlg"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8ie6h"]
@@ -396,17 +397,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4093, -0.37007, 16.1372)
 
 [node name="Env" type="Node3D" parent="."]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = ExtResource("11_2eltm")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
-transform = Transform3D(-1, -3.3737e-08, 8.06508e-08, 0, 0.922538, 0.385906, -8.74228e-08, 0.385906, -0.922538, 21.51, 40.8581, -66.7307)
-light_color = Color(0.4, 0.2, 0.25, 1)
-light_energy = 0.455
+transform = Transform3D(1, 0, 0, 0, -0.045049, 0.998985, 0, -0.998985, -0.045049, 21.51, 40.8581, -66.7307)
+light_color = Color(0.718456, 0.817604, 0.842021, 1)
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 shadow_bias = 0.01
 shadow_normal_bias = 0.65
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
 
 [node name="The_ball" parent="." instance=ExtResource("5_vlp5r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0118, 2.42084, 0.711954)
