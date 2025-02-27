@@ -1,12 +1,14 @@
-extends RigidBody3D
+extends CharacterBody3D
 
 @export var move_speed = 3.0  # Скорость движения ангела
 @export var player_node: NodePath  # Путь к узлу игрока
 @export var camera_node: NodePath  # Путь к камере игрока
+@export var catch_distance = 1.0  # Дистанция для захвата игрока
 
 var player: CharacterBody3D = null
 var player_camera: Camera3D = null
 @onready var nav_agent = $NavigationAgent3D
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	if player_node:
@@ -20,31 +22,56 @@ func _ready():
 		print("Warning: Camera node not set!")
 	if not nav_agent:
 		print("Warning: NavigationAgent3D not found!")
-
-	# Настраиваем NavigationAgent
-	nav_agent.path_desired_distance = 1.0  # Расстояние до точки пути
-	nav_agent.target_desired_distance = 2.0  # Расстояние остановки от цели
+	if not $maskeed/AnimationPlayer:
+		print("Warning: AnimationPlayer not found!")
+	
+	nav_agent.path_desired_distance = 1.0
+	nav_agent.target_desired_distance = 2.0
 
 func _physics_process(delta):
-	if not player or not player_camera or not nav_agent:
+
+	
+	if not player or not player_camera or not nav_agent or not $maskeed/AnimationPlayer:
 		return
 	
-	# Проверяем, виден ли враг на экране
+	# Добавляем гравитацию
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	else:
+		velocity.y = 0
+	
+	# Проверяем расстояние до игрока
+	var distance_to_player = global_transform.origin.distance_to(player.global_transform.origin)
 	var is_visible = is_in_camera_view(player_camera)
 	
-	if not is_visible:
-		# Обновляем цель навигации (позиция игрока)
+	if distance_to_player < catch_distance and not is_visible:
+		# Захват игрока
+		velocity = Vector3.ZERO
+		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "catch":
+			$maskeed/AnimationPlayer.play("catch")
+			print("Player caught!")
+	elif not is_visible:
+		# Движение к игроку
 		nav_agent.set_target_position(player.global_transform.origin)
-		
-		# Получаем следующую точку пути
 		var next_position = nav_agent.get_next_path_position()
 		var direction = (next_position - global_transform.origin).normalized()
+		velocity.x = direction.x * move_speed
+		velocity.z = direction.z * move_speed
+		look_at(player.global_transform.origin, Vector3.UP)
+		rotation.x = 0  # Фиксируем наклон по X
+		rotation.z = 0  # Фиксируем наклон по Z
 		
-		# Двигаемся к следующей точке
-		linear_velocity = direction * move_speed
+		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "run":
+			$maskeed/AnimationPlayer.play("run")
 	else:
-		# Останавливаемся, если видны
-		linear_velocity = Vector3.ZERO
+		# Остановка, если виден
+		velocity.x = 0
+		velocity.z = 0
+		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "stand":
+			$maskeed/AnimationPlayer.play("stand")
+	
+	# Применяем движение
+	move_and_slide()
 
 func is_obstructed(camera: Camera3D) -> bool:
 	var space_state = get_world_3d().direct_space_state
@@ -56,8 +83,7 @@ func is_in_camera_view(camera: Camera3D) -> bool:
 	var screen_pos = camera.unproject_position(global_transform.origin)
 	var viewport = get_viewport()
 	var screen_size = viewport.get_visible_rect().size
-	var is_on_screen = (screen_pos.x >= 0 and screen_pos.x <= screen_size.x and 
-						screen_pos.y >= 0 and screen_pos.y <= screen_size.y)
+	var is_on_screen = (screen_pos.x >= 0 and screen_pos.x <= screen_size.x and screen_pos.y >= 0 and screen_pos.y <= screen_size.y)
 	var camera_forward = -camera.global_transform.basis.z
 	var to_enemy = (global_transform.origin - camera.global_transform.origin).normalized()
 	var is_in_front = camera_forward.dot(to_enemy) > 0
