@@ -97,8 +97,7 @@ func update_camera_bob(delta):
 		camera.position.y = lerp(camera.position.y, default_camera_y, delta * 5)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 	if event.is_action_pressed("interact"):
 		if held_object:

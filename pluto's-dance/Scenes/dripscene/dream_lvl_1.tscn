@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cf6x5sdusygug" path="res://Scenes/narkoman.tscn" id="4_rvs5i"]
 [ext_resource type="Texture2D" uid="uid://bv7o6vfriel5e" path="res://Assets/ImageTexture/image_2025-02-27_00-33-02.png" id="5_v30a0"]
 [ext_resource type="Texture2D" uid="uid://dwbukykbdapia" path="res://Assets/ImageTexture/image_2025-02-27_00-32-01.png" id="6_f8vua"]
+[ext_resource type="Texture2D" uid="uid://b0jh0yjjy7j1c" path="res://Assets/ImageTexture/1679435806_bogatyr-club-p-narisovannoe-nebo-s-oblakami-foni-instagra-2.jpg" id="7_xf221"]
 [ext_resource type="Texture2D" uid="uid://ddag4ase2cwm8" path="res://Assets/3Dmodels/PodvalStairs_StairsPodvalTexture.png" id="8_tcmet"]
 [ext_resource type="Texture2D" uid="uid://c6mx73obv3o5q" path="res://Assets/3Dmodels/CorridorPodval_CorridorTexture.png" id="9_f002n"]
 [ext_resource type="PackedScene" uid="uid://6brcxa6ous8v" path="res://Scenes/EnvObjects/podval_lamp.tscn" id="10_u5vpv"]
 [ext_resource type="PackedScene" uid="uid://ci8xlmpgfr10p" path="res://Scenes/EnvObjects/door.tscn" id="11_17xxy"]
 [ext_resource type="Texture2D" uid="uid://dnjmivhn0u8ey" path="res://Assets/3Dmodels/PodvalRoom1_Room1PodvalTexture.png" id="12_v3afm"]
 [ext_resource type="Texture2D" uid="uid://csbtusdpaa8t4" path="res://Assets/3Dmodels/PodvalRoom2_PodvalRoom2Texture.png" id="13_i8fjd"]
-[ext_resource type="PackedScene" uid="uid://bo25b32fsy63x" path="res://Interface/Pause/Pause.tscn" id="13_xyvre"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1mvv8"]
 sky_top_color = Color(0.163702, 0.285092, 0.507756, 1)
@@ -42,13 +42,17 @@ script = ExtResource("3_qvymu")
 mode = 0
 textures = [[ExtResource("5_v30a0"), ExtResource("6_f8vua"), null], [null, null, null]]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vk220"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81oyd"]
+albedo_texture = ExtResource("7_xf221")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qgjf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h820b"]
+albedo_texture = ExtResource("7_xf221")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_860g7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_311v8"]
+albedo_texture = ExtResource("7_xf221")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8btq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_to56j"]
+albedo_texture = ExtResource("7_xf221")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sc1p5"]
 resource_name = "Material.005"
@@ -271,22 +275,22 @@ shader_params/u_specular = 0.5
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EnvObj"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -250.508, 73.9205, -243.474)
-material_override = SubResource("StandardMaterial3D_vk220")
+material_override = SubResource("StandardMaterial3D_81oyd")
 size = Vector3(1, 512.33, 302.384)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="EnvObj"]
 transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 5.88803, 72.1661, -499.716)
-material_override = SubResource("StandardMaterial3D_5qgjf")
+material_override = SubResource("StandardMaterial3D_h820b")
 size = Vector3(1, 512.33, 302.384)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="EnvObj"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 261.85, 72.487, -244.049)
-material_override = SubResource("StandardMaterial3D_860g7")
+material_override = SubResource("StandardMaterial3D_311v8")
 size = Vector3(1, 512.33, 302.384)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="EnvObj"]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 6.202, 73.043, 12.197)
-material_override = SubResource("StandardMaterial3D_o8btq")
+material_override = SubResource("StandardMaterial3D_to56j")
 size = Vector3(1, 512.33, 302.384)
 
 [node name="Podval" type="MeshInstance3D" parent="EnvObj"]
@@ -409,7 +413,5 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnvObj/RoomSmall2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rwip7")
-
-[node name="Pause" parent="EnvObj" instance=ExtResource("13_xyvre")]
 
 [editable path="EnvObj/Door"]
