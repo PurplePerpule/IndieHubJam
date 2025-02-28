@@ -54,4 +54,8 @@ move_speed = 10.0
 player_node = NodePath("../Narkoman")
 camera_node = NodePath("../Narkoman/CameraPivot/Camera")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [editable path="Narkoman"]

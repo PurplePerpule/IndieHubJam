@@ -25,7 +25,11 @@ directories/dch_directory={
 "bee_man": "res://Dialogs/bee_man.dch"
 }
 directories/dtl_directory={
-"HelpBeeMan": "res://Dialogs/HelpBeeMan.dtl"
+"EndBee": "res://Dialogs/EndBee.dtl",
+"FindFlowers": "res://Dialogs/FindFlowers.dtl",
+"FindFlowers2": "res://Dialogs/FindFlowers2.dtl",
+"HelpBeeMan": "res://Dialogs/HelpBeeMan.dtl",
+"WaitFlowers": "res://Dialogs/WaitFlowers.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogs/BeeManStyle.tres"]

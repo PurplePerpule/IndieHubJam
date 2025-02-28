@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://beck7kn80um3p"]
+[gd_scene load_steps=45 format=4 uid="uid://beck7kn80um3p"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_6aq6a"]
 [ext_resource type="Resource" path="res://Scenes/dripscene/data.hterrain" id="2_48vm0"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dnjmivhn0u8ey" path="res://Assets/3Dmodels/PodvalRoom1_Room1PodvalTexture.png" id="12_v3afm"]
 [ext_resource type="Texture2D" uid="uid://csbtusdpaa8t4" path="res://Assets/3Dmodels/PodvalRoom2_PodvalRoom2Texture.png" id="13_i8fjd"]
 [ext_resource type="PackedScene" uid="uid://bhorhy4x4jiej" path="res://Scenes/bee_man.tscn" id="14_rmgo6"]
+[ext_resource type="Script" path="res://Scripts/Shake.gd" id="15_35ba4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1mvv8"]
 sky_top_color = Color(0.163702, 0.285092, 0.507756, 1)
@@ -34,7 +35,7 @@ tonemap_mode = 1
 tonemap_exposure = 1.1
 tonemap_white = 2.5
 fog_enabled = true
-fog_light_color = Color(0.470588, 0.631373, 0.909804, 1)
+fog_light_color = Color(0.0794077, 0.173446, 0.341087, 1)
 fog_density = 0.002
 fog_sky_affect = 0.0
 
@@ -45,6 +46,9 @@ textures = [[ExtResource("5_v30a0"), ExtResource("6_f8vua"), null], [null, null,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81oyd"]
 albedo_texture = ExtResource("7_xf221")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhq53"]
+albedo_color = Color(0.258824, 0.666667, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h820b"]
 albedo_texture = ExtResource("7_xf221")
@@ -240,7 +244,7 @@ data = PackedVector3Array(-8.9349, 0.0803, -8.5441, -8.9349, 0.3759, -9.0456, -8
 [node name="DreamLvl_1" type="Node3D"]
 
 [node name="Narkoman" parent="." instance=ExtResource("4_rvs5i")]
-transform = Transform3D(0.0124613, 0, -0.999922, 0, 1, 0, 0.999922, 0, 0.0124613, -52.499, 222.665, 37.885)
+transform = Transform3D(0.0124613, 0, -0.999922, 0, 1, 0, 0.999922, 0, 0.0124613, 19.3124, 0, -59.5334)
 
 [node name="env" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6708, 0)
@@ -281,6 +285,11 @@ shader_params/u_specular = 0.15
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -250.508, 73.9205, -243.474)
 material_override = SubResource("StandardMaterial3D_81oyd")
 size = Vector3(1, 512.33, 302.384)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="EnvObj"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 7.18766, 219.552, -254.814)
+material_override = SubResource("StandardMaterial3D_xhq53")
+size = Vector3(1, 544.114, 536.113)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="EnvObj"]
 transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 5.88803, 72.1661, -499.716)
@@ -421,4 +430,8 @@ shape = SubResource("ConcavePolygonShape3D_rwip7")
 [node name="BeeMan" parent="." instance=ExtResource("14_rmgo6")]
 transform = Transform3D(-0.91799, 0, -0.396603, 0, 1, 0, 0.396603, 0, -0.91799, 24.0912, 0.790171, -59.8273)
 
+[node name="Node" type="Node" parent="."]
+script = ExtResource("15_35ba4")
+
+[editable path="Narkoman"]
 [editable path="EnvObj/Door"]
