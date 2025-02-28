@@ -30,7 +30,7 @@ func _physics_process(delta):
 	var direction_to_player = (player_pos - npc_pos).normalized()
 	
 	# Отладочный вывод для проверки направления
-	print("Direction to player: ", direction_to_player)
+	#print("Direction to player: ", direction_to_player)
 	
 	# Получаем индекс кости головы
 	var head_bone_index = skeleton.find_bone(head_bone_name)
