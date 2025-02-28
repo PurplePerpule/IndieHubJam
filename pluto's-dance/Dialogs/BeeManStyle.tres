@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=6 format=3 uid="uid://dl4sxkfysg8h4"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_w8pxf"]
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="5_b8x75"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_btkap"]
+
+[sub_resource type="Resource" id="Resource_uaiwl"]
+script = ExtResource("1_w8pxf")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_fjo3e"]
+script = ExtResource("1_w8pxf")
+scene = ExtResource("5_b8x75")
+overrides = {
+"box_animation_in": "0",
+"box_animation_new_text": "1",
+"box_animation_out": "0",
+"box_color_custom": "Color(0, 0, 0, 0)",
+"box_color_use_global": "false",
+"name_label_box_modulate": "Color(0, 0, 0, 0)",
+"name_label_box_use_global_color": "false",
+"name_label_custom_color": "Color(1, 1, 1, 0)",
+"name_label_use_character_color": "false",
+"name_label_use_global_color": "false",
+"name_label_use_global_font": "false",
+"name_label_use_global_font_size": "false",
+"next_indicator_animation": "2",
+"next_indicator_enabled": "false",
+"normal_font": "\"res://Assets/Font/ofont.ru_Kontrabanda.ttf\"",
+"text_alignment": "1",
+"text_custom_color": "Color(0.910156, 0.443635, 0.0319977, 1)",
+"text_size": "25.0",
+"text_use_global_color": "false",
+"text_use_global_font": "false",
+"text_use_global_size": "false"
+}
+
+[resource]
+script = ExtResource("10_btkap")
+name = "BeeManStyle"
+layer_list = Array[String](["13"])
+layer_info = {
+"": SubResource("Resource_uaiwl"),
+"13": SubResource("Resource_fjo3e")
+}
+base_overrides = {}
+layers = Array[ExtResource("1_w8pxf")]([])
+metadata/_latest_layer = "13"

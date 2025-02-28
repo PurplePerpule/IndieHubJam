@@ -21,11 +21,15 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"bee_man": "res://Dialogs/bee_man.dch"
+}
+directories/dtl_directory={
+"HelpBeeMan": "res://Dialogs/HelpBeeMan.dtl"
+}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://Dialogs/BeeManStyle.tres"]
+layout/default_style="res://Dialogs/BeeManStyle.tres"
 variables={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

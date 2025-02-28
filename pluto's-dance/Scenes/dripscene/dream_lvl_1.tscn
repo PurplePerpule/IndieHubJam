@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://beck7kn80um3p"]
+[gd_scene load_steps=43 format=4 uid="uid://beck7kn80um3p"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_6aq6a"]
 [ext_resource type="Resource" path="res://Scenes/dripscene/data.hterrain" id="2_48vm0"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ci8xlmpgfr10p" path="res://Scenes/EnvObjects/door.tscn" id="11_17xxy"]
 [ext_resource type="Texture2D" uid="uid://dnjmivhn0u8ey" path="res://Assets/3Dmodels/PodvalRoom1_Room1PodvalTexture.png" id="12_v3afm"]
 [ext_resource type="Texture2D" uid="uid://csbtusdpaa8t4" path="res://Assets/3Dmodels/PodvalRoom2_PodvalRoom2Texture.png" id="13_i8fjd"]
+[ext_resource type="PackedScene" uid="uid://bhorhy4x4jiej" path="res://Scenes/bee_man.tscn" id="14_rmgo6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1mvv8"]
 sky_top_color = Color(0.163702, 0.285092, 0.507756, 1)
@@ -259,17 +260,20 @@ chunk_size = 32
 collision_enabled = true
 collision_layer = 1
 collision_mask = 1
-shader_type = "Classic4Lite"
+shader_type = "Classic4"
 custom_shader = null
 custom_globalmap_shader = null
 texture_set = SubResource("Resource_p4aol")
 render_layers = 1
 cast_shadow = 1
-shader_params/u_ground_uv_scale = 20
+shader_params/u_ground_uv_scale_per_texture = Vector4(1, 1, 20, 20)
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Vector4(0, 0, 0, 0)
-shader_params/u_specular = 0.5
+shader_params/u_globalmap_blend_start = -0.98
+shader_params/u_globalmap_blend_distance = null
+shader_params/u_colormap_opacity_per_texture = Vector4(1, 1, 0, 1)
+shader_params/u_specular = 0.15
 
 [node name="EnvObj" type="Node3D" parent="."]
 
@@ -413,5 +417,8 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnvObj/RoomSmall2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rwip7")
+
+[node name="BeeMan" parent="." instance=ExtResource("14_rmgo6")]
+transform = Transform3D(-0.91799, 0, -0.396603, 0, 1, 0, 0.396603, 0, -0.91799, 24.0912, 0.790171, -59.8273)
 
 [editable path="EnvObj/Door"]
