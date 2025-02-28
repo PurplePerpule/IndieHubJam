@@ -57,6 +57,7 @@ func _ready():
 	print("RayCast: ", raycast)
 	
 	Data.change_sensitivity.connect(change_sensitivity_f)
+	GlobalAudioServer.change_volume.connect(change_walk_volume)
 
 func _input(event):
 	# Обработка только движения мыши
@@ -180,3 +181,6 @@ func play_step_sound():
 		
 func change_sensitivity_f(value):
 	mouse_sensitivity = value 
+	
+func change_walk_volume(value):
+	$AudioStreamPlayer3D.volume_db = value + 15
