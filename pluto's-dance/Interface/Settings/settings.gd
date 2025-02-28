@@ -1,7 +1,5 @@
 extends Control
 
-var mouse_sensitivity: float = 1.0
-
 
 func _ready() -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
@@ -11,6 +9,8 @@ func _ready() -> void:
 		
 	GlobalAudioServer.emit_signal("change_music", lerp(-40.0, 0.0, $MarginContainer/VBoxContainer/Music.value / 100.0))
 	GlobalAudioServer.emit_signal("change_volume", lerp(-40.0, 0.0, $MarginContainer/VBoxContainer/Volume.value / 100.0))
+	
+	Data.emit_signal("change_sensitivity", $MarginContainer/VBoxContainer/Sensitivity.value)
 
 
 func _on_volume_value_changed(value):
@@ -31,8 +31,5 @@ func _on_fullscreen_toggled(toggled_on):
 
 
 func _on_sensitivity_value_changed(value: float) -> void:
-	# Устанавливаем новое значение чувствительности мыши
-	mouse_sensitivity = value
-	# Можно также сохранить значение в настройках, если нужно
-	ProjectSettings.set("input/mouse_sensitivity", mouse_sensitivity)
-	ProjectSettings.save()
+	Data.emit_signal("change_sensitivity", value / 135)
+	print(value)

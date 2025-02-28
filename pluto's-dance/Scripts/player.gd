@@ -31,6 +31,8 @@ func _ready():
 	print("CameraPivot: ", camera_pivot)
 	print("Camera: ", camera)
 	print("RayCast: ", raycast)
+	
+	Data.change_sensitivity.connect(change_sensitivity_f)
 
 func _input(event):
 	# Обработка только движения мыши
@@ -125,3 +127,6 @@ func throw_object():
 		held_object.apply_central_impulse(-camera.global_transform.basis.z * throw_force)
 		held_object = null
 		print("Thrown object")
+		
+func change_sensitivity_f(value):
+	mouse_sensitivity = value 

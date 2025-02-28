@@ -231,3 +231,5 @@ libraries = {
 
 [node name="Pause" parent="." instance=ExtResource("3_qqnwf")]
 z_index = 1
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
