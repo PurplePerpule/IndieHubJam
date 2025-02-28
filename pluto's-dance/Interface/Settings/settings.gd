@@ -32,4 +32,3 @@ func _on_fullscreen_toggled(toggled_on):
 
 func _on_sensitivity_value_changed(value: float) -> void:
 	Data.emit_signal("change_sensitivity", value / 135)
-	print(value)

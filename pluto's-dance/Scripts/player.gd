@@ -24,6 +24,30 @@ var hold_distance = 1.5  # Расстояние от камеры, на кото
 var bob_timer = 0.0  # Таймер для синусоиды
 var default_camera_y = 0.0  # Исходная позиция камеры по Y
 
+var walk_type = "street"
+
+var street_walk = [
+	load("res://Assets/Sounds/SandRoadStep1_Sound.mp3"),
+	load("res://Assets/Sounds/SandRoadStep2_Sound.mp3"),
+	load("res://Assets/Sounds/SandRoadStep3_Sound.mp3"),
+	load("res://Assets/Sounds/SandRoadStep4_Sound.mp3"),
+	load("res://Assets/Sounds/SandRoadStep5_Sound.mp3")
+]
+
+var grass_walk = [
+	load("res://Assets/Sounds/GrassStep1_Sound.mp3"),
+	load("res://Assets/Sounds/GrassStep2_Sound.mp3"),
+	load("res://Assets/Sounds/GrassStep3_Sound.mp3"),
+	load("res://Assets/Sounds/GrassStep4_Sound.mp3"),
+	load("res://Assets/Sounds/GrassStep5_Sound.mp3")
+]
+
+@onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
+var walking: bool = false
+var last_sound_index: int = -1
+var step_position: int = -1  # Начальная позиция
+
 func _ready():
 	# Захват мыши
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -40,6 +64,14 @@ func _input(event):
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 		camera_pivot.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		
+	if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") and is_on_floor():
+		if not walking:
+			walking = true
+			play_step_sound()
+	else:
+		walking = false
+		audio_player.stop()
 
 
 func _physics_process(delta):
@@ -99,8 +131,6 @@ func update_camera_bob(delta):
 		camera.position.y = lerp(camera.position.y, default_camera_y, delta * 5)
 
 func _unhandled_input(event):
-
-
 	if event.is_action_pressed("interact"):
 		if held_object:
 			throw_object()
@@ -110,12 +140,12 @@ func _unhandled_input(event):
 func interact_with_object():
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		# Проверка на поднимаемые объекты
+
 		if collider is RigidBody3D and collider.is_in_group("pickable"):
 			pick_up_object(collider)
-		# Проверка на интерактивные объекты (например, дверь)
+
 		elif collider.is_in_group("interactive"):
-			collider.interact()  # Вызываем метод interact у объекта
+			collider.interact()
 
 func pick_up_object(object):
 	held_object = object
@@ -127,6 +157,26 @@ func throw_object():
 		held_object.apply_central_impulse(-camera.global_transform.basis.z * throw_force)
 		held_object = null
 		print("Thrown object")
+		
+func play_step_sound():
+	if not walking or street_walk.is_empty():
+		return
+
+	var new_index: int = last_sound_index
+	while new_index == last_sound_index:
+		new_index = randi() % street_walk.size()
+	
+	last_sound_index = new_index
+	audio_player.stream = street_walk[new_index]
+	audio_player.play()
+
+	step_position *= -1
+	audio_player.position.x = step_position
+
+	await audio_player.finished
+	if walking:
+		play_step_sound()
+		
 		
 func change_sensitivity_f(value):
 	mouse_sensitivity = value 
