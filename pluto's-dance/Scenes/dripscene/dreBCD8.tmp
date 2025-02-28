@@ -653,8 +653,8 @@ transform = Transform3D(-0.91799, 0, -0.396603, 0, 1, 0, 0.396603, 0, -0.91799, 
 script = ExtResource("15_35ba4")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("20_o7ft4")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -36.6098, 15.6868, -166.81)
-player_node = NodePath("../Narkoman/CameraPivot/Camera")
+transform = Transform3D(-0.978031, 0, -0.208458, 0, 1, 0, 0.208458, 0, -0.978031, -36.6098, 15.6868, -166.81)
+player_node = NodePath("../Narkoman")
 
 [editable path="Narkoman"]
 [editable path="EnvObj/Door"]

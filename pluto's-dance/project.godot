@@ -23,6 +23,7 @@ Data="*res://Scripts/Data.gd"
 [dialogic]
 
 directories/dch_directory={
+"Lil_bro": "res://Dialogs/Lil_bro.dch",
 "bee_man": "res://Dialogs/bee_man.dch"
 }
 directories/dtl_directory={
@@ -30,10 +31,11 @@ directories/dtl_directory={
 "FindFlowers": "res://Dialogs/FindFlowers.dtl",
 "FindFlowers2": "res://Dialogs/FindFlowers2.dtl",
 "HelpBeeMan": "res://Dialogs/HelpBeeMan.dtl",
+"LilBroQuest": "res://Dialogs/LilBroQuest.dtl",
 "WaitFlowers": "res://Dialogs/WaitFlowers.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://Dialogs/BeeManStyle.tres"]
+layout/style_list=["res://Dialogs/BeeManStyle.tres", "res://Dialogs/LilBroStyle.tres"]
 layout/default_style="res://Dialogs/BeeManStyle.tres"
 variables={}
 extensions_folder="res://addons/dialogic_additions"
