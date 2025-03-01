@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dunk3ujshphd0"]
 
 [ext_resource type="Texture2D" uid="uid://chjy1ih7tn44l" path="res://Assets/ImageTexture/texture_07.png" id="1_3svnu"]
-[ext_resource type="PackedScene" uid="uid://cf6x5sdusygug" path="res://Scenes/narkoman.tscn" id="2_2aqwm"]
+[ext_resource type="PackedScene" uid="uid://cj8dnjv708wua" path="res://Scenes/narkoman.tscn" id="2_2aqwm"]
 [ext_resource type="PackedScene" uid="uid://krxkbeva0oe7" path="res://Scenes/Objects/the_cup.tscn" id="3_yj2pa"]
 [ext_resource type="PackedScene" uid="uid://ci8xlmpgfr10p" path="res://Scenes/EnvObjects/door.tscn" id="4_h0ali"]
 [ext_resource type="PackedScene" uid="uid://dbstqm476pydy" path="res://Scenes/angel.tscn" id="5_78bvm"]

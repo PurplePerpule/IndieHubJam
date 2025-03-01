@@ -1,7 +1,7 @@
 [gd_scene load_steps=98 format=4 uid="uid://dslaereaty86l"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_ilp6b"]
-[ext_resource type="PackedScene" uid="uid://cf6x5sdusygug" path="res://Scenes/narkoman.tscn" id="1_xj3b3"]
+[ext_resource type="PackedScene" uid="uid://cj8dnjv708wua" path="res://Scenes/narkoman.tscn" id="1_xj3b3"]
 [ext_resource type="Texture2D" uid="uid://csn4bkgqhaxae" path="res://Assets/3Dmodels/Pereulok_MolchatDoma.png" id="2_3ob31"]
 [ext_resource type="Texture2D" uid="uid://dwpraq3myfw3i" path="res://Assets/3Dmodels/Kozirek_MolchatDoma.png" id="3_7u3rq"]
 [ext_resource type="Texture2D" uid="uid://docir2pddbnom" path="res://Assets/ImageTexture/image_2025-02-25_23-29-14.png" id="3_ryipu"]
