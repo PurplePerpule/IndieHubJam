@@ -4,6 +4,7 @@ var has_ingredients = false  # Состояние квеста: получены
 var quest_completed = false  # Состояние квеста: завершён ли квест
 
 @export var flowerfind = 0
+@export var quest_completed_all = false
 
 var started = false
 var findflowers = false
@@ -55,6 +56,7 @@ func flowers():
 	findflowers = false
 	
 func ended():
+	quest_completed_all = true
 	Dialogic.timeline_ended.disconnect(ended)
 	end = true
 	$AnimationTree.set("parameters/quest_completed/transition_request", "True")

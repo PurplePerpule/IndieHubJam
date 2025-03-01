@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://i2kde50k0p61"]
+
+[ext_resource type="Texture2D" uid="uid://vm0ga47suw3g" path="res://Assets/ImageTexture/5339074005027647623_109.jpg" id="1_0akfc"]
+[ext_resource type="PackedScene" uid="uid://dlw2qbrlch71n" path="res://Assets/3Dmodels/UNVITAINpills.glb" id="2_63lrf"]
+[ext_resource type="PackedScene" uid="uid://d353je3vjs6m5" path="res://Assets/3Dmodels/TheHand.glb" id="3_u8gue"]
+
+[sub_resource type="Environment" id="Environment_bw3h6"]
+background_mode = 1
+tonemap_mode = 2
+tonemap_exposure = 0.33
+tonemap_white = 4.2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_numaj"]
+albedo_texture = ExtResource("1_0akfc")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbf5n"]
+albedo_texture = ExtResource("1_0akfc")
+uv1_triplanar = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kr0ft"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0.2, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_av5j8"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hos6a"]
+material = SubResource("StandardMaterial3D_av5j8")
+size = Vector3(0.01, 0.01, 0.01)
+
+[node name="Main_menu_3d" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.472125, -0.54356, 0.694003, -0.164624, 0.719054, 0.675174, 0, 0, 0)
+light_energy = 0.885
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bw3h6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11502, 0, 2.51389)
+material_override = SubResource("StandardMaterial3D_numaj")
+size = Vector3(16.6924, 1, 13.7534)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.00669, 4.54561, -4.74011)
+material_override = SubResource("StandardMaterial3D_bbf5n")
+size = Vector3(16.5942, 8.44179, 1)
+
+[node name="UNVITAINpills" parent="." instance=ExtResource("2_63lrf")]
+transform = Transform3D(0.0073287, -0.0043114, -0.179799, 0.104134, 0.146818, 0.000723986, 0.146637, -0.104047, 0.00847194, 6.31364, 0.768674, -4.0359)
+
+[node name="TheHand" parent="." instance=ExtResource("3_u8gue")]
+transform = Transform3D(-0.999199, -0.038998, -0.00901775, -0.0305964, 0.598888, 0.800248, -0.0258075, 0.799883, -0.599601, 7.71344, 4.04029, 0.980146)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.02349, 0, -2.43871)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.965926, -0.14473, 0.214571, 0, 0.829038, 0.559193, -0.258819, -0.540139, 0.800789, 6.305, 1.604, -3.027)
+fov = 61.7
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.985, 0.76, -3.954)
+amount = 20
+lifetime = 3.0
+preprocess = 1.35
+speed_scale = 0.45
+process_material = SubResource("ParticleProcessMaterial_kr0ft")
+draw_pass_1 = SubResource("BoxMesh_hos6a")

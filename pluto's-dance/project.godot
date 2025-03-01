@@ -31,6 +31,7 @@ directories/dtl_directory={
 "EndBee": "res://Dialogs/EndBee.dtl",
 "FindFlowers": "res://Dialogs/FindFlowers.dtl",
 "FindFlowers2": "res://Dialogs/FindFlowers2.dtl",
+"GoGoGo": "res://Dialogs/GoGoGo.dtl",
 "HelpBeeMan": "res://Dialogs/HelpBeeMan.dtl",
 "LilBroQuest": "res://Dialogs/LilBroQuest.dtl",
 "WaitFlowers": "res://Dialogs/WaitFlowers.dtl"

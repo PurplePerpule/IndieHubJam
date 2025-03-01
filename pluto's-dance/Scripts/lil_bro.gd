@@ -3,8 +3,18 @@ extends CharacterBody3D
 @export var player_node: NodePath  # Путь к узлу игрока
 @export var head_bone_name: String = "Bone.001"  # Имя кости головы
 
+var dia = false
+
 var player: Camera3D = null
 @onready var skeleton = $LilBro/Armature/Skeleton3D  # Ссылка на Skeleton3D
+
+func interact():
+	if dia == false:
+		Dialogic.start_timeline("LilBroQuest")
+		dia = true
+	else:
+		Dialogic.start_timeline("GoGoGo")
+
 
 func _ready():
 	if player_node:
