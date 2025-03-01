@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://dewxghwhk0c7r"]
+[gd_scene load_steps=7 format=4 uid="uid://dewxghwhk0c7r"]
 
 [ext_resource type="Texture2D" uid="uid://b0i8iqdpowput" path="res://Assets/3Dmodels/flowey_FlowerTexture.png" id="1_ie4vw"]
+[ext_resource type="Script" path="res://Scenes/Objects/yellow_flower.gd" id="1_lt0vo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h53kb"]
 resource_name = "Material"
@@ -43,11 +44,12 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1tl4j")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qw0d0"]
-radius = 0.120593
-height = 0.529
+radius = 0.218039
+height = 0.719998
 
 [node name="YellowFlower" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0599473, 0.582033, 0)
+script = ExtResource("1_lt0vo")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, 0.0681816, -0.348121, 0.0210917)
@@ -55,5 +57,5 @@ mesh = SubResource("ArrayMesh_jq0id")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0267678, -0.378886, -0.0024159)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0267678, -0.274106, 0.0510976)
 shape = SubResource("CapsuleShape3D_qw0d0")
