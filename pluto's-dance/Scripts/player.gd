@@ -81,7 +81,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Прыжок
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and self.is_on_floor():
 		velocity.y = jump_velocity
 
 	# Определяем, спринтим ли мы
