@@ -1634,6 +1634,7 @@ size = Vector3(54.373, 33.685, 17.0167)
 
 [node name="Sprite3D" type="Sprite3D" parent="NavigationRegion3D/Env_obj"]
 transform = Transform3D(-0.414827, 0.0119929, -3.62653e-08, 0.0119929, 0.414827, 1.04846e-09, 3.62805e-08, 0, -0.415, -4.30824, 1.35585, -1.01926)
+modulate = Color(0, 0, 0, 1)
 shaded = true
 texture_filter = 0
 texture = ExtResource("15_7qtvl")

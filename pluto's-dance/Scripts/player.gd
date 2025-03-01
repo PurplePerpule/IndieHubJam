@@ -66,8 +66,8 @@ func _input(event):
 		camera_pivot.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 		
-	if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") and is_on_floor():
-		if not walking:
+	if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+		if not walking and is_on_floor():
 			walking = true
 			play_step_sound()
 	else:
