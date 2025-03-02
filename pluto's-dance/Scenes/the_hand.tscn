@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://pjcamppsfjor"]
+
+[ext_resource type="PackedScene" uid="uid://d353je3vjs6m5" path="res://Assets/3Dmodels/TheHand.glb" id="1_2ibdr"]
+[ext_resource type="Script" path="res://Scripts/the_hand.gd" id="2_41c84"]
+
+[node name="TheHand" instance=ExtResource("1_2ibdr")]
+script = ExtResource("2_41c84")

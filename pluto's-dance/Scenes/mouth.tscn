@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://cwu1kw63ye1x2"]
+[gd_scene load_steps=11 format=4 uid="uid://cwu1kw63ye1x2"]
 
+[ext_resource type="Script" path="res://Scripts/mouth.gd" id="1_u2eia"]
 [ext_resource type="Texture2D" uid="uid://0qad051iwvnj" path="res://Assets/3Dmodels/BigMouth_BigMouthTexture.png" id="1_wk0y7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7wgj"]
@@ -50,6 +51,7 @@ bind/4/pose = Transform3D(1, -4.72975e-07, -6.05701e-08, -7.10542e-15, -0.127025
 [sub_resource type="Animation" id="Animation_cbycv"]
 resource_name = "OMOMOMOM"
 length = 0.833333
+loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -151,9 +153,11 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obfjv"]
-size = Vector3(1, 1.13867, 3.85791)
+size = Vector3(0.65332, 1.3833, 1.56902)
 
 [node name="Mouth" type="CharacterBody3D"]
+script = ExtResource("1_u2eia")
+path_variation = 0.0
 
 [node name="BigMouth" type="Node3D" parent="."]
 
@@ -198,6 +202,7 @@ bones/4/rotation = Quaternion(0.066981, -9.97327e-14, -3.19391e-08, 0.997754)
 bones/4/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="BigMouth/Armature/Skeleton3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 2.97934)
 mesh = SubResource("ArrayMesh_syu5t")
 skin = SubResource("Skin_yqpoy")
 
@@ -207,5 +212,10 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.451166, -1.1228)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0457685, -0.573481, -0.509081)
 shape = SubResource("BoxShape3D_obfjv")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.342463, -2.75488)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
