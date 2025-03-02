@@ -1,16 +1,23 @@
 extends CharacterBody3D
 
-@export var move_speed = 3.0  # Скорость движения ангела
+@export var move_speed = 3.0  # Базовая скорость движения ангела
 @export var player_node: NodePath  # Путь к узлу игрока
 @export var camera_node: NodePath  # Путь к камере игрока
 @export var catch_distance = 1.0  # Дистанция для захвата игрока
+@export var path_variation = 2.0  # Максимальный радиус случайного отклонения пути (в единицах)
+@export var speed_variation = 0.1  # Максимальная случайная вариация скорости (в процентах, 0.1 = ±10%)
+@export var avoid_distance = 1.5  # Минимальное расстояние между врагами, чтобы они не касались друг друга
+@export var detection_radius = 10.0  # Радиус зоны обнаружения игрока (в единицах)
 
 var player: CharacterBody3D = null
 var player_camera: Camera3D = null
 @onready var nav_agent = $NavigationAgent3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var random = RandomNumberGenerator.new()  # Генератор случайных чисел
+var player_once_detected = false  # Флаг, указывающий, что игрок был хотя бы раз обнаружен
 
 func _ready():
+	add_to_group("weeping_angels")  # Добавляем врага в группу для проверки столкновений
 	if player_node:
 		player = get_node(player_node) as CharacterBody3D
 	if camera_node:
@@ -27,10 +34,18 @@ func _ready():
 	
 	nav_agent.path_desired_distance = 1.0
 	nav_agent.target_desired_distance = 2.0
+	random.randomize()  # Инициализируем генератор случайных чисел
+
+	# Убедитесь, что CollisionShape3D настроен
+	if not $CollisionShape3D:
+		print("Warning: CollisionShape3D not found! Adding default capsule shape.")
+		var collision_shape = CollisionShape3D.new()
+		collision_shape.shape = CapsuleShape3D.new()
+		collision_shape.shape.height = 2.0  # Высота врага
+		collision_shape.shape.radius = 0.5  # Радиус врага
+		add_child(collision_shape)
 
 func _physics_process(delta):
-
-	
 	if not player or not player_camera or not nav_agent or not $maskeed/AnimationPlayer:
 		return
 	
@@ -40,23 +55,45 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 	
-	# Проверяем расстояние до игрока
+	# Проверяем расстояние до игрока для обнаружения
 	var distance_to_player = global_transform.origin.distance_to(player.global_transform.origin)
+	
+	# Устанавливаем флаг, если игрок впервые входит в зону обнаружения
+	if distance_to_player <= detection_radius and not player_once_detected:
+		player_once_detected = true
+		print("Player detected! Angels will now pursue constantly.")
+	
 	var is_visible = is_in_camera_view(player_camera)
 	
-	if distance_to_player < catch_distance and not is_visible:
+	if distance_to_player < catch_distance and not is_visible and (player_once_detected or distance_to_player <= detection_radius):
 		# Захват игрока
 		velocity = Vector3.ZERO
 		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "catch":
 			$maskeed/AnimationPlayer.play("catch")
 			print("Player caught!")
-	elif not is_visible:
-		# Движение к игроку
-		nav_agent.set_target_position(player.global_transform.origin)
+	elif not is_visible and player_once_detected:
+		# Движение к игроку с динамическим случайным отклонением пути (постоянное преследование после обнаружения)
+		var target_position = player.global_transform.origin
+		# Динамическое отклонение, зависящее от расстояния
+		var dynamic_variation = min(path_variation, distance_to_player * 0.5)  # Отклонение зависит от расстояния
+		target_position.x += random.randf_range(-dynamic_variation, dynamic_variation)
+		target_position.z += random.randf_range(-dynamic_variation, dynamic_variation)
+		
+		nav_agent.set_target_position(target_position)
 		var next_position = nav_agent.get_next_path_position()
 		var direction = (next_position - global_transform.origin).normalized()
-		velocity.x = direction.x * move_speed
-		velocity.z = direction.z * move_speed
+		
+		# Применяем случайную вариацию скорости
+		var effective_speed = move_speed * (1.0 + random.randf_range(-speed_variation, speed_variation))
+		
+		# Проверка столкновений с другими врагами
+		var avoid_force = avoid_other_angels()
+		if avoid_force.length() > 0:
+			direction += avoid_force.normalized() * 0.5  # Лёгкое отклонение от других врагов
+			direction = direction.normalized()  # Нормализуем, чтобы сохранить скорость
+		
+		velocity.x = direction.x * effective_speed
+		velocity.z = direction.z * effective_speed
 		look_at(player.global_transform.origin, Vector3.UP)
 		rotation.x = 0  # Фиксируем наклон по X
 		rotation.z = 0  # Фиксируем наклон по Z
@@ -64,7 +101,7 @@ func _physics_process(delta):
 		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "run":
 			$maskeed/AnimationPlayer.play("run")
 	else:
-		# Остановка, если виден
+		# Остановка, если игрок виден или не был обнаружен
 		velocity.x = 0
 		velocity.z = 0
 		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "stand":
@@ -72,6 +109,21 @@ func _physics_process(delta):
 	
 	# Применяем движение
 	move_and_slide()
+
+# Проверка и избегание других врагов
+func avoid_other_angels() -> Vector3:
+	var avoidance_force = Vector3.ZERO
+	var angels = get_tree().get_nodes_in_group("weeping_angels")
+	
+	for angel in angels:
+		if angel != self:  # Пропускаем самого себя
+			var distance = global_transform.origin.distance_to(angel.global_transform.origin)
+			if distance < avoid_distance:
+				# Вычисляем вектор отталкивания (направление от другого врага)
+				var push_away = (global_transform.origin - angel.global_transform.origin).normalized()
+				avoidance_force += push_away * (avoid_distance - distance) / avoid_distance  # Сила зависит от расстояния
+	
+	return avoidance_force
 
 func is_obstructed(camera: Camera3D) -> bool:
 	var space_state = get_world_3d().direct_space_state
