@@ -180,7 +180,7 @@ bones/2/parent = 0
 bones/2/rest = Transform3D(1, -4.26326e-14, -4.76837e-07, -3.13428e-07, 0.753624, -0.657305, 3.59356e-07, 0.657305, 0.753624, 0, 1.48482, 0)
 bones/2/enabled = true
 bones/2/position = Vector3(0, 1.48482, 0)
-bones/2/rotation = Quaternion(0.350981, -2.23251e-07, -8.36804e-08, 0.936382)
+bones/2/rotation = Quaternion(0.350981, -2.23251e-07, -8.36804e-08, 0.936383)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.004"
 bones/3/parent = 0
@@ -194,7 +194,7 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(1, 6.37346e-08, -4.27882e-09, -6.37347e-08, 0.991027, -0.133661, -4.27842e-09, 0.133661, 0.991027, 8.99281e-15, 0.717508, 1.88593e-08)
 bones/4/enabled = true
 bones/4/position = Vector3(8.99281e-15, 0.717508, 1.88593e-08)
-bones/4/rotation = Quaternion(0.066981, -9.99224e-14, -3.19391e-08, 0.997754)
+bones/4/rotation = Quaternion(0.066981, -9.97327e-14, -3.19391e-08, 0.997754)
 bones/4/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="BigMouth/Armature/Skeleton3D"]

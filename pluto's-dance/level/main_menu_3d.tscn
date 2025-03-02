@@ -12,11 +12,11 @@ tonemap_exposure = 0.33
 tonemap_white = 4.2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_numaj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4ala"]
 albedo_texture = ExtResource("1_0akfc")
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbf5n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ceeba"]
 albedo_texture = ExtResource("1_0akfc")
 uv1_triplanar = true
 
@@ -48,12 +48,12 @@ environment = SubResource("Environment_bw3h6")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11502, 0, 2.51389)
-material_override = SubResource("StandardMaterial3D_numaj")
+material_override = SubResource("StandardMaterial3D_h4ala")
 size = Vector3(16.6924, 1, 13.7534)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.00669, 4.54561, -4.74011)
-material_override = SubResource("StandardMaterial3D_bbf5n")
+material_override = SubResource("StandardMaterial3D_ceeba")
 size = Vector3(16.5942, 8.44179, 1)
 
 [node name="UNVITAINpills" parent="." instance=ExtResource("2_63lrf")]

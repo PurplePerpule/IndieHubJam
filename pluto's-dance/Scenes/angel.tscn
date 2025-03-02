@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1jq8h"]
 radius = 0.330396
-height = 2.65933
+height = 2.46136
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqfi6"]
 resource_name = "Material"
@@ -407,7 +407,7 @@ script = ExtResource("1_jgssq")
 catch_distance = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.305741, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.385008, 0)
 shape = SubResource("CapsuleShape3D_1jq8h")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
