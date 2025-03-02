@@ -1,9 +1,9 @@
 extends Control
 
-@onready var fullscreen = $MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Fullscreen
-@onready var music = $MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Music
-@onready var volume = $MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Volume
-@onready var sensitivity = $MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Sensitivity
+@onready var fullscreen = $MarginContainer/VBoxContainer/Fullscreen
+@onready var music = $MarginContainer/VBoxContainer/Music
+@onready var volume = $MarginContainer/VBoxContainer/Volume
+@onready var sensitivity = $MarginContainer/VBoxContainer/Sensitivity
 
 
 func _ready() -> void:

@@ -1,10 +1,13 @@
 extends Control
 
+@onready var Settings = $Settings
+@onready var Pause = $"Pause Menu"
+
 
 func _ready() -> void:
 	set_visible(false)
-	$MarginContainer/VBoxContainer2/B_Settings.visible = false
-	$MarginContainer/VBoxContainer2/Settings.visible = false
+	Settings.visible = false
+	Pause.visible = true
 
 
 func _input(event: InputEvent) -> void:
@@ -20,10 +23,8 @@ func _on_continue_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	$MarginContainer/VBoxContainer2/Settings.visible = true
-	$MarginContainer/VBoxContainer2/B_Settings.visible = true
-	$MarginContainer/VBoxContainer2/Pause.visible = false
-	$MarginContainer/VBoxContainer2/Pause_B.visible = false
+	Settings.visible = true
+	Pause.visible = false
 
 
 func _on_quit_pressed() -> void:
@@ -31,7 +32,5 @@ func _on_quit_pressed() -> void:
 
 
 func _on_back_pressed() -> void:
-	$MarginContainer/VBoxContainer2/Settings.visible = false
-	$MarginContainer/VBoxContainer2/B_Settings.visible = false
-	$MarginContainer/VBoxContainer2/Pause.visible = true
-	$MarginContainer/VBoxContainer2/Pause_B.visible = true
+	Settings.visible = false
+	Pause.visible = true

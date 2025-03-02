@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.45098)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Pause Menu" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,66 +32,147 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu"]
 layout_mode = 2
 
-[node name="Pause" type="Label" parent="MarginContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Pause"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Pause_B" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Pause Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer2/Pause_B"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer2/Pause_B/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Continue"
+size_flags_horizontal = 3
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer2/Pause_B"]
+[node name="MarginContainer3" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer2/Pause_B/MarginContainer2"]
+[node name="continue" type="Button" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-text = "Settings"
+text = "continue"
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer2/Pause_B"]
+[node name="MarginContainer4" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer2/Pause_B/MarginContainer3"]
+[node name="settings" type="Button" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
-text = "Quit"
+text = "settings"
 
-[node name="Settings" type="Label" parent="MarginContainer/VBoxContainer2"]
+[node name="MarginContainer5" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="quit" type="Button" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "quit"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Pause Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Settings" type="MarginContainer" parent="."]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Settings"]
 layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Settings/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="B_Settings" type="VBoxContainer" parent="Settings/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/VBoxContainer2/B_Settings"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Settings/VBoxContainer2/B_Settings/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Settings" parent="Settings/VBoxContainer2/B_Settings/HBoxContainer" instance=ExtResource("2_ltg27")]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Settings"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="B_Settings" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="Settings/VBoxContainer2/B_Settings/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Settings/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Settings" parent="MarginContainer/VBoxContainer2/B_Settings" instance=ExtResource("2_ltg27")]
+[node name="MarginContainer3" type="MarginContainer" parent="Settings/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="Settings/VBoxContainer2/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer2/B_Settings"]
+[node name="MarginContainer" type="MarginContainer" parent="Settings/VBoxContainer2/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Back" type="Button" parent="Settings/VBoxContainer2/HBoxContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "Back"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/Pause_B/MarginContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/Pause_B/MarginContainer2/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/Pause_B/MarginContainer3/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/B_Settings/Back" to="." method="_on_back_pressed"]
+[node name="MarginContainer2" type="MarginContainer" parent="Settings/VBoxContainer2/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Settings/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer3/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer2/HBoxContainer2/VBoxContainer/MarginContainer/Back" to="." method="_on_back_pressed"]
