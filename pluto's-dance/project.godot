@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Pluto's Dance"
+run/main_scene="res://level/main_menu_3d.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,11 +25,13 @@ SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 [dialogic]
 
 directories/dch_directory={
+" HEAD": "res://Dialogs/ HEAD.dch",
 "Lil_bro": "res://Dialogs/Lil_bro.dch",
 "bee_man": "res://Dialogs/bee_man.dch"
 }
 directories/dtl_directory={
 "EndBee": "res://Dialogs/EndBee.dtl",
+"Final": "res://Assets/Sounds/Final.dtl",
 "FindFlowers": "res://Dialogs/FindFlowers.dtl",
 "FindFlowers2": "res://Dialogs/FindFlowers2.dtl",
 "GoGoGo": "res://Dialogs/GoGoGo.dtl",
@@ -37,7 +40,7 @@ directories/dtl_directory={
 "WaitFlowers": "res://Dialogs/WaitFlowers.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://Dialogs/BeeManStyle.tres", "res://Dialogs/LilBroStyle.tres"]
+layout/style_list=["res://Dialogs/BeeManStyle.tres", "res://Dialogs/LilBroStyle.tres", "res://Dialogs/HEadStyle.tres"]
 layout/default_style="res://Dialogs/BeeManStyle.tres"
 variables={}
 extensions_folder="res://addons/dialogic_additions"

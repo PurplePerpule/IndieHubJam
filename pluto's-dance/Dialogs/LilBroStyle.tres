@@ -32,7 +32,9 @@ overrides = {
 "text_size": "35.0",
 "text_use_global_color": "false",
 "text_use_global_font": "false",
-"text_use_global_size": "false"
+"text_use_global_size": "false",
+"typing_sounds_end_sound": "\"res://Assets/Sounds/VoiceBitGnome.ogg\"",
+"typing_sounds_sounds_folder": "\"res://Assets/Sounds/LilVoice\""
 }
 
 [resource]

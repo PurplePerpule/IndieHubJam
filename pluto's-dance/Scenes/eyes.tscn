@@ -55,5 +55,5 @@ mesh = SubResource("ArrayMesh_dkww6")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83888, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0225543, 0)
 shape = SubResource("SphereShape3D_meqxf")

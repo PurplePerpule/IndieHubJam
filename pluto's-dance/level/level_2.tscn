@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=4 uid="uid://br05ohsrhsmmq"]
+[gd_scene load_steps=40 format=4 uid="uid://br05ohsrhsmmq"]
 
 [ext_resource type="Texture2D" uid="uid://blb44t3akjws4" path="res://Assets/ImageTexture/image_2025-03-01_22-49-40.png" id="1_o0ray"]
+[ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_xrg75"]
 [ext_resource type="PackedScene" uid="uid://cj8dnjv708wua" path="res://Scenes/narkoman.tscn" id="2_iyevg"]
 [ext_resource type="Texture2D" uid="uid://c0bhh5ecqx53u" path="res://Assets/3Dmodels/house3_DomikTexture.png" id="3_k7hon"]
 [ext_resource type="Texture2D" uid="uid://oty0nv6b3wcf" path="res://Assets/3Dmodels/house2_DomikTexture.png" id="4_pqp1d"]
@@ -10,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bhdndb1gf0fq2" path="res://Assets/ImageTexture/snow.png" id="8_vaujk"]
 [ext_resource type="PackedScene" uid="uid://dbstqm476pydy" path="res://Scenes/angel.tscn" id="9_xdwa3"]
 [ext_resource type="PackedScene" uid="uid://dagmc6rdik262" path="res://Scenes/EnvObjects/oldlamp.tscn" id="10_7ttt2"]
+[ext_resource type="PackedScene" uid="uid://bld26fm5wm1im" path="res://Assets/3Dmodels/Kolodec.glb" id="11_t3htn"]
+[ext_resource type="Script" path="res://level/changelvl2-f.gd" id="12_fbsg8"]
+[ext_resource type="AudioStream" uid="uid://v4o2ctpielqt" path="res://Assets/Sounds/WinterInMySoul.ogg" id="13_b5qgt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2geg"]
 resource_name = "Material.001"
@@ -229,7 +233,15 @@ fog_light_color = Color(0.2, 0.25098, 0.298039, 1)
 fog_density = 0.0225
 fog_sky_affect = 0.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fsxg"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vjadh"]
+height = 0.731835
+radius = 2.72126
+
 [node name="Level_2" type="Node3D"]
+script = ExtResource("1_xrg75")
 
 [node name="Okraina" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 194.721, 0, 0)
@@ -9915,15 +9927,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Houses/Housev3_516/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mlbvr")
 
-[node name="Housev3_515" type="MeshInstance3D" parent="NavigationRegion3D/Houses"]
-mesh = SubResource("ArrayMesh_i5o4c")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Houses/Housev3_515"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Houses/Housev3_515/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_mlbvr")
-
 [node name="Housev3_493" type="MeshInstance3D" parent="NavigationRegion3D/Houses"]
 transform = Transform3D(-0.00903225, 0, -1.12497, 0, 1.125, 0, 1.12497, 0, -0.00903225, -173.33, 4.81927, 25.9208)
 mesh = SubResource("ArrayMesh_i5o4c")
@@ -15935,7 +15938,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_5ic1f")
 
 [node name="Narkoman" parent="." instance=ExtResource("2_iyevg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.941, 11.9382, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.889, 0.842228, 0)
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="Narkoman"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
@@ -15988,10 +15991,6 @@ light_energy = 0.3
 light_indirect_energy = 0.0
 shadow_enabled = true
 shadow_bias = 0.01
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.68042, 0)
-size = Vector3(1, 13.9656, 1)
 
 [node name="Angel" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(0.276526, 0, -0.961006, 0, 1, 0, 0.961006, 0, 0.276526, -1.54326, 0.834542, 23.8366)
@@ -16236,5 +16235,29 @@ transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -4.45562, 0.24295
 
 [node name="Oldlamp4" parent="Light" instance=ExtResource("10_7ttt2")]
 transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, 64.6296, 9.53674e-07, -10.0129)
+
+[node name="Kolodec" parent="." instance=ExtResource("11_t3htn")]
+transform = Transform3D(0.315, 0, 0, 0, 0.315, 0, 0, 0, 0.315, 0.196076, 0.356564, -0.692144)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Kolodec"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.13153, 0)
+radius = 3.02026
+material = SubResource("StandardMaterial3D_7fsxg")
+
+[node name="changelvl" type="Area3D" parent="Kolodec"]
+script = ExtResource("12_fbsg8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kolodec/changelvl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.20439, 0)
+shape = SubResource("CylinderShape3D_vjadh")
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="winert" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("13_b5qgt")
+volume_db = -36.317
+autoplay = true
+
+[connection signal="body_entered" from="Kolodec/changelvl" to="Kolodec/changelvl" method="_on_body_entered"]
 
 [editable path="Narkoman"]

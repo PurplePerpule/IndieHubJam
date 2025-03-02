@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://dbstqm476pydy"]
+[gd_scene load_steps=13 format=4 uid="uid://dbstqm476pydy"]
 
 [ext_resource type="Script" path="res://Scripts/angel.gd" id="1_jgssq"]
 [ext_resource type="Texture2D" uid="uid://drfd1l142u51v" path="res://Assets/3Dmodels/maskeed_VillageMaskedTexture.png" id="2_qd0ji"]
+[ext_resource type="AudioStream" uid="uid://2nfn54ksmy6q" path="res://Assets/Sounds/BlackPerson1.ogg" id="3_kwqol"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1jq8h"]
 radius = 0.330396
@@ -505,3 +506,6 @@ skin = SubResource("Skin_i3yng")
 libraries = {
 "": SubResource("AnimationLibrary_i5fpu")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_kwqol")

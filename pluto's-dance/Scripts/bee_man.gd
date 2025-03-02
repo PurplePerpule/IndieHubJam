@@ -47,6 +47,7 @@ func flowers():
 	flag = true
 	$AnimationTree.set("parameters/has_ingredients/transition_request", "True")
 	await get_tree().create_timer(1).timeout
+	$"../sounds/bee".playing = false
 	$BeeWorm.visible = false
 	$AnimationTree.set("parameters/quest_completed/transition_request", "False")
 	$"../Narkoman/CloseEyes/Eyes".play_backwards("close")

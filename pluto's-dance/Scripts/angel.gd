@@ -16,6 +16,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var random = RandomNumberGenerator.new()  # Генератор случайных чисел
 var player_once_detected = false  # Флаг, указывающий, что игрок был хотя бы раз обнаружен
 
+@onready var footstep_sound = $AudioStreamPlayer3D  # Ссылка на звук ходьбы
+
 func _ready():
 	add_to_group("weeping_angels")  # Добавляем врага в группу для проверки столкновений
 	if player_node:
@@ -31,6 +33,8 @@ func _ready():
 		print("Warning: NavigationAgent3D not found!")
 	if not $maskeed/AnimationPlayer:
 		print("Warning: AnimationPlayer not found!")
+	if not footstep_sound:
+		print("Warning: AudioStreamPlayer3D (footstep sound) not found!")
 	
 	nav_agent.path_desired_distance = 1.0
 	nav_agent.target_desired_distance = 2.0
@@ -45,8 +49,14 @@ func _ready():
 		collision_shape.shape.radius = 0.5  # Радиус врага
 		add_child(collision_shape)
 
+	# Настраиваем звук ходьбы
+	footstep_sound.stream = load("res://path_to_footstep_sound.wav")  # Замените на путь к звуковому файлу (например, шаги или скрежет)
+	footstep_sound.volume_db = -10  # Настройте громкость
+	footstep_sound.max_distance = 20.0  # Максимальная дистанция звука
+	footstep_sound.unit_size = 1.0  # Масштаб звука (определяет затухание с расстоянием)
+
 func _physics_process(delta):
-	if not player or not player_camera or not nav_agent or not $maskeed/AnimationPlayer:
+	if not player or not player_camera or not nav_agent or not $maskeed/AnimationPlayer or not footstep_sound:
 		return
 	
 	# Добавляем гравитацию
@@ -100,12 +110,18 @@ func _physics_process(delta):
 		
 		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "run":
 			$maskeed/AnimationPlayer.play("run")
+		# Воспроизводим звук ходьбы, если враг движется
+		if velocity.length() > 0.1 and not footstep_sound.playing:
+			footstep_sound.play()
 	else:
 		# Остановка, если игрок виден или не был обнаружен
 		velocity.x = 0
 		velocity.z = 0
 		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "stand":
 			$maskeed/AnimationPlayer.play("stand")
+		# Останавливаем звук, если враг неподвижен
+		if footstep_sound.playing:
+			footstep_sound.stop()
 	
 	# Применяем движение
 	move_and_slide()
