@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c8vjv4hqxllrm"]
+[gd_scene load_steps=11 format=4 uid="uid://bqkj30obbdryg"]
 
 [ext_resource type="Script" path="res://Scripts/lil_bro.gd" id="1_kpaii"]
 [ext_resource type="Texture2D" uid="uid://b5rbmin3v7p7m" path="res://Assets/3Dmodels/LilBro_LilBroTexture.png" id="2_q8wf0"]

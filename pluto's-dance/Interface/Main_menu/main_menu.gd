@@ -1,11 +1,11 @@
 extends Control
 
 @onready var Settings = $B_Settings
-@onready var Play = $B_Settings
-@onready var Exit = $B_Settings
+@onready var Main = $Main
 
 func _ready():
 	Settings.visible = false
+	Main.visible = true
 
 
 func _on_play_pressed() -> void:
@@ -14,9 +14,7 @@ func _on_play_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	Settings.visible = true
-	Play.visible = false
-	$MarginContainer/VBoxContainer/Settings.visible = false
-	Exit.visible = false
+	Main.visible = false
 
 
 func _on_exit_pressed() -> void:
@@ -25,6 +23,4 @@ func _on_exit_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	Settings.visible = false
-	Play.visible = true
-	$MarginContainer/VBoxContainer/Settings.visible = true
-	Exit.visible = true
+	Main.visible = true

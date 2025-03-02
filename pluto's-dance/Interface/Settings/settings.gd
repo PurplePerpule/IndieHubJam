@@ -1,16 +1,21 @@
 extends Control
 
+@onready var fullscreen = $MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Fullscreen
+@onready var music = $MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Music
+@onready var volume = $MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Volume
+@onready var sensitivity = $MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer/Sensitivity
+
 
 func _ready() -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-		$MarginContainer/VBoxContainer/Fullscreen.button_pressed = true
+		fullscreen.button_pressed = true
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		
-	GlobalAudioServer.emit_signal("change_music", lerp(-40.0, 0.0, $MarginContainer/VBoxContainer/Music.value / 100.0))
-	GlobalAudioServer.emit_signal("change_volume", lerp(-40.0, 0.0, $MarginContainer/VBoxContainer/Volume.value / 100.0))
+	GlobalAudioServer.emit_signal("change_music", lerp(-40.0, 0.0, music.value / 100.0))
+	GlobalAudioServer.emit_signal("change_volume", lerp(-40.0, 0.0, volume.value / 100.0))
 	
-	Data.emit_signal("change_sensitivity", $MarginContainer/VBoxContainer/Sensitivity.value)
+	Data.emit_signal("change_sensitivity", sensitivity.value)
 
 
 func _on_volume_value_changed(value):

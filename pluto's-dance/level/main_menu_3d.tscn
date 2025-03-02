@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://i2kde50k0p61"]
+[gd_scene load_steps=11 format=3 uid="uid://i2kde50k0p61"]
 
 [ext_resource type="Texture2D" uid="uid://vm0ga47suw3g" path="res://Assets/ImageTexture/5339074005027647623_109.jpg" id="1_0akfc"]
 [ext_resource type="PackedScene" uid="uid://dlw2qbrlch71n" path="res://Assets/3Dmodels/UNVITAINpills.glb" id="2_63lrf"]
 [ext_resource type="PackedScene" uid="uid://d353je3vjs6m5" path="res://Assets/3Dmodels/TheHand.glb" id="3_u8gue"]
+[ext_resource type="PackedScene" uid="uid://bf7pdlktr7duo" path="res://Interface/Main_menu/Main_menu.tscn" id="4_0cho5"]
 
 [sub_resource type="Environment" id="Environment_bw3h6"]
 background_mode = 1
@@ -76,3 +77,5 @@ preprocess = 1.35
 speed_scale = 0.45
 process_material = SubResource("ParticleProcessMaterial_kr0ft")
 draw_pass_1 = SubResource("BoxMesh_hos6a")
+
+[node name="MainMenu" parent="." instance=ExtResource("4_0cho5")]
