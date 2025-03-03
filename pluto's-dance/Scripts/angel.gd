@@ -59,6 +59,12 @@ func _ready():
 	footstep_sound.max_distance = 20.0  # Максимальная дистанция звука
 	footstep_sound.unit_size = 1.0  # Масштаб звука (определяет затухание с расстоянием)
 
+	GlobalAudioServer.change_music.connect(change_music_f)
+	
+	
+func change_music_f(value):
+	$AudioStreamPlayer3D.volume_db = value + 15
+
 func _physics_process(delta):
 	if not player or not player_camera or not nav_agent or not $maskeed/AnimationPlayer or not footstep_sound:
 		return

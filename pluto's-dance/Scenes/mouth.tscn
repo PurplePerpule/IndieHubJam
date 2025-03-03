@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://cwu1kw63ye1x2"]
+[gd_scene load_steps=12 format=4 uid="uid://cwu1kw63ye1x2"]
 
 [ext_resource type="Script" path="res://Scripts/mouth.gd" id="1_u2eia"]
 [ext_resource type="Texture2D" uid="uid://0qad051iwvnj" path="res://Assets/3Dmodels/BigMouth_BigMouthTexture.png" id="1_wk0y7"]
+[ext_resource type="AudioStream" uid="uid://wnl6ix41tn1j" path="res://Assets/Sounds/Bites.ogg" id="3_85x4o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7wgj"]
 resource_name = "Material"
@@ -217,5 +218,6 @@ shape = SubResource("BoxShape3D_obfjv")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.342463, -2.75488)
+stream = ExtResource("3_85x4o")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

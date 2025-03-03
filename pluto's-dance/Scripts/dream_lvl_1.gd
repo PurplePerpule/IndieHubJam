@@ -5,6 +5,14 @@ extends Node3D
 func _ready() -> void:
 	$Narkoman/CloseEyes/Eyes.play_backwards("close")
 	$sounds/bee.playing = true
-
-func _on_music_detect_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.
+	
+	GlobalAudioServer.change_volume.connect(change_volume_f)
+	GlobalAudioServer.change_music.connect(change_music_f)
+	
+	
+func change_volume_f(value):
+	$sounds/bee.volume_db = value + 15
+	
+	
+func change_music_f(value):
+	$sounds/Happy.volume_db = value + 15

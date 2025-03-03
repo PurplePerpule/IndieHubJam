@@ -4,6 +4,18 @@ var state1 = false
 @export var state2 = true
 
 
+func _ready() -> void:
+	GlobalAudioServer.change_volume.connect(change_volume_f)
+	GlobalAudioServer.change_music.connect(change_music_f)
+	
+	
+func change_volume_f(value):
+	$sound/AudioStreamPlayer3D.volume_db = value + 15
+	$Unvitain/AudioStreamPlayer3D.volume_db = value + 15
+	
+	
+func change_music_f(value):
+	$sound/AudioStreamPlayer.volume_db = value + 15
 
 
 func _physics_process(delta: float) -> void:

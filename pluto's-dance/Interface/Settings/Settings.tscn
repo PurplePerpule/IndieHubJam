@@ -113,6 +113,6 @@ size_flags_horizontal = 3
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/Music" to="." method="_on_music_value_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/Sensitivity" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/Sensitivity" to="." method="_on_sensitivity_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Sensitivity" to="." method="_on_music_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]

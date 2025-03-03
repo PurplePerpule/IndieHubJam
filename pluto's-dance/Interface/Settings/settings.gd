@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func _on_volume_value_changed(value):
 	var volume_db = lerp(-40.0, 0.0, value / 100.0)  # Преобразуем значение ползунка в дБ
-	GlobalAudioServer.emit_signal("change_volume", value)
+	GlobalAudioServer.emit_signal("change_volume", volume_db)
 
 
 func _on_music_value_changed(value: float):
