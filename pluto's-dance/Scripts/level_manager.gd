@@ -34,9 +34,8 @@ func load_level(level_path: String):
 		get_tree().paused = false
 		return
 
-	# Удаляем все существующие дочерние узлы в root, кроме loading_screen (если нужно)
 	for child in get_tree().root.get_children():
-		if child != loading_screen and child != self:  # Не удаляем loading_screen и LevelManager
+		if child != loading_screen and child != self and !child.is_in_group("Persistent"):
 			child.queue_free()
 
 	# Добавляем новый уровень

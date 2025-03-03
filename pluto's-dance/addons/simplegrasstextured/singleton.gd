@@ -62,6 +62,7 @@ var _timer_debug : Timer = null
 
 
 func _ready() -> void:
+	add_to_group("Persistent")
 	if ProjectSettings.has_setting("SimpleGrassTextured/General/interactive_resolution"):
 		_RESOLUTION = ProjectSettings.get_setting_with_override("SimpleGrassTextured/General/interactive_resolution")
 	elif OS.get_name() == "Android" or OS.get_name() == "iOS":

@@ -133,8 +133,8 @@ func _physics_process(delta):
 		# Остановка, если игрок виден или не был обнаружен
 		velocity.x = 0
 		velocity.z = 0
-		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "stand":
-			$maskeed/AnimationPlayer.play("stand")
+		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "stay":
+			$maskeed/AnimationPlayer.play("stay")
 		# Останавливаем звук, если враг неподвижен
 		if footstep_sound.playing:
 			footstep_sound.stop()

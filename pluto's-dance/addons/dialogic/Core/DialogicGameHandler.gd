@@ -154,6 +154,7 @@ var Voice := preload("res://addons/dialogic/Modules/Voice/subsystem_voice.gd").n
 
 ## Autoloads are added first, so this happens REALLY early on game startup.
 func _ready() -> void:
+	add_to_group("Persistent")
 	_collect_subsystems()
 
 	clear()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/AudioServer.gd" id="1_6nqtm"]
 
-[node name="AudioServer" type="Control"]
+[node name="AudioServer" type="Control" groups=["Persistent"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

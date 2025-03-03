@@ -14,6 +14,7 @@ var settings_music
 
 
 func _ready():
+	add_to_group("Persistent")
 	change_volume.connect(change_volume_f)
 	change_music.connect(change_music_f)
 	

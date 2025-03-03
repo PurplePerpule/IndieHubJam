@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://docir2pddbnom" path="res://Assets/ImageTexture/image_2025-02-25_23-29-14.png" id="3_ryipu"]
 [ext_resource type="Texture2D" uid="uid://rkylk88utr8i" path="res://Assets/ImageTexture/image_2025-02-25_21-04-06.png" id="4_ytq81"]
 [ext_resource type="Texture2D" uid="uid://ddag4ase2cwm8" path="res://Assets/3Dmodels/PodvalStairs_StairsPodvalTexture.png" id="5_vb4ij"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/the_ball.tscn" id="5_vlp5r"]
+[ext_resource type="PackedScene" uid="uid://dwt4twunxb78q" path="res://Scenes/Objects/the_ball.tscn" id="5_vlp5r"]
 [ext_resource type="Texture2D" uid="uid://bdvgvlnhcvnjv" path="res://Assets/3Dmodels/Clumba_DefaultMaterial_2D_View.png" id="6_ugsby"]
 [ext_resource type="Texture2D" uid="uid://c6mx73obv3o5q" path="res://Assets/3Dmodels/CorridorPodval_CorridorTexture.png" id="8_vwbvg"]
 [ext_resource type="PackedScene" uid="uid://6brcxa6ous8v" path="res://Scenes/EnvObjects/podval_lamp.tscn" id="9_jo2k6"]

@@ -9,7 +9,7 @@ func _ready():
 
 
 func _on_play_pressed() -> void:
-	LevelManager.load_level("res://level/level_1.tscn")
+	LevelManager.load_level("res://Scenes/intro.tscn")
 
 
 func _on_settings_pressed() -> void:
