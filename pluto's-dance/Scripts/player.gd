@@ -46,7 +46,10 @@ var grass_walk = [
 
 var walking: bool = false
 var last_sound_index: int = -1
-var step_position: int = -1  # Начальная позиция
+var step_timer: float = 0.0  # Таймер для синхронизации шагов
+@export var step_interval: float = 1.3
+
+ # Интервал между шагами (в секундах, можно настроить)
 
 func _ready():
 	# Захват мыши
@@ -65,23 +68,16 @@ func _input(event):
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 		camera_pivot.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-		
-	if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
-		if not walking and is_on_floor():
-			walking = true
-			play_step_sound()
-	else:
-		walking = false
-		audio_player.stop()
-
 
 func _physics_process(delta):
 	# Добавляем гравитацию
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	else:
+		velocity.y = 0
 
 	# Прыжок
-	if Input.is_action_just_pressed("jump") and self.is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 
 	# Определяем, спринтим ли мы
@@ -120,6 +116,9 @@ func _physics_process(delta):
 	
 	update_camera_bob(delta)
 	
+	# Управление звуком шагов
+	handle_footsteps(delta)
+
 func update_camera_bob(delta):
 	if is_on_floor() and velocity.length() > 0.1:  # Покачивание только при движении на земле
 		bob_timer += delta * bob_frequency * (sprint_speed if is_sprinting else speed)
@@ -158,9 +157,25 @@ func throw_object():
 		held_object.apply_central_impulse(-camera.global_transform.basis.z * throw_force)
 		held_object = null
 		print("Thrown object")
+
+# Новая функция для управления звуками шагов
+func handle_footsteps(delta):
+	# Определяем, движется ли персонаж по земле
+	if is_on_floor() and velocity.length() > 0.1:
+		# Увеличиваем таймер шагов
+		step_timer += delta * (sprint_speed if is_sprinting else speed) / 2.0  # Ускоряем шаги при спринте
 		
+		# Проверяем, пора ли воспроизвести звук шага
+		if step_timer >= step_interval:
+			step_timer = 0.0  # Сбрасываем таймер
+			play_step_sound()
+	else:
+		# Останавливаем звук, если персонаж не движется или в воздухе
+		if audio_player.playing:
+			audio_player.stop()
+
 func play_step_sound():
-	if not walking or street_walk.is_empty():
+	if street_walk.is_empty():
 		return
 
 	var new_index: int = last_sound_index
@@ -171,16 +186,8 @@ func play_step_sound():
 	audio_player.stream = street_walk[new_index]
 	audio_player.play()
 
-	step_position *= -1
-	audio_player.position.x = step_position
-
-	await audio_player.finished
-	if walking:
-		play_step_sound()
-		
-		
 func change_sensitivity_f(value):
 	mouse_sensitivity = value 
-	
+
 func change_walk_volume(value):
 	$AudioStreamPlayer3D.volume_db = value + 15

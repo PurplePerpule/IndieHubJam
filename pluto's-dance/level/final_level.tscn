@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://cur30oits51xo"]
+[gd_scene load_steps=62 format=4 uid="uid://cur30oits51xo"]
 
 [ext_resource type="Texture2D" uid="uid://d1lsniniejtma" path="res://Assets/3Dmodels/Deadman_DeadmanTexture.png" id="1_cy08i"]
 [ext_resource type="Texture2D" uid="uid://vm0ga47suw3g" path="res://Assets/ImageTexture/5339074005027647623_109.jpg" id="1_ln7sg"]
@@ -507,6 +507,15 @@ _data = {
 "base": SubResource("Animation_mp686"),
 "dead": SubResource("Animation_rdxyx")
 }
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_454dh"]
+emission_shape_scale = Vector3(25, 0.01, 25)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3kt5v"]
+size = Vector3(0.01, 0.01, 0.01)
 
 [node name="final_level" type="Node3D"]
 script = ExtResource("1_v546b")
@@ -2845,6 +2854,14 @@ libraries = {
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 44.2414, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 202.898, 0.558668, 1.74672)
+amount = 2000
+lifetime = 3.0
+preprocess = 1.0
+process_material = SubResource("ParticleProcessMaterial_454dh")
+draw_pass_1 = SubResource("BoxMesh_3kt5v")
 
 [connection signal="body_entered" from="TheFace/finDial" to="TheFace/finDial" method="_on_body_entered"]
 [connection signal="body_entered" from="ChangeMusic" to="ChangeMusic" method="_on_body_entered"]

@@ -54,7 +54,7 @@ func _ready():
 		add_child(collision_shape)
 
 	# Настраиваем звук ходьбы
-	footstep_sound.stream = load("res://Assets/Sounds/brainless2.ogg")  # Замените на путь к звуковому файлу (например, шаги или скрежет)
+	footstep_sound.stream = load("res://Assets/Sounds/BlackPerson1.ogg")  # Замените на путь к звуковому файлу (например, шаги или скрежет)
 	footstep_sound.volume_db = -10  # Настройте громкость
 	footstep_sound.max_distance = 20.0  # Максимальная дистанция звука
 	footstep_sound.unit_size = 1.0  # Масштаб звука (определяет затухание с расстоянием)
