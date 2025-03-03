@@ -16,18 +16,25 @@ func _ready() -> void:
 	#GlobalAudioServer.emit_signal("change_volume", lerp(-40.0, 0.0, volume.value / 100.0))
 	
 	Data.emit_signal("change_sensitivity", sensitivity.value)
+	GlobalAudioServer.settings_volume = music.value
+	GlobalAudioServer.settings_music = volume.value
 	
 	GlobalAudioServer.get_sound.connect(get_value)
+	GlobalAudioServer.move_sliders.connect(move_sliders)
 
 
 func _on_volume_value_changed(value):
 	var volume_db = lerp(-40.0, 0.0, value / 100.0)  # Преобразуем значение ползунка в дБ
 	GlobalAudioServer.emit_signal("change_volume", volume_db)
+	
+	GlobalAudioServer.settings_volume = value
 
 
 func _on_music_value_changed(value: float):
 	var volume_db = lerp(-40.0, 0.0, value / 100.0)  # Преобразуем значение ползунка в дБ
 	GlobalAudioServer.emit_signal("change_music", volume_db)  # Передаем громкость в дБ
+	
+	GlobalAudioServer.settings_music = value
 
 
 func _on_fullscreen_toggled(toggled_on):
@@ -42,10 +49,15 @@ func _on_sensitivity_value_changed(value: float) -> void:
 	
 	
 func get_value():
-	print(123)
 	var music_db = lerp(-40.0, 0.0, music.value / 100.0)  # Преобразуем значение ползунка в дБ
 	GlobalAudioServer.emit_signal("change_music", music_db)  # Передаем громкость в дБ
 	
 	var volume_db = lerp(-40.0, 0.0, volume.value / 100.0)  # Преобразуем значение ползунка в дБ
 	GlobalAudioServer.emit_signal("change_volume", volume_db)
+	
+	
+func move_sliders():
+	music.value = GlobalAudioServer.settings_music
+	volume.value = GlobalAudioServer.settings_volume
+	
 	

@@ -5,7 +5,12 @@ signal change_music(value)
 
 signal get_sound()
 
+signal move_sliders()
+
 var test_settings = load("res://Assets/Sounds/StreetAmbient_normal.ogg") #переменная для теста настроек звука
+
+var settings_volume
+var settings_music
 
 
 func _ready():

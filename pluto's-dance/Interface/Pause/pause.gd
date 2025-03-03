@@ -25,6 +25,7 @@ func _on_continue_pressed() -> void:
 func _on_settings_pressed() -> void:
 	Settings.visible = true
 	Pause.visible = false
+	GlobalAudioServer.emit_signal("move_sliders")
 
 
 func _on_quit_pressed() -> void:
