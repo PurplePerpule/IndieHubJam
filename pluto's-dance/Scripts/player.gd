@@ -47,9 +47,7 @@ var grass_walk = [
 var walking: bool = false
 var last_sound_index: int = -1
 var step_timer: float = 0.0  # Таймер для синхронизации шагов
-@export var step_interval: float = 1.3
-
- # Интервал между шагами (в секундах, можно настроить)
+@export var step_interval: float = 1.3  # Интервал между шагами (в секундах, можно настроить)
 
 func _ready():
 	# Захват мыши
@@ -190,4 +188,4 @@ func change_sensitivity_f(value):
 	mouse_sensitivity = value 
 
 func change_walk_volume(value):
-	$AudioStreamPlayer3D.volume_db = value + 15
+	$AudioStreamPlayer3D.volume_db = value - 20  # Уменьшаем базовую громкость до -20 dB

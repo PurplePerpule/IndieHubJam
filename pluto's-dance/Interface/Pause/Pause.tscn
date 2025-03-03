@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo25b32fsy63x"]
+[gd_scene load_steps=4 format=3 uid="uid://bo25b32fsy63x"]
 
 [ext_resource type="Script" path="res://Interface/Pause/pause.gd" id="1_ymuvx"]
+[ext_resource type="FontFile" uid="uid://b3bglfvy1nlcn" path="res://Assets/Font/ofont.ru_X Typewriter.ttf" id="2_4whja"]
 [ext_resource type="PackedScene" uid="uid://dsvoanrsetrxb" path="res://Interface/Settings/Settings.tscn" id="2_ltg27"]
 
 [node name="Pause" type="Control"]
@@ -60,7 +61,8 @@ size_flags_vertical = 3
 
 [node name="continue" type="Button" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-text = "continue"
+theme_override_fonts/font = ExtResource("2_4whja")
+text = "Продолжить"
 
 [node name="MarginContainer4" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -71,7 +73,8 @@ size_flags_vertical = 3
 
 [node name="settings" type="Button" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
-text = "settings"
+theme_override_fonts/font = ExtResource("2_4whja")
+text = "Настройки"
 
 [node name="MarginContainer5" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -82,7 +85,8 @@ size_flags_vertical = 3
 
 [node name="quit" type="Button" parent="Pause Menu/VBoxContainer/HBoxContainer/VBoxContainer/MarginContainer3"]
 layout_mode = 2
-text = "quit"
+theme_override_fonts/font = ExtResource("2_4whja")
+text = "Выход"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Pause Menu/VBoxContainer/HBoxContainer"]
 layout_mode = 2

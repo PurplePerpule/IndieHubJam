@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bgc6vrpqxaqwt"]
+[gd_scene load_steps=3 format=3 uid="uid://c8nb7tsh76p3s"]
+
+[ext_resource type="FontFile" uid="uid://b3bglfvy1nlcn" path="res://Assets/Font/ofont.ru_X Typewriter.ttf" id="1_ge6np"]
+[ext_resource type="AudioStream" uid="uid://d2fmbgmjgf7yu" path="res://Assets/Sounds/brainless2.ogg" id="2_i40cg"]
 
 [node name="Titles" type="Control"]
 layout_mode = 3
@@ -7,6 +10,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -37,6 +49,7 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ge6np")
 text = "3D Design"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -48,6 +61,7 @@ size_flags_vertical = 3
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ge6np")
 text = "Fanshi"
 horizontal_alignment = 1
 
@@ -58,6 +72,7 @@ size_flags_vertical = 3
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer3"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ge6np")
 text = "Music & Sound"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -69,6 +84,7 @@ size_flags_vertical = 3
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer4"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ge6np")
 text = "Alpatyk"
 horizontal_alignment = 1
 
@@ -79,6 +95,7 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer5"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ge6np")
 text = "Programmer "
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -90,6 +107,7 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer6"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ge6np")
 text = "Purple, Point"
 horizontal_alignment = 1
 
@@ -100,6 +118,7 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer7"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ge6np")
 text = "Sources"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -111,6 +130,7 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer8"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_ge6np")
 text = "https://sketchfab.com/3d-models/psx-style-chain-fence-57d3e84f276d46c6b4bab1e502d9a4d5
 https://sketchfab.com/3d-models/low-poly-psx-road-2d49d5714d524214814dfac7cec834af
 https://sketchfab.com/3d-models/banco-no-estilo-de-ps1-9aecdbb725e84a1ab77642aa7767b383
@@ -121,3 +141,7 @@ horizontal_alignment = 1
 [node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_i40cg")
+autoplay = true
