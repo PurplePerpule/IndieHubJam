@@ -8,6 +8,7 @@ extends CharacterBody3D
 @export var speed_variation = 0.1  # Максимальная случайная вариация скорости (в процентах, 0.1 = ±10%)
 @export var avoid_distance = 1.5  # Минимальное расстояние между врагами, чтобы они не касались друг друга
 @export var detection_radius = 10.0  # Радиус зоны обнаружения игрока (в единицах)
+@export var checkpoint_node: NodePath  # Путь к узлу контрольной точки (например, Marker3D)
 
 var player: CharacterBody3D = null
 var player_camera: Camera3D = null
@@ -17,6 +18,7 @@ var random = RandomNumberGenerator.new()  # Генератор случайны�
 var player_once_detected = false  # Флаг, указывающий, что игрок был хотя бы раз обнаружен
 
 @onready var footstep_sound = $AudioStreamPlayer3D  # Ссылка на звук ходьбы
+@onready var checkpoint = get_node(checkpoint_node) if checkpoint_node else null  # Ссылка на контрольную точку
 
 func _ready():
 	add_to_group("weeping_angels")  # Добавляем врага в группу для проверки столкновений
@@ -24,6 +26,8 @@ func _ready():
 		player = get_node(player_node) as CharacterBody3D
 	if camera_node:
 		player_camera = get_node(camera_node) as Camera3D
+	if checkpoint_node and not checkpoint:
+		print("Warning: Checkpoint node not found at path ", checkpoint_node)
 	
 	if not player:
 		print("Warning: Player node not set!")
@@ -50,7 +54,7 @@ func _ready():
 		add_child(collision_shape)
 
 	# Настраиваем звук ходьбы
-	footstep_sound.stream = load("res://path_to_footstep_sound.wav")  # Замените на путь к звуковому файлу (например, шаги или скрежет)
+	footstep_sound.stream = load("res://Assets/Sounds/brainless2.ogg")  # Замените на путь к звуковому файлу (например, шаги или скрежет)
 	footstep_sound.volume_db = -10  # Настройте громкость
 	footstep_sound.max_distance = 20.0  # Максимальная дистанция звука
 	footstep_sound.unit_size = 1.0  # Масштаб звука (определяет затухание с расстоянием)
@@ -76,11 +80,16 @@ func _physics_process(delta):
 	var is_visible = is_in_camera_view(player_camera)
 	
 	if distance_to_player < catch_distance and not is_visible and (player_once_detected or distance_to_player <= detection_radius):
-		# Захват игрока
+		# Захват игрока и телепортация на контрольную точку
 		velocity = Vector3.ZERO
 		if not $maskeed/AnimationPlayer.is_playing() or $maskeed/AnimationPlayer.current_animation != "catch":
 			$maskeed/AnimationPlayer.play("catch")
 			print("Player caught!")
+			$"../Narkoman/CloseEyes/Eyes".play("close")
+			await get_tree().create_timer(1.1).timeout
+			teleport_player_to_checkpoint()
+			$"../Narkoman/CloseEyes/Eyes".play_backwards("close")
+			
 	elif not is_visible and player_once_detected:
 		# Движение к игроку с динамическим случайным отклонением пути (постоянное преследование после обнаружения)
 		var target_position = player.global_transform.origin
@@ -140,6 +149,12 @@ func avoid_other_angels() -> Vector3:
 				avoidance_force += push_away * (avoid_distance - distance) / avoid_distance  # Сила зависит от расстояния
 	
 	return avoidance_force
+
+# Телепортация игрока на контрольную точку
+func teleport_player_to_checkpoint():
+	if checkpoint and player:
+		player.global_transform.origin = checkpoint.global_transform.origin  # Телепортируем игрока
+		print("Player teleported to checkpoint at ", checkpoint.global_transform.origin)
 
 func is_obstructed(camera: Camera3D) -> bool:
 	var space_state = get_world_3d().direct_space_state

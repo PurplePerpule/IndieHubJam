@@ -16001,6 +16001,7 @@ path_variation = 4.0
 speed_variation = 2.0
 avoid_distance = 3.0
 detection_radius = 100.0
+checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel6" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(0.276526, 0, -0.961006, 0, 1, 0, 0.961006, 0, 0.276526, -1.54326, 0.834542, -13.1121)
@@ -16011,6 +16012,7 @@ path_variation = 4.0
 speed_variation = 2.0
 avoid_distance = 3.0
 detection_radius = 100.0
+checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel7" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(0.276526, 0, -0.961006, 0, 1, 0, 0.961006, 0, 0.276526, 54.0534, 0.834542, 61.3413)
@@ -16021,6 +16023,7 @@ path_variation = 4.0
 speed_variation = 2.0
 avoid_distance = 3.0
 detection_radius = 100.0
+checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel2" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6127, 1.2463, -98.4038)
@@ -16031,6 +16034,7 @@ path_variation = 4.0
 speed_variation = 2.0
 avoid_distance = 3.0
 detection_radius = 100.0
+checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel3" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.225, 1.05308, -104.232)
@@ -16041,6 +16045,7 @@ path_variation = 4.0
 speed_variation = 2.0
 avoid_distance = 3.0
 detection_radius = 100.0
+checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel4" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.376, 6.6227, 32.2355)
@@ -16051,6 +16056,7 @@ path_variation = 4.0
 speed_variation = 2.0
 avoid_distance = 3.0
 detection_radius = 100.0
+checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel5" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.667, 0.990879, -0.212524)
@@ -16061,6 +16067,7 @@ path_variation = 4.0
 speed_variation = 2.0
 avoid_distance = 3.0
 detection_radius = 100.0
+checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Light" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78555, 0, 0)
@@ -16255,8 +16262,10 @@ shape = SubResource("CylinderShape3D_vjadh")
 
 [node name="winert" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("13_b5qgt")
-volume_db = -36.317
 autoplay = true
+
+[node name="spawnpoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.118, 0.273307, 0.257948)
 
 [connection signal="body_entered" from="Kolodec/changelvl" to="Kolodec/changelvl" method="_on_body_entered"]
 
