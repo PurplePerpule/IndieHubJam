@@ -42,7 +42,7 @@ var grass_walk = [
 	load("res://Assets/Sounds/GrassStep5_Sound.mp3")
 ]
 
-@onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var audio_player = $AudioStreamPlayer3D
 
 var walking: bool = false
 var last_sound_index: int = -1
@@ -59,6 +59,9 @@ func _ready():
 	
 	Data.change_sensitivity.connect(change_sensitivity_f)
 	GlobalAudioServer.change_volume.connect(change_walk_volume)
+
+	GlobalAudioServer.emit_signal("get_sound")
+	
 
 func _input(event):
 	# Обработка только движения мыши
@@ -186,6 +189,6 @@ func play_step_sound():
 
 func change_sensitivity_f(value):
 	mouse_sensitivity = value 
-
+	
 func change_walk_volume(value):
-	$AudioStreamPlayer3D.volume_db = value - 20  # Уменьшаем базовую громкость до -20 dB
+	audio_player.volume_db = value + 7

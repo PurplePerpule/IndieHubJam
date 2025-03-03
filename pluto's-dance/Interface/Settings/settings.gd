@@ -12,10 +12,12 @@ func _ready() -> void:
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		
-	GlobalAudioServer.emit_signal("change_music", lerp(-40.0, 0.0, music.value / 100.0))
-	GlobalAudioServer.emit_signal("change_volume", lerp(-40.0, 0.0, volume.value / 100.0))
+	#GlobalAudioServer.emit_signal("change_music", lerp(-40.0, 0.0, music.value / 100.0))
+	#GlobalAudioServer.emit_signal("change_volume", lerp(-40.0, 0.0, volume.value / 100.0))
 	
 	Data.emit_signal("change_sensitivity", sensitivity.value)
+	
+	GlobalAudioServer.get_sound.connect(get_value)
 
 
 func _on_volume_value_changed(value):
@@ -37,3 +39,13 @@ func _on_fullscreen_toggled(toggled_on):
 
 func _on_sensitivity_value_changed(value: float) -> void:
 	Data.emit_signal("change_sensitivity", value / 135)
+	
+	
+func get_value():
+	print(123)
+	var music_db = lerp(-40.0, 0.0, music.value / 100.0)  # Преобразуем значение ползунка в дБ
+	GlobalAudioServer.emit_signal("change_music", music_db)  # Передаем громкость в дБ
+	
+	var volume_db = lerp(-40.0, 0.0, volume.value / 100.0)  # Преобразуем значение ползунка в дБ
+	GlobalAudioServer.emit_signal("change_volume", volume_db)
+	

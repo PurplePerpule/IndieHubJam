@@ -9,10 +9,12 @@ func _ready() -> void:
 	GlobalAudioServer.change_volume.connect(change_volume_f)
 	GlobalAudioServer.change_music.connect(change_music_f)
 	
+	GlobalAudioServer.emit_signal("get_sound")
+	
 	
 func change_volume_f(value):
-	$sounds/bee.volume_db = value + 15
+	$sounds/bee.volume_db = value + 7
 	
 	
 func change_music_f(value):
-	$sounds/Happy.volume_db = value + 15
+	$sounds/Happy.volume_db = value + 7

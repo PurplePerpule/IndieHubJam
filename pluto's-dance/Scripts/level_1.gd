@@ -8,14 +8,16 @@ func _ready() -> void:
 	GlobalAudioServer.change_volume.connect(change_volume_f)
 	GlobalAudioServer.change_music.connect(change_music_f)
 	
+	GlobalAudioServer.emit_signal("get_sound")
+	
 	
 func change_volume_f(value):
-	$sound/AudioStreamPlayer3D.volume_db = value + 15
-	$Unvitain/AudioStreamPlayer3D.volume_db = value + 15
+	$sound/AudioStreamPlayer3D.volume_db = value + 7
+	$Unvitain/AudioStreamPlayer3D.volume_db = value + 7
 	
 	
 func change_music_f(value):
-	$sound/AudioStreamPlayer.volume_db = value + 15
+	$sound/AudioStreamPlayer.volume_db = value + 7
 
 
 func _physics_process(delta: float) -> void:

@@ -48,10 +48,11 @@ func _ready():
 	audio_player.unit_size = 1.0  # Масштаб звука (определяет, как звук затухает с расстоянием)
 	
 	GlobalAudioServer.change_volume.connect(change_volume_f)
+	GlobalAudioServer.emit_signal("get_sound")
 	
 	
 func change_volume_f(value):
-	$AudioStreamPlayer3D.volume_db = value + 15
+	$AudioStreamPlayer3D.volume_db = value + 7
 
 
 func _physics_process(delta):
