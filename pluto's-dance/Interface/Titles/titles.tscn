@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://c8nb7tsh76p3s"]
+
+[node name="Titles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "3D Design"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Fanshi"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Music & Sound"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Alpatyk"
+horizontal_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Programmer "
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer6" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer6"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Purple, Point"
+horizontal_alignment = 1
+
+[node name="MarginContainer7" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer7"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Sources"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer8" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer8"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "https://sketchfab.com/3d-models/psx-style-chain-fence-57d3e84f276d46c6b4bab1e502d9a4d5
+https://sketchfab.com/3d-models/low-poly-psx-road-2d49d5714d524214814dfac7cec834af
+https://sketchfab.com/3d-models/banco-no-estilo-de-ps1-9aecdbb725e84a1ab77642aa7767b383
+https://sketchfab.com/3d-models/trash-can-lowpoly-psx-style-104e128524974c82b447d00ca5be5904
+https://sketchfab.com/3d-models/pine-tree-ps1-low-poly-d71ceeb303644e649d09fe8038aa5e47"
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
