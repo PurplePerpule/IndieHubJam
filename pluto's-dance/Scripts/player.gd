@@ -151,10 +151,13 @@ func interact_with_object():
 func pick_up_object(object):
 	held_object = object
 	held_object.freeze = false
+	if held_object:
+		held_object.pickable()
 	print("Picked up: ", held_object.name)
 
 func throw_object():
 	if held_object:
+		held_object.throw()
 		held_object.apply_central_impulse(-camera.global_transform.basis.z * throw_force)
 		held_object = null
 		print("Thrown object")

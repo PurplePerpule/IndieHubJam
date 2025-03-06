@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf7pdlktr7duo"]
+[gd_scene load_steps=5 format=3 uid="uid://bf7pdlktr7duo"]
 
 [ext_resource type="Script" path="res://Interface/Main_menu/main_menu.gd" id="1_i25sc"]
 [ext_resource type="PackedScene" uid="uid://dsvoanrsetrxb" path="res://Interface/Settings/Settings.tscn" id="2_ryrnp"]
+[ext_resource type="Texture2D" uid="uid://b4opaepchfqph" path="res://Assets/ImageTexture/UnvitainBunner.png" id="2_sby3h"]
 [ext_resource type="FontFile" uid="uid://b3bglfvy1nlcn" path="res://Assets/Font/ofont.ru_X Typewriter.ttf" id="2_yu70c"]
 
 [node name="MainMenu" type="Control"]
@@ -13,8 +14,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i25sc")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -363.54
+offset_right = 1280.0
+offset_bottom = -3.53998
+grow_vertical = 2
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("2_sby3h")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Main" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,8 +72,13 @@ size_flags_vertical = 3
 [node name="Play" type="Button" parent="Main/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_color = Color(0.808886, 0.723082, 3.85046e-07, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.466181, 0.466181, 0.466181, 1)
 theme_override_fonts/font = ExtResource("2_yu70c")
+action_mode = 0
 text = "Play"
+flat = true
 
 [node name="MarginContainer4" type="MarginContainer" parent="Main/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -71,8 +91,13 @@ size_flags_vertical = 3
 [node name="Settings" type="Button" parent="Main/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer2"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.721569, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.466667, 0.466667, 0.466667, 1)
 theme_override_fonts/font = ExtResource("2_yu70c")
+action_mode = 0
 text = "Settings"
+flat = true
 
 [node name="MarginContainer6" type="MarginContainer" parent="Main/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -85,8 +110,13 @@ size_flags_vertical = 3
 [node name="Exit" type="Button" parent="Main/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer3"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_color = Color(0.807843, 0.721569, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.466667, 0.466667, 0.466667, 1)
 theme_override_fonts/font = ExtResource("2_yu70c")
+action_mode = 0
 text = "Exit"
+flat = true
 
 [node name="MarginContainer7" type="MarginContainer" parent="Main/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -109,6 +139,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="B_Settings" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

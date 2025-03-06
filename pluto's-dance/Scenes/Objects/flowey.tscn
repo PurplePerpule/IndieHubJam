@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt4sf4ljw8m0n"]
+
+[ext_resource type="PackedScene" uid="uid://c8xc8a7aqkyg7" path="res://Assets/3Dmodels/flowey.glb" id="1_wv888"]
+
+[node name="flowey" instance=ExtResource("1_wv888")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

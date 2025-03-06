@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://dbstqm476pydy"]
 
-[ext_resource type="Script" path="res://Scripts/angel.gd" id="1_jgssq"]
+[ext_resource type="Script" uid="uid://bv6eg1qvojvio" path="res://Scripts/angel.gd" id="1_jgssq"]
 [ext_resource type="Texture2D" uid="uid://drfd1l142u51v" path="res://Assets/3Dmodels/maskeed_VillageMaskedTexture.png" id="2_qd0ji"]
 [ext_resource type="AudioStream" uid="uid://2nfn54ksmy6q" path="res://Assets/Sounds/BlackPerson1.ogg" id="3_kwqol"]
 
@@ -397,10 +397,10 @@ tracks/10/keys = PackedFloat32Array(0, 1, 1.86382e-09, -2.28875e-11, -0.0087853,
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i5fpu"]
 _data = {
-"base": SubResource("Animation_pjd8g"),
-"catch": SubResource("Animation_b26xc"),
-"run": SubResource("Animation_xdm4t"),
-"stay": SubResource("Animation_revo2")
+&"base": SubResource("Animation_pjd8g"),
+&"catch": SubResource("Animation_b26xc"),
+&"run": SubResource("Animation_xdm4t"),
+&"stay": SubResource("Animation_revo2")
 }
 
 [node name="Angel" type="CharacterBody3D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://cwu1kw63ye1x2"]
 
-[ext_resource type="Script" path="res://Scripts/mouth.gd" id="1_u2eia"]
+[ext_resource type="Script" uid="uid://dtlgvkx8evlv2" path="res://Scripts/mouth.gd" id="1_u2eia"]
 [ext_resource type="Texture2D" uid="uid://0qad051iwvnj" path="res://Assets/3Dmodels/BigMouth_BigMouthTexture.png" id="1_wk0y7"]
 [ext_resource type="AudioStream" uid="uid://wnl6ix41tn1j" path="res://Assets/Sounds/Bites.ogg" id="3_85x4o"]
 
@@ -148,9 +148,9 @@ tracks/3/keys = PackedFloat32Array(0, 1, 0.066981, -9.96999e-14, -3.19391e-08, 0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vit5h"]
 _data = {
-"OMOMOMOM": SubResource("Animation_cbycv"),
-"base": SubResource("Animation_ela4e"),
-"idle": SubResource("Animation_hjg87")
+&"OMOMOMOM": SubResource("Animation_cbycv"),
+&"base": SubResource("Animation_ela4e"),
+&"idle": SubResource("Animation_hjg87")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obfjv"]

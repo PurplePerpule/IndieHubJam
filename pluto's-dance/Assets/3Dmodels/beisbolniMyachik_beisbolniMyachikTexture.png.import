@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxjni3cc51rea"
+uid="uid://b6o1wiqkgdns"
 path.s3tc="res://.godot/imported/beisbolniMyachik_beisbolniMyachikTexture.png-3120f6f9fa4efea61b2eef205cc08631.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "17633d675473b6ba519a282ac5eeaf3b"
 }
 
 [deps]

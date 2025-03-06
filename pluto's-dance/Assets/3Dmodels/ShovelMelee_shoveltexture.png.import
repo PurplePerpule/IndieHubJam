@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4xtjb8ltklwk"
+uid="uid://d4nmtnnvco1c8"
 path.s3tc="res://.godot/imported/ShovelMelee_shoveltexture.png-f4579e6d9c132b713f3ee3e55bd16be2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "840ec09388d26fda694a6b6ac83589df"
 }
 
 [deps]

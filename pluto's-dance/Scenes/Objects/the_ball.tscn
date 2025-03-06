@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://dwt4twunxb78q"]
+[gd_scene load_steps=9 format=4 uid="uid://dwt4twunxb78q"]
 
 [ext_resource type="Texture2D" uid="uid://bxjni3cc51rea" path="res://Assets/3Dmodels/beisbolniMyachik_beisbolniMyachikTexture.png" id="1_66rc3"]
+[ext_resource type="Script" uid="uid://blk8hn5wvungc" path="res://Scripts/the_ball.gd" id="1_jwgeo"]
+[ext_resource type="Shader" uid="uid://dmb8iusf22irl" path="res://Shaders/outline.gdshader" id="3_02uvv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_248dp"]
 resource_name = "Material"
@@ -42,13 +44,28 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bpr7l")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15wr0"]
+render_priority = 0
+shader = ExtResource("3_02uvv")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 2.455
+shader_parameter/shine_width = 3.0
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_xv44l"]
 radius = 0.837251
 
 [node name="The_ball" type="RigidBody3D" groups=["pickable"]]
+script = ExtResource("1_jwgeo")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_35fn4")
+skeleton = NodePath("")
+
+[node name="Cube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_15wr0")
 mesh = SubResource("ArrayMesh_35fn4")
 skeleton = NodePath("")
 

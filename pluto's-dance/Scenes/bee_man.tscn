@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=4 uid="uid://bhorhy4x4jiej"]
 
 [ext_resource type="Texture2D" uid="uid://b43atb36q63cl" path="res://Assets/3Dmodels/beeman_BeemanTexture.png" id="1_ncapo"]
-[ext_resource type="Script" path="res://Scripts/bee_man.gd" id="1_qf54e"]
+[ext_resource type="Script" uid="uid://cmd5ivf5png6y" path="res://Scripts/bee_man.gd" id="1_qf54e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mohsb"]
 resource_name = "Material"
@@ -490,11 +490,11 @@ tracks/10/keys = PackedFloat32Array(0, 1, -6.52254e-16, 4.09395e-15, 7.19043e-15
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lejcr"]
 _data = {
-"base": SubResource("Animation_v2shd"),
-"dontknow": SubResource("Animation_b4j3c"),
-"idle": SubResource("Animation_m0dtk"),
-"somethingwrong": SubResource("Animation_1d77r"),
-"whatsthat": SubResource("Animation_lbnq4")
+&"base": SubResource("Animation_v2shd"),
+&"dontknow": SubResource("Animation_b4j3c"),
+&"idle": SubResource("Animation_m0dtk"),
+&"somethingwrong": SubResource("Animation_1d77r"),
+&"whatsthat": SubResource("Animation_lbnq4")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7881"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=110 format=4 uid="uid://dslaereaty86l"]
+[gd_scene load_steps=111 format=4 uid="uid://dslaereaty86l"]
 
-[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_ilp6b"]
+[ext_resource type="Script" uid="uid://bclwxns5xubiv" path="res://Scripts/level_1.gd" id="1_ilp6b"]
 [ext_resource type="PackedScene" uid="uid://cj8dnjv708wua" path="res://Scenes/narkoman.tscn" id="1_xj3b3"]
 [ext_resource type="Texture2D" uid="uid://csn4bkgqhaxae" path="res://Assets/3Dmodels/Pereulok_MolchatDoma.png" id="2_3ob31"]
 [ext_resource type="Texture2D" uid="uid://dwpraq3myfw3i" path="res://Assets/3Dmodels/Kozirek_MolchatDoma.png" id="3_7u3rq"]
@@ -29,10 +29,11 @@
 [ext_resource type="AudioStream" uid="uid://yqqpovg27ko3" path="res://Assets/Sounds/Unvitain.ogg" id="26_n8mtk"]
 [ext_resource type="Texture2D" uid="uid://bb8jkf2tcdvmb" path="res://Assets/3Dmodels/PipeBigAngle_textursatone.png" id="26_qfbii"]
 [ext_resource type="Texture2D" uid="uid://ddyitrthsaj8x" path="res://Assets/3Dmodels/Pipe_PipeForSubmTexture.png" id="27_a7ulq"]
-[ext_resource type="Script" path="res://Scripts/kocheli.gd" id="30_op1jl"]
+[ext_resource type="Script" uid="uid://dyfxc521p80a1" path="res://Scripts/kocheli.gd" id="30_op1jl"]
 [ext_resource type="Texture2D" uid="uid://cxcgajr6cnasc" path="res://Assets/3Dmodels/Kocheli_KacheliTexture.png" id="31_7jwyq"]
 [ext_resource type="AudioStream" uid="uid://h4xuktwrgl1a" path="res://Assets/Sounds/Kacheli.ogg" id="32_321gw"]
 [ext_resource type="AudioStream" uid="uid://v6edr6qsgc3" path="res://Assets/Sounds/StreetAmbient_normal.ogg" id="33_l5xiu"]
+[ext_resource type="PackedScene" uid="uid://c43lbh5tnx0ia" path="res://Scenes/Objects/beer.tscn" id="34_l0khy"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8ie6h"]
 agent_radius = 0.1
@@ -752,8 +753,8 @@ tracks/0/keys = PackedFloat32Array(0, 1, -0.706501, 0.0292537, 0.706502, 0.02925
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8pon"]
 _data = {
-"base_001": SubResource("Animation_sh1uc"),
-"flowing": SubResource("Animation_mtngk")
+&"base_001": SubResource("Animation_sh1uc"),
+&"flowing": SubResource("Animation_mtngk")
 }
 
 [node name="Level1" type="Node3D"]
@@ -915,7 +916,7 @@ light_energy = 0.565
 shadow_enabled = true
 
 [node name="PodvalLamp2" parent="NavigationRegion3D/Env_obj/LightObj" instance=ExtResource("9_jo2k6")]
-transform = Transform3D(-0.265, 4.00139e-08, 0, -4.00139e-08, -0.265, 0, 0, 0, 0.265, -12.9444, -0.817664, 0.365415)
+transform = Transform3D(-0.265, 4.00139e-08, 0, -4.00139e-08, -0.265, 0, 0, 0, 0.265, -12.9444, -0.817664, -3.35205)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/Env_obj/LightObj/PodvalLamp2"]
 transform = Transform3D(3.77359, -5.68434e-14, 0, 5.68434e-14, 3.77359, 0, 0, 0, 3.77359, -0.00616074, 1.28452, -0.0314696)
@@ -924,7 +925,7 @@ light_energy = 0.565
 shadow_enabled = true
 
 [node name="PodvalLamp4" parent="NavigationRegion3D/Env_obj/LightObj" instance=ExtResource("9_jo2k6")]
-transform = Transform3D(-0.265, 4.00139e-08, 0, -4.00139e-08, -0.265, 0, 0, 0, 0.265, -12.9444, -0.817664, -5.32308)
+transform = Transform3D(-0.265, 4.00139e-08, 0, -4.00139e-08, -0.265, 0, 0, 0, 0.265, -11.6191, -0.817664, -7.85686)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/Env_obj/LightObj/PodvalLamp4"]
 transform = Transform3D(3.77359, -5.68434e-14, 0, 5.68434e-14, 3.77359, 0, 0, 0, 3.77359, -0.00616074, 1.28452, -0.0314696)
@@ -1032,7 +1033,7 @@ light_energy = 0.565
 shadow_enabled = true
 
 [node name="PodvalLamp3" parent="NavigationRegion3D/Env_obj/LightObj" instance=ExtResource("9_jo2k6")]
-transform = Transform3D(-0.265, 4.00139e-08, 0, -4.00139e-08, -0.265, 0, 0, 0, 0.265, -16.1022, -0.817664, 0.365415)
+transform = Transform3D(-0.265, 4.00139e-08, 0, -4.00139e-08, -0.265, 0, 0, 0, 0.265, -12.6942, -0.817664, 0.365415)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/Env_obj/LightObj/PodvalLamp3"]
 transform = Transform3D(3.77359, -5.68434e-14, 0, 5.68434e-14, 3.77359, 0, 0, 0, 3.77359, -0.00616074, 1.28452, -0.0314696)
@@ -1900,7 +1901,7 @@ shape = SubResource("ConcavePolygonShape3D_3kdks")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Kocheli"]
 libraries = {
-"": SubResource("AnimationLibrary_i8pon")
+&"": SubResource("AnimationLibrary_i8pon")
 }
 
 [node name="sound" type="Node3D" parent="."]
@@ -1914,6 +1915,9 @@ autoplay = true
 stream = ExtResource("33_l5xiu")
 volume_db = -17.94
 autoplay = true
+
+[node name="beer" parent="." instance=ExtResource("34_l0khy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1666, 0.650371, -3.96197)
 
 [editable path="NavigationRegion3D/Sketchfab_Scene10"]
 [editable path="Narkoman"]

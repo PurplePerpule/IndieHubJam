@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://c43lbh5tnx0ia"]
+[gd_scene load_steps=9 format=4 uid="uid://c43lbh5tnx0ia"]
 
 [ext_resource type="Texture2D" uid="uid://c8i1px3pu2cc" path="res://Assets/3Dmodels/BeerPivo_beerpivo.png" id="1_qygaw"]
+[ext_resource type="Script" path="res://Scenes/Objects/beer.gd" id="1_wk6fu"]
+[ext_resource type="Shader" uid="uid://dmb8iusf22irl" path="res://Shaders/outline.gdshader" id="2_iqljn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtonf"]
 resource_name = "Material.006"
@@ -42,14 +44,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2ewa2")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk6fu"]
+render_priority = 0
+shader = ExtResource("2_iqljn")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 1.03
+shader_parameter/shine_speed = 3.0
+shader_parameter/shine_width = 51.661
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pmbsv"]
 height = 0.764871
 radius = 0.240835
 
-[node name="beer" type="RigidBody3D"]
+[node name="beer" type="RigidBody3D" groups=["pickable"]]
+script = ExtResource("1_wk6fu")
 
 [node name="Cube_006" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.175, 0, 0, 0, 0.175, 0, 0, 0, 0.175, 0, 0, 0)
+mesh = SubResource("ArrayMesh_l8kbw")
+skeleton = NodePath("")
+
+[node name="Cube_007" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.175, 0, 0, 0, 0.175, 0, 0, 0, 0.175, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_wk6fu")
 mesh = SubResource("ArrayMesh_l8kbw")
 skeleton = NodePath("")
 

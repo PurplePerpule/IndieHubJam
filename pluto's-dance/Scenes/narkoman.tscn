@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cj8dnjv708wua"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_xk75l"]
-[ext_resource type="Shader" path="res://Shaders/pixelShd.gdshader" id="2_k2f55"]
+[ext_resource type="Script" uid="uid://j408xuwsvknj" path="res://Scripts/player.gd" id="1_xk75l"]
+[ext_resource type="Shader" uid="uid://d1j3i6ybjslaq" path="res://Shaders/pixelShd.gdshader" id="2_k2f55"]
 [ext_resource type="PackedScene" uid="uid://bo25b32fsy63x" path="res://Interface/Pause/Pause.tscn" id="3_qqnwf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrd5i"]
@@ -132,9 +132,9 @@ resource_name = "open"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0coqd"]
 _data = {
-"RESET": SubResource("Animation_p46al"),
-"close": SubResource("Animation_mfdhk"),
-"open": SubResource("Animation_6hcxf")
+&"RESET": SubResource("Animation_p46al"),
+&"close": SubResource("Animation_mfdhk"),
+&"open": SubResource("Animation_6hcxf")
 }
 
 [node name="Narkoman" type="CharacterBody3D"]
@@ -197,6 +197,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CloseEyes" type="Control" parent="."]
 z_index = -3
@@ -226,7 +227,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Eyes" type="AnimationPlayer" parent="CloseEyes"]
 libraries = {
-"": SubResource("AnimationLibrary_0coqd")
+&"": SubResource("AnimationLibrary_0coqd")
 }
 
 [node name="Pause" parent="." instance=ExtResource("3_qqnwf")]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://dewxghwhk0c7r"]
+[gd_scene load_steps=12 format=4 uid="uid://dewxghwhk0c7r"]
 
 [ext_resource type="Texture2D" uid="uid://b0i8iqdpowput" path="res://Assets/3Dmodels/flowey_FlowerTexture.png" id="1_ie4vw"]
-[ext_resource type="Script" path="res://Scenes/Objects/yellow_flower.gd" id="1_lt0vo"]
+[ext_resource type="Script" uid="uid://d2t2cjrbvwjdp" path="res://Scenes/Objects/yellow_flower.gd" id="1_lt0vo"]
+[ext_resource type="Shader" uid="uid://dmb8iusf22irl" path="res://Shaders/outline.gdshader" id="3_53ju8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h53kb"]
 resource_name = "Material"
@@ -43,19 +44,74 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1tl4j")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btjbd"]
+render_priority = 0
+shader = ExtResource("3_53ju8")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 2.0
+shader_parameter/shine_speed = 1.578
+shader_parameter/shine_width = 1.0
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qw0d0"]
 radius = 0.218039
-height = 0.719998
+height = 1.59909
+
+[sub_resource type="Animation" id="Animation_0lh85"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00889724, 0.902744, 0.0210917)]
+}
+
+[sub_resource type="Animation" id="Animation_po4iu"]
+resource_name = "up"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector3(0.00889724, 0.902744, 0.0210917), Vector3(0.00889724, 0.70373, 0.0210917)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5sdaq"]
+_data = {
+&"RESET": SubResource("Animation_0lh85"),
+&"up": SubResource("Animation_po4iu")
+}
 
 [node name="YellowFlower" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0599473, 0.582033, 0)
 script = ExtResource("1_lt0vo")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, 0.0681816, -0.348121, 0.0210917)
+transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, 0.00889724, 0.902744, 0.0210917)
+mesh = SubResource("ArrayMesh_jq0id")
+skeleton = NodePath("")
+
+[node name="Cube2" type="MeshInstance3D" parent="Cube"]
+material_override = SubResource("ShaderMaterial_btjbd")
 mesh = SubResource("ArrayMesh_jq0id")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0267678, -0.274106, 0.0510976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.787148, 0)
 shape = SubResource("CapsuleShape3D_qw0d0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5sdaq")
+}

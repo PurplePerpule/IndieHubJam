@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://bqkj30obbdryg"]
 
-[ext_resource type="Script" path="res://Scripts/lil_bro.gd" id="1_kpaii"]
+[ext_resource type="Script" uid="uid://bj7j6jwtbn8tr" path="res://Scripts/lil_bro.gd" id="1_kpaii"]
 [ext_resource type="Texture2D" uid="uid://b5rbmin3v7p7m" path="res://Assets/3Dmodels/LilBro_LilBroTexture.png" id="2_q8wf0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6v37"]
@@ -95,9 +95,9 @@ tracks/1/keys = PackedFloat32Array(0, 1, 0.00445513, -1.13035e-05, 0.0074904, 0.
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hop6n"]
 _data = {
-"base": SubResource("Animation_00f4s"),
-"idle": SubResource("Animation_e20eo"),
-"lookup": SubResource("Animation_qsno6")
+&"base": SubResource("Animation_00f4s"),
+&"idle": SubResource("Animation_e20eo"),
+&"lookup": SubResource("Animation_qsno6")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a60th"]

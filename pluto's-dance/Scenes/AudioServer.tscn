@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxlqrlaroy0i4"]
 
-[ext_resource type="Script" path="res://Scripts/AudioServer.gd" id="1_6nqtm"]
+[ext_resource type="Script" uid="uid://bgnkmcuvo88yx" path="res://Scripts/AudioServer.gd" id="1_6nqtm"]
 
 [node name="AudioServer" type="Control" groups=["Persistent"]]
 layout_mode = 3

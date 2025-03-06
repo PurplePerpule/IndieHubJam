@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://ci8xlmpgfr10p"]
 
-[ext_resource type="Script" path="res://Scripts/door.gd" id="1_n4600"]
+[ext_resource type="Script" uid="uid://d0id8ewmuq072" path="res://Scripts/door.gd" id="1_n4600"]
 [ext_resource type="Texture2D" uid="uid://cidfvurg3f3pg" path="res://Assets/3Dmodels/Door_DoorTexture.png" id="2_fowri"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78tup"]
@@ -62,8 +62,8 @@ tracks/0/keys = PackedFloat32Array(0, 1, -0.707884, 0, 0, 0.706328, 0.0333333, 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m213i"]
 _data = {
-"close": SubResource("Animation_lvhsj"),
-"open": SubResource("Animation_2wxbu")
+&"close": SubResource("Animation_lvhsj"),
+&"open": SubResource("Animation_2wxbu")
 }
 
 [node name="Door" type="Node3D"]

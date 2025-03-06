@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://i2kde50k0p61"]
+[gd_scene load_steps=12 format=3 uid="uid://i2kde50k0p61"]
 
-[ext_resource type="Texture2D" uid="uid://vm0ga47suw3g" path="res://Assets/ImageTexture/5339074005027647623_109.jpg" id="1_0akfc"]
 [ext_resource type="PackedScene" uid="uid://dlw2qbrlch71n" path="res://Assets/3Dmodels/UNVITAINpills.glb" id="2_63lrf"]
-[ext_resource type="PackedScene" uid="uid://d353je3vjs6m5" path="res://Assets/3Dmodels/TheHand.glb" id="3_u8gue"]
+[ext_resource type="PackedScene" uid="uid://bt4sf4ljw8m0n" path="res://Scenes/Objects/flowey.tscn" id="3_l6mb8"]
+[ext_resource type="Shader" uid="uid://d1j3i6ybjslaq" path="res://Shaders/pixelShd.gdshader" id="3_u1uxt"]
 [ext_resource type="PackedScene" uid="uid://bf7pdlktr7duo" path="res://Interface/Main_menu/Main_menu.tscn" id="4_0cho5"]
+[ext_resource type="AudioStream" uid="uid://dy6n5m4ydxg35" path="res://Assets/Sounds/Unvita.ogg" id="5_e5dl0"]
 
 [sub_resource type="Environment" id="Environment_bw3h6"]
 background_mode = 1
@@ -12,13 +13,11 @@ tonemap_exposure = 0.33
 tonemap_white = 4.2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4ala"]
-albedo_texture = ExtResource("1_0akfc")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ceeba"]
-albedo_texture = ExtResource("1_0akfc")
-uv1_triplanar = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1uxt"]
+albedo_color = Color(0, 0, 0, 1)
+uv2_scale = Vector3(1.68, 1.68, 1.68)
+uv2_offset = Vector3(0, -0.165, 0)
+uv2_triplanar = true
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kr0ft"]
 emission_shape = 6
@@ -26,6 +25,7 @@ emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
 emission_ring_radius = 1.0
 emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
 direction = Vector3(0, 0, 0)
 gravity = Vector3(0, 0.2, 0)
 
@@ -36,38 +36,40 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_av5j8")
 size = Vector3(0.01, 0.01, 0.01)
 
-[node name="Main_menu_3d" type="Node3D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5dl0"]
+shader = ExtResource("3_u1uxt")
+shader_parameter/shake = 0.0
+shader_parameter/noiseQuality = 250.0
+shader_parameter/noiseIntensity = 0.0
+shader_parameter/offsetIntensity = 0.0
+shader_parameter/colorOffsetIntensity = 0.01
+shader_parameter/pixelSize = 460.0
+shader_parameter/grainIntensity = 0.0
+shader_parameter/use_overlay = false
+shader_parameter/use_lens_distortion = false
+shader_parameter/overlay_color = Color(1, 1, 1, 10)
+shader_parameter/lens_distortion_strength = 0.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.472125, -0.54356, 0.694003, -0.164624, 0.719054, 0.675174, 0, 0, 0)
-light_energy = 0.885
-shadow_enabled = true
+[node name="Main_menu_3d" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bw3h6")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11502, 0, 2.51389)
-material_override = SubResource("StandardMaterial3D_h4ala")
-size = Vector3(16.6924, 1, 13.7534)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.00669, 4.54561, -4.74011)
-material_override = SubResource("StandardMaterial3D_ceeba")
-size = Vector3(16.5942, 8.44179, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11502, 0, -8.35874)
+material_override = SubResource("StandardMaterial3D_u1uxt")
+size = Vector3(16.6924, 1, 35.4987)
 
 [node name="UNVITAINpills" parent="." instance=ExtResource("2_63lrf")]
-transform = Transform3D(0.0073287, -0.0043114, -0.179799, 0.104134, 0.146818, 0.000723986, 0.146637, -0.104047, 0.00847194, 6.31364, 0.768674, -4.0359)
-
-[node name="TheHand" parent="." instance=ExtResource("3_u8gue")]
-transform = Transform3D(-0.999199, -0.038998, -0.00901775, -0.0305964, 0.598888, 0.800248, -0.0258075, 0.799883, -0.599601, 7.71344, 4.04029, 0.980146)
+transform = Transform3D(-0.00313951, 0.000109634, -0.179972, 0.00628191, 0.17989, 0, 0.179863, -0.00628094, -0.00314142, 5.823, 0.728, -5.357)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.02349, 0, -2.43871)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.965926, -0.14473, 0.214571, 0, 0.829038, 0.559193, -0.258819, -0.540139, 0.800789, 6.305, 1.604, -3.027)
-fov = 61.7
+transform = Transform3D(0.983571, 0, 0.180519, 0, 1, 0, -0.180519, 0, 0.983571, 5.81, 1.229, -3.12)
+fov = 69.7
+far = 11.17
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.985, 0.76, -3.954)
@@ -78,4 +80,44 @@ speed_scale = 0.45
 process_material = SubResource("ParticleProcessMaterial_kr0ft")
 draw_pass_1 = SubResource("BoxMesh_hos6a")
 
+[node name="PixelShader" type="ColorRect" parent="."]
+z_index = -5
+material = SubResource("ShaderMaterial_e5dl0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="MainMenu" parent="." instance=ExtResource("4_0cho5")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.321886, 0.946779, 0, -0.946779, 0.321886, 5.73434, 5.96707, -4.93825)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 9.865
+spot_attenuation = 0.84
+spot_angle = 23.37
+spot_angle_attenuation = 0.0441942
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="SpotLight3D"]
+transform = Transform3D(1, 0, 0, 0, -0.0383879, -0.999263, 0, 0.999263, -0.0383879, 0, 0.0864296, -2.2498)
+transparency = 0.76
+radius = 3.011
+height = 9.68652
+sides = 64
+cone = true
+
+[node name="flowey" parent="." instance=ExtResource("3_l6mb8")]
+transform = Transform3D(-0.507819, 0, -0.24768, 0, 0.565, 0, 0.24768, 0, -0.507819, 6.224, 0.917, -6.171)
+
+[node name="flowey2" parent="." instance=ExtResource("3_l6mb8")]
+transform = Transform3D(-0.564979, 0.00164585, -0.00464774, 0, 0.532592, 0.188601, 0.00493055, 0.188594, -0.532572, 6.019, 0.712, -6.171)
+
+[node name="flowey3" parent="." instance=ExtResource("3_l6mb8")]
+transform = Transform3D(-0.243239, -0.170228, 0.48071, 0, 0.532592, 0.188601, -0.509961, 0.0811947, -0.229287, 6.069, 1.007, -6.171)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_e5dl0")
+autoplay = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://wissyko8ennj"]
 
-[ext_resource type="Script" path="res://eyes.gd" id="1_cpjd0"]
+[ext_resource type="Script" uid="uid://c5ev81kp1w6hx" path="res://eyes.gd" id="1_cpjd0"]
 [ext_resource type="Texture2D" uid="uid://70sjd4xtge21" path="res://Assets/3Dmodels/Eye_EyeTexture.png" id="2_svpwp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtau3"]

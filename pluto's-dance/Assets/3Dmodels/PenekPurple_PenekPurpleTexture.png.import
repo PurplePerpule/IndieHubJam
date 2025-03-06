@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgidem1rmngdo"
+uid="uid://c4vvpihluntfy"
 path.s3tc="res://.godot/imported/PenekPurple_PenekPurpleTexture.png-c42138f814a9d9f714dd8c78ed16c24e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "f689fc14198d8da582bd07753878df3c"
 }
 
 [deps]

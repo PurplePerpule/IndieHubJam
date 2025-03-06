@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://ches5qnmyotv5"]
+[gd_scene load_steps=12 format=4 uid="uid://ches5qnmyotv5"]
 
 [ext_resource type="Texture2D" uid="uid://c1bdkktwirvio" path="res://Assets/3Dmodels/UNVITAINpills_UnvitainPillsTexture.png" id="1_lq2iy"]
-[ext_resource type="Script" path="res://Scripts/unvitain.gd" id="1_wn6gp"]
+[ext_resource type="Script" uid="uid://7yhvmdyind6q" path="res://Scripts/unvitain.gd" id="1_wn6gp"]
+[ext_resource type="Shader" uid="uid://dmb8iusf22irl" path="res://Shaders/outline.gdshader" id="3_1gyr3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5lnof"]
 resource_name = "Material"
@@ -38,6 +39,14 @@ bind/1/name = &"Bone.002"
 bind/1/bone = -1
 bind/1/pose = Transform3D(1, 1.4644e-17, 6.50325e-33, 2.08967e-09, -1.98025e-12, -1, -1.86265e-09, 1, 4.44089e-16, -0.0216605, -1.37176, -0.217036)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vnqg6"]
+render_priority = 0
+shader = ExtResource("3_1gyr3")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 3.0
+shader_parameter/shine_width = 3.0
+
 [sub_resource type="Animation" id="Animation_yidl6"]
 resource_name = "base"
 length = 0.0416667
@@ -62,8 +71,8 @@ tracks/0/keys = PackedFloat32Array(0, 1, -5.06075e-08, 0.769456, -2.22553, 0.033
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rvlnw"]
 _data = {
-"base": SubResource("Animation_yidl6"),
-"open": SubResource("Animation_heiki")
+&"base": SubResource("Animation_yidl6"),
+&"open": SubResource("Animation_heiki")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vix40"]
@@ -98,9 +107,14 @@ bones/1/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_vs7ds")
 skin = SubResource("Skin_l2262")
 
+[node name="Cube2" type="MeshInstance3D" parent="UNVITAINpills/Armature/Skeleton3D"]
+material_override = SubResource("ShaderMaterial_vnqg6")
+mesh = SubResource("ArrayMesh_vs7ds")
+skin = SubResource("Skin_l2262")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UNVITAINpills"]
 libraries = {
-"": SubResource("AnimationLibrary_rvlnw")
+&"": SubResource("AnimationLibrary_rvlnw")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
