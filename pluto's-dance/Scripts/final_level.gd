@@ -12,3 +12,6 @@ func _ready() -> void:
 func change_music_f(value):
 	$sound/final.volume_db = value + 7
 	$sound/hunt.volume_db = value + 7
+
+func sound_start():
+	$Sound/heart.playing = true

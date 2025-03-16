@@ -137,7 +137,7 @@ _data = {
 &"open": SubResource("Animation_6hcxf")
 }
 
-[node name="Narkoman" type="CharacterBody3D"]
+[node name="Narkoman" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_xk75l")
 speed = 3.0
 sprint_speed = 6.0

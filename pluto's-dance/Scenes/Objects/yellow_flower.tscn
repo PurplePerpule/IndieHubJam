@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://dewxghwhk0c7r"]
+[gd_scene load_steps=12 format=4 uid="uid://23ap47tiw3ot"]
 
 [ext_resource type="Texture2D" uid="uid://b0i8iqdpowput" path="res://Assets/3Dmodels/flowey_FlowerTexture.png" id="1_ie4vw"]
-[ext_resource type="Script" uid="uid://d2t2cjrbvwjdp" path="res://Scenes/Objects/yellow_flower.gd" id="1_lt0vo"]
+[ext_resource type="Script" path="res://Scenes/Objects/yellow_flower.gd" id="1_lt0vo"]
 [ext_resource type="Shader" uid="uid://dmb8iusf22irl" path="res://Shaders/outline.gdshader" id="3_53ju8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h53kb"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bf7pdlktr7duo"]
 
-[ext_resource type="Script" path="res://Interface/Main_menu/main_menu.gd" id="1_i25sc"]
+[ext_resource type="Script" uid="uid://dbyy87x0h4er8" path="res://Interface/Main_menu/main_menu.gd" id="1_i25sc"]
 [ext_resource type="PackedScene" uid="uid://dsvoanrsetrxb" path="res://Interface/Settings/Settings.tscn" id="2_ryrnp"]
 [ext_resource type="Texture2D" uid="uid://b4opaepchfqph" path="res://Assets/ImageTexture/UnvitainBunner.png" id="2_sby3h"]
 [ext_resource type="FontFile" uid="uid://b3bglfvy1nlcn" path="res://Assets/Font/ofont.ru_X Typewriter.ttf" id="2_yu70c"]
@@ -76,6 +76,7 @@ theme_override_colors/font_color = Color(0.808886, 0.723082, 3.85046e-07, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.466181, 0.466181, 0.466181, 1)
 theme_override_fonts/font = ExtResource("2_yu70c")
+theme_override_font_sizes/font_size = 35
 action_mode = 0
 text = "Play"
 flat = true
@@ -95,6 +96,7 @@ theme_override_colors/font_color = Color(0.807843, 0.721569, 0, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.466667, 0.466667, 0.466667, 1)
 theme_override_fonts/font = ExtResource("2_yu70c")
+theme_override_font_sizes/font_size = 30
 action_mode = 0
 text = "Settings"
 flat = true
@@ -114,6 +116,7 @@ theme_override_colors/font_color = Color(0.807843, 0.721569, 0, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.466667, 0.466667, 0.466667, 1)
 theme_override_fonts/font = ExtResource("2_yu70c")
+theme_override_font_sizes/font_size = 25
 action_mode = 0
 text = "Exit"
 flat = true

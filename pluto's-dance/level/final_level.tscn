@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cur30oits51xo"]
+[gd_scene load_steps=12 format=3 uid="uid://boxcviyw614ll"]
 
 [ext_resource type="Texture2D" uid="uid://vm0ga47suw3g" path="res://Assets/ImageTexture/5339074005027647623_109.jpg" id="1_ln7sg"]
 [ext_resource type="Script" uid="uid://dverjylbxjrp7" path="res://Scripts/final_level.gd" id="1_v546b"]
@@ -35,14 +35,15 @@ script = ExtResource("1_v546b")
 [node name="Floor" type="Node3D" parent="EnvObj"]
 
 [node name="plot3" type="CSGBox3D" parent="EnvObj/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.9085, 0.0245762, 0.181748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.9085, 0.0245762, -13.0618)
 material_override = SubResource("StandardMaterial3D_lo2re")
 use_collision = true
-size = Vector3(350, 1, 350)
+size = Vector3(350, 1, 138.701)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.756071, 0, -0.65449, 0, 1, 0, 0.65449, 0, 0.756071, -132.775, 25.4311, 0)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 51.6302
 sides = 6
@@ -50,6 +51,7 @@ sides = 6
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -128.399, 17.7611, 0.889)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 44.1768
 sides = 6
@@ -57,6 +59,7 @@ sides = 6
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -128.923, 18.3707, 5.8803)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 44.4303
 sides = 6
@@ -64,6 +67,7 @@ sides = 6
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -128.399, 17.5951, 10.3673)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 41.3428
 sides = 6
@@ -71,6 +75,7 @@ sides = 6
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -126.933, 16.3724, 14.5822)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 36.4259
 sides = 6
@@ -78,13 +83,87 @@ sides = 6
 [node name="CSGCylinder3D9" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -126.083, 16.7971, -3.03797)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 39.3753
+sides = 6
+
+[node name="CSGCylinder3D18" type="CSGCylinder3D" parent="EnvObj/Floor"]
+transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -125.474, 9.86221, 0.0494518)
+material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
+radius = 1.53223
+height = 25.5055
+sides = 6
+
+[node name="CSGCylinder3D19" type="CSGCylinder3D" parent="EnvObj/Floor"]
+transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -126.416, 15.1061, 3.68477)
+material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
+radius = 1.53223
+height = 35.9933
+sides = 6
+
+[node name="CSGCylinder3D20" type="CSGCylinder3D" parent="EnvObj/Floor"]
+transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -126.243, 12.1304, 7.96112)
+material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
+radius = 1.53223
+height = 30.0419
+sides = 6
+
+[node name="CSGCylinder3D21" type="CSGCylinder3D" parent="EnvObj/Floor"]
+transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -124.29, 9.93755, 15.235)
+material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
+radius = 1.53223
+height = 25.6562
+sides = 6
+
+[node name="CSGCylinder3D22" type="CSGCylinder3D" parent="EnvObj/Floor"]
+transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -116.214, 6.44123, 18.2123)
+material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
+radius = 1.53223
+height = 18.6636
+sides = 6
+
+[node name="CSGCylinder3D23" type="CSGCylinder3D" parent="EnvObj/Floor"]
+transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -119.985, 5.82001, -5.7963)
+material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
+radius = 1.53223
+height = 17.4211
+sides = 6
+
+[node name="CSGCylinder3D24" type="CSGCylinder3D" parent="EnvObj/Floor"]
+transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -123.117, 3.61864, -3.43982)
+material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
+radius = 2.83154
+height = 17.4211
+sides = 6
+
+[node name="CSGCylinder3D25" type="CSGCylinder3D" parent="EnvObj/Floor"]
+transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -126.398, -0.541854, 3.86495)
+material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
+radius = 3.56055
+height = 13.5201
+sides = 6
+
+[node name="CSGCylinder3D26" type="CSGCylinder3D" parent="EnvObj/Floor"]
+transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -121.031, -1.35011, 17.4335)
+material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
+radius = 3.56055
+height = 11.9036
 sides = 6
 
 [node name="CSGCylinder3D10" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -122.705, 15.3415, -6.09117)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 32.8175
 sides = 6
@@ -92,6 +171,7 @@ sides = 6
 [node name="CSGCylinder3D11" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -118.96, 12.106, -8.78961)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 30.6798
 sides = 6
@@ -99,6 +179,7 @@ sides = 6
 [node name="CSGCylinder3D12" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -114.503, 10.8648, -8.49977)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 26.6248
 sides = 6
@@ -106,6 +187,7 @@ sides = 6
 [node name="CSGCylinder3D13" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -110.263, 8.6409, -6.65101)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 22.529
 sides = 6
@@ -113,6 +195,7 @@ sides = 6
 [node name="CSGCylinder3D15" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -107.302, 6.49049, -2.9155)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 18.2984
 sides = 6
@@ -120,6 +203,7 @@ sides = 6
 [node name="CSGCylinder3D17" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -104.08, 5.11902, -1.28012)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 1.4209
 height = 15.5554
 sides = 6
@@ -127,6 +211,7 @@ sides = 6
 [node name="CSGCylinder3D16" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -108.839, 5.35801, 14.7599)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 16.3908
 sides = 6
@@ -134,6 +219,7 @@ sides = 6
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -122.93, 14.0881, 17.5475)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 31.1452
 sides = 6
@@ -141,6 +227,7 @@ sides = 6
 [node name="CSGCylinder3D7" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -118.714, 11.7978, 19.1391)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 2.58252
 height = 28.5747
 sides = 6
@@ -148,6 +235,7 @@ sides = 6
 [node name="CSGCylinder3D8" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -114.724, 10.2743, 19.4043)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 1.93359
 height = 25.3455
 sides = 6
@@ -155,6 +243,7 @@ sides = 6
 [node name="CSGCylinder3D14" type="CSGCylinder3D" parent="EnvObj/Floor"]
 transform = Transform3D(0.944949, 0, 0.327218, 0, 1, 0, -0.327218, 0, 0.944949, -112.086, 6.46823, 17.217)
 material_override = SubResource("StandardMaterial3D_li435")
+use_collision = true
 radius = 1.99268
 height = 21.8501
 sides = 6
@@ -176,7 +265,7 @@ shadow_enabled = true
 environment = ExtResource("7_g4dcn")
 
 [node name="Narkoman" parent="." instance=ExtResource("4_kvcp1")]
-transform = Transform3D(-0.0129674, 0, 0.999916, 0, 1, 0, -0.999916, 0, -0.0129674, -110.416, 43.6092, -0.485177)
+transform = Transform3D(-0.0129674, 0, 0.999916, 0, 1, 0, -0.999916, 0, -0.0129674, -114.407, 9.08088, 5.6606)
 
 [node name="sound" type="Node3D" parent="."]
 
@@ -200,7 +289,7 @@ draw_pass_1 = SubResource("BoxMesh_3kt5v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.081, 1.90735e-06, 5.23593)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Light"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.78909, 36.1505, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33995, 36.1505, 0)
 light_color = Color(0.637999, 0, 0.042202, 1)
 light_energy = 16.0
 light_indirect_energy = 0.0

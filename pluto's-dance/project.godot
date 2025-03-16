@@ -82,6 +82,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/simp
 pickable=""
 interactive=""
 Persistent=""
+player=""
 
 [input]
 
