@@ -6,7 +6,7 @@ extends Node3D
 @export var shake_amplitude = 0.1  # Амплитуда тряски
 @export var shake_frequency = 10.0  # Частота тряски
 
-@onready var mesh = $CSGCylinder3D51  # Ссылка на модель колонны
+@onready var mesh = $CSGCylinder3D17  # Ссылка на модель колонны
 @onready var area = $Area3D  # Ссылка на триггер
 @onready var audio = $AudioStreamPlayer3D  # Ссылка на аудиоплеер
 

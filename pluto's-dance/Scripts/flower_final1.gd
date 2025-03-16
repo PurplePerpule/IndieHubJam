@@ -30,9 +30,8 @@ func interact():
 			player_shader_material.set_shader_parameter("colorOffsetIntensity", 1.5)  # Красный оттенок
 			player_shader_material.set_shader_parameter("grainIntensity", 1.0)
 			player_shader_material.set_shader_parameter("lens_distortion_strength", 0.1)
-			$"../../MoveWAll/Column49".queue_free()
-			$"../../MoveWAll/Column48".queue_free()
-			$"../../MoveWAll/Column47".queue_free()
+			$"../../MoveWAll/Column71".queue_free()
+			$"../../MoveWAll/Column72".queue_free()
 			$CollisionShape3D.disabled = true
 			await get_tree().create_timer(0.1).timeout
 			player_shader_material.set_shader_parameter("grainIntensity", 0.0)
