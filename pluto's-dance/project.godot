@@ -40,7 +40,8 @@ directories/dtl_directory={
 "GoGoGo": "res://Dialogs/GoGoGo.dtl",
 "HelpBeeMan": "res://Dialogs/HelpBeeMan.dtl",
 "LilBroQuest": "res://Dialogs/LilBroQuest.dtl",
-"WaitFlowers": "res://Dialogs/WaitFlowers.dtl"
+"WaitFlowers": "res://Dialogs/WaitFlowers.dtl",
+"door": "res://Dialogs/door.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogs/BeeManStyle.tres", "res://Dialogs/LilBroStyle.tres", "res://Dialogs/HEadStyle.tres"]

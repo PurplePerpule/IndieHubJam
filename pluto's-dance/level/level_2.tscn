@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ci8xlmpgfr10p" path="res://Scenes/EnvObjects/door.tscn" id="6_afww1"]
 [ext_resource type="Texture2D" uid="uid://csbtusdpaa8t4" path="res://Assets/3Dmodels/PodvalRoom2_PodvalRoom2Texture.png" id="7_5b7y4"]
 [ext_resource type="Texture2D" uid="uid://bhdndb1gf0fq2" path="res://Assets/ImageTexture/snow.png" id="8_vaujk"]
-[ext_resource type="PackedScene" path="res://Scenes/angel.tscn" id="9_xdwa3"]
+[ext_resource type="PackedScene" uid="uid://ccsecjscdb5vo" path="res://Scenes/angel.tscn" id="9_xdwa3"]
 [ext_resource type="PackedScene" uid="uid://dagmc6rdik262" path="res://Scenes/EnvObjects/oldlamp.tscn" id="10_7ttt2"]
 [ext_resource type="PackedScene" uid="uid://bld26fm5wm1im" path="res://Assets/3Dmodels/Kolodec.glb" id="11_t3htn"]
 [ext_resource type="Script" path="res://level/changelvl2-f.gd" id="12_fbsg8"]
@@ -16255,6 +16255,7 @@ shape = SubResource("CylinderShape3D_vjadh")
 
 [node name="winert" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("13_b5qgt")
+volume_db = -20.0
 autoplay = true
 
 [node name="spawnpoint" type="Marker3D" parent="."]

@@ -10,6 +10,6 @@ func _on_body_entered(body: Node3D) -> void:
 		
 func final():
 	Dialogic.timeline_ended.connect(final)
-	$"../../StaticBody3D/CollisionShape3D".disabled = true
-	$"../AnimationPlayer".play("end")
+	$"../partlest/TheFace/StaticBody3D/CollisionShape3D".disabled = true
+	$"../partlest/TheFace/AnimationPlayer".play("end")
 	

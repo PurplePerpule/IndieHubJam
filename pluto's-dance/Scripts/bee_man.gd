@@ -62,3 +62,8 @@ func ended():
 	end = true
 	$AnimationTree.set("parameters/quest_completed/transition_request", "True")
 	$AnimationTree.set("parameters/why?/transition_request", "False")
+
+func unvitain():
+	$beeman/Armature/Skeleton3D/BoneAttachment3D/Unvitain.visible = true
+	await get_tree().create_timer(1.0).timeout
+	$beeman/Armature/Skeleton3D/BoneAttachment3D/Unvitain.visible = false
