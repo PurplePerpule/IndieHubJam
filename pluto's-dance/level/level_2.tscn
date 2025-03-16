@@ -15994,7 +15994,7 @@ shadow_bias = 0.01
 
 [node name="Angel" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(0.276526, 0, -0.961006, 0, 1, 0, 0.961006, 0, 0.276526, -1.54326, 0.834542, 23.8366)
-move_speed = 10.0
+move_speed = 9.0
 player_node = NodePath("../Narkoman")
 camera_node = NodePath("../Narkoman/CameraPivot/Camera")
 path_variation = 4.0
@@ -16004,7 +16004,7 @@ checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel6" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(0.276526, 0, -0.961006, 0, 1, 0, 0.961006, 0, 0.276526, -1.54326, 0.834542, -13.1121)
-move_speed = 10.0
+move_speed = 9.0
 player_node = NodePath("../Narkoman")
 camera_node = NodePath("../Narkoman/CameraPivot/Camera")
 path_variation = 4.0
@@ -16014,7 +16014,7 @@ checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel7" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(0.276526, 0, -0.961006, 0, 1, 0, 0.961006, 0, 0.276526, 54.0534, 0.834542, 61.3413)
-move_speed = 10.0
+move_speed = 9.0
 player_node = NodePath("../Narkoman")
 camera_node = NodePath("../Narkoman/CameraPivot/Camera")
 path_variation = 4.0
@@ -16024,7 +16024,7 @@ checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel2" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6127, 1.2463, -98.4038)
-move_speed = 10.0
+move_speed = 9.0
 player_node = NodePath("../Narkoman")
 camera_node = NodePath("../Narkoman/CameraPivot/Camera")
 path_variation = 4.0
@@ -16034,17 +16034,7 @@ checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel3" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.225, 1.05308, -104.232)
-move_speed = 10.0
-player_node = NodePath("../Narkoman")
-camera_node = NodePath("../Narkoman/CameraPivot/Camera")
-path_variation = 4.0
-avoid_distance = 3.0
-detection_radius = 100.0
-checkpoint_node = NodePath("../spawnpoint")
-
-[node name="Angel4" parent="." instance=ExtResource("9_xdwa3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.376, 6.6227, 32.2355)
-move_speed = 10.0
+move_speed = 9.0
 player_node = NodePath("../Narkoman")
 camera_node = NodePath("../Narkoman/CameraPivot/Camera")
 path_variation = 4.0
@@ -16054,7 +16044,7 @@ checkpoint_node = NodePath("../spawnpoint")
 
 [node name="Angel5" parent="." instance=ExtResource("9_xdwa3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.667, 0.990879, -0.212524)
-move_speed = 10.0
+move_speed = 9.0
 player_node = NodePath("../Narkoman")
 camera_node = NodePath("../Narkoman/CameraPivot/Camera")
 path_variation = 4.0

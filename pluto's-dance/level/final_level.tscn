@@ -1579,7 +1579,7 @@ height = 21.8501
 sides = 6
 
 [node name="Mouth" parent="." instance=ExtResource("2_l50kx")]
-transform = Transform3D(-0.0155678, 0, -0.999879, 0, 1, 0, 0.999879, 0, -0.0155678, 175.937, 92.4456, -22.42)
+transform = Transform3D(-0.0233517, 0, -1.49982, 0, 1.5, 0, 1.49982, 0, -0.0233517, 175.937, 92.4456, -22.42)
 move_speed = 7.0
 player_node = NodePath("../Narkoman")
 catch_distance = 2.0
@@ -1609,6 +1609,9 @@ detection_range = 20.0
 bones/1/rotation = Quaternion(-0.295233, -2.27791e-07, 7.03891e-08, 0.955425)
 bones/2/rotation = Quaternion(0.352137, -2.23147e-07, -8.39561e-08, 0.935948)
 bones/3/rotation = Quaternion(0.0148397, -2.38393e-07, -3.53805e-09, 0.99989)
+
+[node name="Cube" parent="Mouth2/BigMouth/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0, 0, 2.97934)
 
 [node name="AudioStreamPlayer3D" parent="Mouth2" index="2"]
 volume_db = 30.0
@@ -1648,6 +1651,7 @@ attenuation_filter_cutoff_hz = 1957.0
 
 [node name="heart" type="AudioStreamPlayer" parent="sound"]
 stream = ExtResource("9_kxwlb")
+volume_db = -10.0
 autoplay = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
@@ -3986,7 +3990,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 335.922, 90.894, -19.844)
 script = ExtResource("21_2tvkr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2076, 2.77487, 0.707458)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8161, 2.77487, 0.707458)
 shape = SubResource("BoxShape3D_2tvkr")
 
 [connection signal="body_entered" from="part2/Area3D" to="part2/Area3D" method="_on_body_entered"]
