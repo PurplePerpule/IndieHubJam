@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=4 uid="uid://wj12aqtq5aph"]
+[gd_scene load_steps=114 format=4 uid="uid://wj12aqtq5aph"]
 
 [ext_resource type="Script" uid="uid://bclwxns5xubiv" path="res://Scripts/level_1.gd" id="1_ilp6b"]
 [ext_resource type="PackedScene" uid="uid://cj8dnjv708wua" path="res://Scenes/narkoman.tscn" id="1_xj3b3"]
@@ -687,6 +687,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fgrh7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1sh3p"]
+size = Vector3(3.29697, 1.60815, 0.446687)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppk33"]
+size = Vector3(3.29697, 1.73218, 5.52594)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l0khy"]
 size = Vector3(3.29697, 2.2915, 10.0392)
@@ -1871,12 +1877,12 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="Trubs/pipe2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trubs/pipe2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14848, -0.12561, -0.00318909)
-shape = SubResource("BoxShape3D_l0khy")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14848, -0.467285, -0.106415)
+shape = SubResource("BoxShape3D_1sh3p")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Trubs/pipe2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14848, 0.748513, 6.40321)
-shape = SubResource("BoxShape3D_l0khy")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14848, 0.46885, 8.65983)
+shape = SubResource("BoxShape3D_ppk33")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Trubs/pipe2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.910019, 7.88825, 1.84822)
