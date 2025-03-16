@@ -9,7 +9,7 @@ albedo_texture = ExtResource("3_d16ys")
 uv1_triplanar = true
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0pk2v"]
-height = 4.36594
+height = 2.58135
 radius = 7.85889
 
 [node name="Column" type="Node3D"]

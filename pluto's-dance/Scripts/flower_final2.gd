@@ -23,6 +23,7 @@ func interact():
 		$"../../sound/painfulScream".playing = true
 		use = true
 		visible = false
+		$"../../Narkoman".global_transform.origin = $"../../part2/Marker3D".global_transform.origin
 		# Изменяем параметры шейдера игрока при взаимодействии
 		if player_shader_material:
 			player_shader_material.set_shader_parameter("shake", 0.5)  # Увеличиваем тряску
@@ -31,11 +32,9 @@ func interact():
 			player_shader_material.set_shader_parameter("grainIntensity", 1.0)
 			player_shader_material.set_shader_parameter("lens_distortion_strength", 0.1)
 			$CollisionShape3D.disabled = true
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(0.4).timeout
 			player_shader_material.set_shader_parameter("grainIntensity", 0.0)
 			# Опционально: возвращаем параметры через время
 			await get_tree().create_timer(10.0).timeout
 			player_shader_material.set_shader_parameter("shake", 0.00)
 			player_shader_material.set_shader_parameter("overlay_color", Color(1.0, 1.0, 1.0, 1.0))
-			player_shader_material.set_shader_parameter("colorOffsetIntensity", 0.0)
-			player_shader_material.set_shader_parameter("lens_distortion_strength", 0.0)

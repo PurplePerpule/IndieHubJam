@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://c8taveyqqiegx"]
+[gd_scene load_steps=10 format=4 uid="uid://c8taveyqqiegx"]
 
 [ext_resource type="PackedScene" uid="uid://oa5jcps8xad" path="res://Assets/3Dmodels/Orb.glb" id="1_4tb7o"]
 [ext_resource type="Script" uid="uid://b333vpmdvoapq" path="res://Scripts/orbAnim.gd" id="2_gn4ky"]
 [ext_resource type="Texture2D" uid="uid://c1a2khvebd0xy" path="res://Assets/3Dmodels/Orb_OrbTexture.png" id="2_r3x0a"]
-[ext_resource type="AudioStream" uid="uid://bbi8q16prhqw3" path="res://Assets/Sounds/HeartBoosted.ogg" id="3_gn4ky"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3w5g"]
 resource_name = "Material"
@@ -90,10 +89,7 @@ script = ExtResource("2_gn4ky")
 [node name="Cube" parent="." index="0"]
 mesh = SubResource("ArrayMesh_25wf1")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1"]
-stream = ExtResource("3_gn4ky")
-
-[node name="Animationorb" type="AnimationPlayer" parent="." index="2"]
+[node name="Animationorb" type="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_s0yq8")
 }

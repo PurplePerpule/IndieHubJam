@@ -20,7 +20,13 @@ var current_state = State.WANDERING  # Начальное состояние —
 var wander_target = Vector3.ZERO  # Текущая цель для блуждания
 var time_to_new_wander = 0.0  # Таймер для смены точки блуждания
 
+var player_shader_material: ShaderMaterial
+
 func _ready():
+	var playershd = get_tree().get_first_node_in_group("player")
+	if playershd:
+		# Получаем материал шейдера из ColorRect внутри CanvasLayer
+		player_shader_material = playershd.get_node("Crossfire/PixelShader").material
 	if player_node:
 		player = get_node(player_node) as CharacterBody3D
 	
@@ -195,3 +201,15 @@ func teleport_player_to_checkpoint():
 	if checkpoint and player:
 		player.global_transform.origin = checkpoint.global_transform.origin
 		print("Player teleported to checkpoint at ", checkpoint.global_transform.origin)
+		if player_shader_material:
+			player_shader_material.set_shader_parameter("shake", 0.5)  # Увеличиваем тряску
+			player_shader_material.set_shader_parameter("overlay_color", Color(1.0, 0.0, 0.0, 0.8))
+			player_shader_material.set_shader_parameter("colorOffsetIntensity", 1.5)  # Красный оттенок
+			player_shader_material.set_shader_parameter("grainIntensity", 1.0)
+			player_shader_material.set_shader_parameter("lens_distortion_strength", 0.1)
+			await get_tree().create_timer(0.5).timeout
+			player_shader_material.set_shader_parameter("grainIntensity", 0.0)
+			# Опционально: возвращаем параметры через время
+			await get_tree().create_timer(10.0).timeout
+			player_shader_material.set_shader_parameter("shake", 0.00)
+			player_shader_material.set_shader_parameter("overlay_color", Color(1.0, 1.0, 1.0, 1.0))
