@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://boxcviyw614ll"]
+[gd_scene load_steps=22 format=4 uid="uid://boxcviyw614ll"]
 
 [ext_resource type="Texture2D" uid="uid://vm0ga47suw3g" path="res://Assets/ImageTexture/5339074005027647623_109.jpg" id="1_ln7sg"]
 [ext_resource type="Script" uid="uid://dverjylbxjrp7" path="res://Scripts/final_level.gd" id="1_v546b"]
@@ -9,9 +9,12 @@
 [ext_resource type="Environment" uid="uid://c275gbv8a42r0" path="res://Scenes/env/finlvl.tres" id="7_g4dcn"]
 [ext_resource type="AudioStream" uid="uid://d2fmbgmjgf7yu" path="res://Assets/Sounds/brainless2.ogg" id="8_ls7w8"]
 [ext_resource type="PackedScene" uid="uid://23ap47tiw3ot" path="res://Scenes/Objects/yellow_flower.tscn" id="9_edath"]
+[ext_resource type="AudioStream" uid="uid://bbi8q16prhqw3" path="res://Assets/Sounds/HeartBoosted.ogg" id="9_kxwlb"]
+[ext_resource type="PackedScene" uid="uid://c8taveyqqiegx" path="res://Scenes/orb.tscn" id="10_oqyc4"]
 [ext_resource type="Script" uid="uid://3rotd8sjo3ke" path="res://Scripts/flower_final.gd" id="10_uw7ey"]
 [ext_resource type="Script" uid="uid://b4uny3mpfr4ct" path="res://Scripts/flower_final1.gd" id="11_uw7ey"]
 [ext_resource type="Script" uid="uid://cvy6fcu45iomf" path="res://Scripts/flower_final2.gd" id="12_1cabf"]
+[ext_resource type="PackedScene" uid="uid://cocxm1ails2xb" path="res://Scenes/kysok_meat.tscn" id="15_oqyc4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo2re"]
 albedo_texture = ExtResource("1_ln7sg")
@@ -1532,6 +1535,10 @@ panning_strength = 2.05
 emission_angle_enabled = true
 attenuation_filter_cutoff_hz = 1957.0
 
+[node name="heart" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("9_kxwlb")
+autoplay = true
+
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.016, 0.558668, -0.736463)
 amount = 2000
@@ -1661,6 +1668,9 @@ spot_range = 18.314
 spot_attenuation = -0.33
 spot_angle = 14.6881
 
+[node name="Orb" parent="Light" instance=ExtResource("10_oqyc4")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.793983, 35.7504, 0.278356)
+
 [node name="Flowers" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.4929, -0.158226, 5.42188)
 
@@ -1690,5 +1700,56 @@ script = ExtResource("12_1cabf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93094, 0)
 light_color = Color(0.929297, 0.72715, 0.178972, 1)
 omni_attenuation = -0.343
+
+[node name="VisualObj" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.673, -4.76837e-07, 4.27647)
+
+[node name="KysokMeat" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(0.873942, 6.06187e-09, -0.48603, 0.137845, 0.958939, 0.247862, 0.466073, -0.283614, 0.838057, -6.18152, -0.18261, 8.63538)
+
+[node name="KysokMeat2" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(0.218422, 0.214659, -0.951953, 0.137845, 0.958939, 0.247862, 0.96607, -0.18536, 0.179864, -6.8073, -0.18261, 6.10378)
+
+[node name="KysokMeat3" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.0535691, 0.505817, -0.860976, 0.157604, 0.85569, 0.492906, 0.986049, -0.109288, -0.125557, -4.53037, -0.18261, -4.51336)
+
+[node name="KysokMeat4" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.515905, 0.496957, -0.697765, 0.157604, 0.85569, 0.492906, 0.842024, 0.144322, -0.519777, -0.7379, -0.18261, -9.23693)
+
+[node name="KysokMeat5" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.985722, 0.166282, 0.0265107, 0.157604, 0.85569, 0.492906, 0.0592765, 0.490046, -0.869679, 4.3622, -0.18261, -10.3556)
+
+[node name="KysokMeat6" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.967968, 0.232655, -0.0943907, 0.157604, 0.85569, 0.492906, 0.195446, 0.462241, -0.864948, 1.25228, -0.18261, -9.70365)
+
+[node name="KysokMeat7" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.753932, -0.218102, 0.619693, 0.157604, 0.85569, 0.492906, -0.637768, 0.469283, -0.610758, 7.22639, -0.18261, -9.50392)
+
+[node name="KysokMeat8" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.49888, -0.0328824, 0.866047, 0.334928, 0.91433, 0.227649, -0.799338, 0.403633, -0.445128, 10.173, -0.839955, -5.90141)
+
+[node name="KysokMeat9" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.49888, -0.0328825, 0.866047, 0.843178, 0.212674, 0.493782, -0.200422, 0.97657, -0.0783729, 14.6195, 0.0942047, -5.43449)
+
+[node name="KysokMeat10" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(0.957847, 0, 0.287277, 0, 1, 0, -0.287277, 0, 0.957847, 5.21043, 0.0942047, 13.5746)
+
+[node name="KysokMeat11" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(0.845764, 0.510273, -0.155898, -0.501819, 0.860013, 0.0924994, 0.181274, 0, 0.983433, 1.67584, 0.440514, 13.2131)
+
+[node name="KysokMeat12" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.16873, 0.985662, 0, -0.985662, -0.16873, 0, 0, 0, 1, 5.34924, 8.2126, 14.1085)
+
+[node name="KysokMeat13" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.129287, 0.755249, -0.64256, -0.989641, -0.0574864, 0.131554, 0.0624173, 0.652912, 0.754857, -3.84876, 8.2126, 11.383)
+
+[node name="KysokMeat14" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.129287, 0.755249, -0.64256, -0.989641, -0.0574864, 0.131554, 0.0624173, 0.652912, 0.754857, -7.76741, 16.585, 7.78846)
+
+[node name="KysokMeat15" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(-0.129287, 0.755249, -0.64256, -0.989641, -0.0574864, 0.131554, 0.0624173, 0.652912, 0.754857, -7.53197, 22.335, 1.60998)
+
+[node name="KysokMeat16" parent="VisualObj" instance=ExtResource("15_oqyc4")]
+transform = Transform3D(0.0272753, 0.754934, -0.655233, -0.997677, 0.0614869, 0.0293125, 0.0624173, 0.652912, 0.754857, -4.42219, 17.87, -8.47387)
 
 [editable path="Narkoman"]

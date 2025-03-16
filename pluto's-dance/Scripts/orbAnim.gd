@@ -4,6 +4,6 @@ extends Node3D
 
 func _physics_process(delta: float) -> void:
 	if state_animation == 1:
-		$Animationorb.play("state1")
+		$Animationorb.play("heartbit")
 	if state_animation == 2:
 		$Animationorb.play("state2")
