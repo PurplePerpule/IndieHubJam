@@ -1,6 +1,6 @@
 extends Node
 
-var sensivity
+
 
 signal change_sensitivity(value)
 

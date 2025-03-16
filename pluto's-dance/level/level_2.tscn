@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ccsecjscdb5vo" path="res://Scenes/angel.tscn" id="9_xdwa3"]
 [ext_resource type="PackedScene" uid="uid://dagmc6rdik262" path="res://Scenes/EnvObjects/oldlamp.tscn" id="10_7ttt2"]
 [ext_resource type="PackedScene" uid="uid://bld26fm5wm1im" path="res://Assets/3Dmodels/Kolodec.glb" id="11_t3htn"]
-[ext_resource type="Script" uid="uid://sfnsclx1eruo" path="res://level/changelvl2-f.gd" id="12_fbsg8"]
+[ext_resource type="Script" path="res://level/changelvl2-f.gd" id="12_fbsg8"]
 [ext_resource type="AudioStream" uid="uid://v4o2ctpielqt" path="res://Assets/Sounds/WinterInMySoul.ogg" id="13_b5qgt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2geg"]
