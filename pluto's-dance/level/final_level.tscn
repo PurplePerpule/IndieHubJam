@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dyll1ss7nbji5" path="res://Assets/3Dmodels/Deadman.glb" id="21_ifici"]
 [ext_resource type="Script" uid="uid://k3x2a4pgnsb2" path="res://Scripts/final_end.gd" id="21_osmb8"]
 [ext_resource type="PackedScene" uid="uid://d3adn8ajk7xeh" path="res://Scenes/Objects/flowey.tscn" id="22_1o2n5"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/unvitain.tscn" id="23_osmb8"]
+[ext_resource type="PackedScene" uid="uid://ches5qnmyotv5" path="res://Scenes/Objects/unvitain.tscn" id="23_osmb8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo2re"]
 albedo_texture = ExtResource("1_ln7sg")

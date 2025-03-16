@@ -16,6 +16,8 @@ func _ready() -> void:
 	#GlobalAudioServer.emit_signal("change_volume", lerp(-40.0, 0.0, volume.value / 100.0))
 	
 	Data.emit_signal("change_sensitivity", sensitivity.value)
+	Data.sensivity = sensitivity.value / 135
+	
 	GlobalAudioServer.settings_volume = music.value
 	GlobalAudioServer.settings_music = volume.value
 	
@@ -46,6 +48,7 @@ func _on_fullscreen_toggled(toggled_on):
 
 func _on_sensitivity_value_changed(value: float) -> void:
 	Data.emit_signal("change_sensitivity", value / 135)
+	Data.sensivity = value / 135
 	
 	
 func get_value():
@@ -59,5 +62,7 @@ func get_value():
 func move_sliders():
 	music.value = GlobalAudioServer.settings_music
 	volume.value = GlobalAudioServer.settings_volume
+	print(volume.value, " ", sensitivity.value)
+	sensitivity.value = Data.sensivity * 135
 	
 	

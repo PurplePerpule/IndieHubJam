@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k62cbrq8di1g"
+uid="uid://uk50b6gqkujp"
 path.s3tc="res://.godot/imported/eye_stand_EyeStandTexture.png-3e6181a5b6320771df0b9f255cb3f4db.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "fee5ab7a06b045dd260b889895ee2764"
 }
 
 [deps]

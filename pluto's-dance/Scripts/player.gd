@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var speed = 5.0
 @export var sprint_speed = 8.0
 @export var jump_velocity = 4.5
-@export var mouse_sensitivity = 0.3
+var mouse_sensitivity = 0.3
 @export var throw_force = 10.0  # Сила броска
 
 @export var bob_frequency = 2.0  # Частота покачивания (в циклах в секунду)
