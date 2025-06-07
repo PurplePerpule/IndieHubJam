@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnrq0edh731ha"]
+
+[ext_resource type="PackedScene" uid="uid://dbf1pocf0ljjp" path="res://Assets/survival_psx/scene.gltf" id="1_vxru2"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_vxru2")]
+
+[node name="bonfire_bonfire_0" parent="Sketchfab_model/Survival_fbx/RootNode/bonfire" index="0"]
+transform = Transform3D(1, 7.45058e-09, 6.42613e-08, 7.45058e-09, 1, 0, 3.53903e-08, 0, 1, 1.06201, 0.0363636, 2.48644)
+
+[node name="hunting_rifle" parent="Sketchfab_model/Survival_fbx/RootNode" index="26"]
+transform = Transform3D(56.2438, 0, 0, 0, 56.2438, -2.45849e-06, 0, 2.45849e-06, 56.2438, -60.2572, 15.4874, 134.883)

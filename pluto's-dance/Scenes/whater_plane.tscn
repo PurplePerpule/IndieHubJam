@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0dd31ldby1gi"]
+
+[ext_resource type="Material" uid="uid://bj8wfjqniomeq" path="res://shaders/new_shader_material.tres" id="1_1kt6l"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ayiof"]
+size = Vector2(150, 150)
+subdivide_width = 50
+subdivide_depth = 50
+orientation = 1
+
+[node name="WhaterPlane" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154671, 0)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_ayiof")
+surface_material_override/0 = ExtResource("1_1kt6l")

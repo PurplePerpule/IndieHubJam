@@ -1,0 +1,11 @@
+Model Information:
+* title:	Survival PSX
+* source:	https://sketchfab.com/3d-models/survival-psx-6e6b12cbcd864d8a949c5334bc473b55
+* author:	Elbolillo (https://sketchfab.com/Elbolilloduro)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Survival PSX" (https://sketchfab.com/3d-models/survival-psx-6e6b12cbcd864d8a949c5334bc473b55) by Elbolillo (https://sketchfab.com/Elbolilloduro) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

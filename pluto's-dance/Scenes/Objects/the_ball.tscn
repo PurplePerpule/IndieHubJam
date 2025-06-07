@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://dwt4twunxb78q"]
+[gd_scene load_steps=9 format=4 uid="uid://d22ynxv18v5c4"]
 
-[ext_resource type="Texture2D" uid="uid://bxjni3cc51rea" path="res://Assets/3Dmodels/beisbolniMyachik_beisbolniMyachikTexture.png" id="1_66rc3"]
+[ext_resource type="Texture2D" uid="uid://b6o1wiqkgdns" path="res://Assets/3Dmodels/beisbolniMyachik_beisbolniMyachikTexture.png" id="1_66rc3"]
 [ext_resource type="Script" uid="uid://blk8hn5wvungc" path="res://Scripts/the_ball.gd" id="1_jwgeo"]
 [ext_resource type="Shader" uid="uid://dmb8iusf22irl" path="res://Shaders/outline.gdshader" id="3_02uvv"]
 

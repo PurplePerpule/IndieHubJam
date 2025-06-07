@@ -1,0 +1,11 @@
+Model Information:
+* title:	[PS1 / RETRO] Toyota AE86
+* source:	https://sketchfab.com/3d-models/ps1-retro-toyota-ae86-b503f6bb7f15413eb6cc27f10faa7757
+* author:	MishletoDev (https://sketchfab.com/Violaty)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "[PS1 / RETRO] Toyota AE86" (https://sketchfab.com/3d-models/ps1-retro-toyota-ae86-b503f6bb7f15413eb6cc27f10faa7757) by MishletoDev (https://sketchfab.com/Violaty) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

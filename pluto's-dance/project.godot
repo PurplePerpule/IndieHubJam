@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pluto's Dance"
-run/main_scene="res://level/main_menu_3d.tscn"
+run/main_scene="uid://2xumb2qauvdd"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
@@ -40,7 +40,7 @@ directories/dtl_directory={
 "GoGoGo": "res://Dialogs/GoGoGo.dtl",
 "HelpBeeMan": "res://Dialogs/HelpBeeMan.dtl",
 "LilBroQuest": "res://Dialogs/LilBroQuest.dtl",
-"WaitFlowers": "res://Dialogs/WaitFlowers.dtl",
+"WaitFlowers": "res://WaitFlowers.dtl",
 "door": "res://Dialogs/door.dtl"
 }
 glossary/default_case_sensitive=true
@@ -72,7 +72,6 @@ text/autopauses={}
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 
 [editor_plugins]
 
@@ -84,6 +83,9 @@ pickable=""
 interactive=""
 Persistent=""
 player=""
+lantern=""
+weapon=""
+vehicle=""
 
 [input]
 
@@ -132,10 +134,25 @@ dialogic_default_action={
 ]
 }
 mouse_sensitivity=24.0
+left_click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+right_click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+drift={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [physics]
 
-common/physics_ticks_per_second=120
+common/physics_ticks_per_second=240
 
 [shader_globals]
 

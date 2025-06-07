@@ -1,0 +1,25 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://cy4vwphxu3ell"]
+
+[ext_resource type="Texture2D" uid="uid://insmjcjc5yvv" path="res://Assets/ImageTexture/OF3wXEUfRbFneDokteo2o7WyzXnrUKpJRxWre3MJXxk.jpg" id="1_8osqm"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_8osqm"]
+turbidity = 66.18
+energy_multiplier = 1.44
+night_sky = ExtResource("1_8osqm")
+
+[sub_resource type="Sky" id="Sky_lbl2w"]
+sky_material = SubResource("PhysicalSkyMaterial_8osqm")
+radiance_size = 1
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_lbl2w")
+tonemap_mode = 2
+tonemap_exposure = 0.5
+tonemap_white = 2.95
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.301699, 0.364031, 0.451431, 1)
+fog_light_energy = 0.45
+fog_density = 0.0085
+fog_aerial_perspective = 0.09
